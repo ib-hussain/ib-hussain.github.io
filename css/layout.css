@@ -1,38 +1,49 @@
-/* /css/navbar.css */
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1faaaf;
-    padding: 15px 0px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 60px;
-    box-sizing: border-box;
-  }
-  .navbar nav {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navbar nav a {
-    color:white;
-    padding: 10px ;
-    text-decoration: none;
-    /* font-weight: bold; */
-    font-size: 20px;
-    transition: color 0.3s;
-  }
-  
-  .navbar nav a:hover{
-    color: #354e0d;
-    /* border-color: #f1f1f1; */
-  }
-  .navbar nav a.active {
-    color: #354e0d;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1faaaf;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  z-index: 1000;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
+}
+.navbar::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.navbar nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.navbar nav a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+  flex-shrink: 0;
+}
+
+.navbar nav a:hover {
+  color: #354e0d;
+}
+
+.navbar nav a.active {
+  color: #354e0d;
+}
 
 /* Footer with Description */
 .overall-holder {
@@ -94,7 +105,7 @@
   text-decoration: underline;
 }
 /* Improved Responsive Navbar */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     height: auto;
@@ -122,4 +133,4 @@
   .navbar nav a:first-child {
     border-top: none;
   }
-}
+} */
