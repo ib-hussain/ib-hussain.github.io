@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    margin-top: 70px;
+    padding: 0;
+    background-color:wheat;
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .container {
+    padding: 40px;
+    background-color:wheat;
+    color: black;
+    margin-left: 60px; 
+    margin-right: 60px;
+  }
+  
+  .info {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.poster {
+  width: 360px;
+  height: 360px;
+  border-radius: 24px;
+  object-fit: contain;          /* Ensures full poster fits */
+  background-color: white;      /* Adds white padding around narrow/wide images */
+  /* padding: 10px;                Optional: Adds inner margin for framing*/
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.details {
+    max-width: 940px;
+}
+  .title {
+    /* font-family: 'Anaheim', sans-serif; */
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+  }
+  
+  .subinfo {
+    /* font-family: ; */
+    font-size: 28px;
+    color: black;
+    margin: 10px 0;
+  }
+  
+  
+  .description {
+    font-size: 22px;
+    margin: 10px 0;
+  }
+  .links{
+    color:black;
+    font-weight: bold; 
+    text-decoration: none;
+    font-size: 24px;
+    margin: 10px 0;
+    padding-bottom:3%;
+  }
+  .hehe{
+    color:black;
+    font-size: 18px;
+    margin-top: 10px ;
+    padding-top: 32%;
+    /* padding-bottom:3%; */
+  }
+.label {
+  color: #171a1f;
+  font-weight: bold;
+}
+
+
