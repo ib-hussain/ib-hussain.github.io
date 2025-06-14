@@ -7,7 +7,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Grid of Projects */
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -172,8 +171,6 @@ body {
   color: #171a1f;
   font-weight: bold;
 }
-
-/*  Responsive Adjustments */
 @media (max-width: 768px) {
   .proj {
     flex: 0 0 90%;
