@@ -1,24 +1,26 @@
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: wheat;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: wheat;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow-x: hidden;
 }
+
+/* Grid of Projects */
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center every row */
+  justify-content: center;
   gap: 30px;
   margin-top: 80px;
   margin-bottom: 5%;
 }
-/* Movie card styles */
+
+/* Project Cards */
 .proj {
-  flex: 0 0 calc(50% -48px ); /* 4 per row */
-  max-width:90% ;
+  flex: 0 0 calc(50% - 48px);
+  max-width: 90%;
   background-color: #f1f1f1;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
@@ -31,27 +33,30 @@ body {
   align-items: center;
   transition: transform 0.2s;
 }
+
 .proj img {
   width: 360px;
   height: 360px;
-  object-fit: contain;         /* show entire poster */
-  background-color: white;     /* fill gaps with white */
-  /* padding: 15%;                */
+  object-fit: contain;
+  background-color: white;
   border-radius: 10px 10px 0 0;
 }
+
 .Project-name {
   display: block;
   padding: 10px;
   font-size: 18px;
   font-weight: bold;
 }
+
 .proj:hover {
   transform: scale(1.05);
 }
+
+/* Close Button */
 .closer {
   justify-content: center;
   align-items: center;
-  align-content: center;
   display: flex;
   margin-top: 30px;
   padding: 10px 25px;
@@ -65,17 +70,16 @@ body {
   transition: background-color 0.3s;
 }
 .closer:hover {
-  /* background-color:white; */
   color: #354e0d;
 }
-.popup-button{
+
+.popup-button {
   display: flex;
   justify-content: center;
   margin-top: 30px;
 }
 
-
-/* Popup overlay background */
+/* Popup Overlay */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -83,15 +87,13 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  max-width: 100%;
-  max-height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* dim background */
+  background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-/* Inner popup box */
+/* Popup Box */
 .popup-content {
   background-color: wheat;
   padding: 30px;
@@ -102,70 +104,123 @@ body {
   overflow-y: auto;
   max-height: 90vh;
 }
+
+/* Inner Popup Layout */
 .container {
-    padding: 40px;
-    background-color:wheat;
-    color: black;
-    margin-left: 60px; 
-    margin-right: 60px;
-  }
-  
-  .info {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  padding: 40px;
+  background-color: wheat;
+  color: black;
+  margin-left: 60px;
+  margin-right: 60px;
 }
+
+.info {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 .poster {
   width: 360px;
   height: 360px;
   border-radius: 24px;
-  object-fit: contain;          /* Ensures full poster fits */
-  background-color: white;      /* Adds white padding around narrow/wide images */
-  /* padding: 10px;                Optional: Adds inner margin for framing*/
+  object-fit: contain;
+  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
 .details {
-    max-width: 60%;
+  max-width: 60%;
 }
-  .title {
-    /* font-family: 'Anaheim', sans-serif; */
-    font-size: 40px;
-    font-weight: bold;
-    color: black;
-    margin: 0;
-  }
-  
-  .subinfo {
-    /* font-family: ; */
-    font-size: 28px;
-    color: black;
-    margin: 10px 0;
-  }
-  
-  
-  .description {
-    font-size: 22px;
-    margin: 10px 0;
-  }
-  .links{
-    color:black;
-    font-weight: bold; 
-    text-decoration: none;
-    font-size: 24px;
-    margin: 10px 0;
-    padding-bottom:3%;
-  }
-  .hehe{
-    color:black;
-    font-size: 18px;
-    margin-top: 10px ;
-    padding-top: 32%;
-    /* padding-bottom:3%; */
-  }
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  margin: 0;
+}
+
+.subinfo {
+  font-size: 28px;
+  color: black;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.links {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 10px 0;
+  padding-bottom: 3%;
+}
+
+.hehe {
+  color: black;
+  font-size: 18px;
+  margin-top: 10px;
+  padding-top: 32%;
+}
+
 .label {
   color: #171a1f;
   font-weight: bold;
 }
 
+/*  Responsive Adjustments */
+@media (max-width: 768px) {
+  .proj {
+    flex: 0 0 90%;
+  }
 
+  .proj img {
+    width: 80vw;
+    height: auto;
+  }
+
+  .popup-content {
+    padding: 20px;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .poster {
+    width: 80vw;
+    height: auto;
+  }
+
+  .details {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .subinfo {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .links {
+    font-size: 20px;
+  }
+
+  .hehe {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+}
