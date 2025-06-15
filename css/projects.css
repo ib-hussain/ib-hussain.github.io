@@ -20,7 +20,7 @@ body {
 .proj {
   flex: 0 0 calc(50% - 48px);
   max-width: 90%;
-  background-color: #f1f1f1;
+  background-color: white;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
   border-radius: 10px;
