@@ -13,10 +13,10 @@
   z-index: 1000;
   overflow-x: auto;
   white-space: nowrap;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 .navbar::-webkit-scrollbar {
-  display: none; /* Chrome */
+  display: none; 
 }
 .navbar nav {
   display: flex;
@@ -41,7 +41,7 @@
   color: #354e0d;
 }
 
-/* Footer with Description */
+/* footer----------------------------------------------------------------------------------------------------*/
 .overall-holder {
     background-color: transparent;
     color:#171a1f;

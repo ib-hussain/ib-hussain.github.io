@@ -6,7 +6,6 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   overflow-x: hidden;
 }
-
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -15,7 +14,6 @@ body {
   margin-top: 80px;
   margin-bottom: 5%;
 }
-
 /* Project Cards */
 .proj {
   flex: 0 0 calc(50% - 48px);
@@ -32,7 +30,6 @@ body {
   align-items: center;
   transition: transform 0.2s;
 }
-
 .proj img {
   width: 360px;
   height: 360px;
@@ -40,14 +37,12 @@ body {
   background-color: white;
   border-radius: 10px 10px 0 0;
 }
-
 .Project-name {
   display: block;
   padding: 10px;
   font-size: 18px;
   font-weight: bold;
 }
-
 .proj:hover {
   transform: scale(1.05);
 }
@@ -72,13 +67,13 @@ body {
   color: #354e0d;
 }
 
+
+/* Popups */
 .popup-button {
   display: flex;
   justify-content: center;
   margin-top: 30px;
 }
-
-/* Popup Overlay */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -92,7 +87,6 @@ body {
   z-index: 1000;
 }
 
-/* Popup Box */
 .popup-content {
   background-color: wheat;
   padding: 30px;
@@ -103,8 +97,6 @@ body {
   overflow-y: auto;
   max-height: 90vh;
 }
-
-/* Inner Popup Layout */
 .container {
   padding: 40px;
   background-color: wheat;
@@ -128,24 +120,20 @@ body {
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
 .details {
   max-width: 60%;
 }
-
 .title {
   font-size: 40px;
   font-weight: bold;
   color: black;
   margin: 0;
 }
-
 .subinfo {
   font-size: 28px;
   color: black;
   margin: 10px 0;
 }
-
 .description {
   font-size: 22px;
   margin: 10px 0;
@@ -160,12 +148,14 @@ body {
   padding-bottom: 3%;
 }
 
+
 .hehe {
   color: black;
   font-size: 18px;
   margin-top: 10px;
   padding-top: 32%;
 }
+
 
 .label {
   color: #171a1f;
@@ -175,47 +165,37 @@ body {
   .proj {
     flex: 0 0 90%;
   }
-
   .proj img {
     width: 80vw;
     height: auto;
   }
-
   .popup-content {
     padding: 20px;
   }
-
   .info {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .poster {
     width: 80vw;
     height: auto;
   }
-
   .details {
     max-width: 100%;
   }
-
   .title {
     font-size: 30px;
   }
-
   .subinfo {
     font-size: 20px;
   }
-
   .description {
     font-size: 18px;
   }
-
   .links {
     font-size: 20px;
   }
-
   .hehe {
     font-size: 16px;
     padding-top: 10px;
