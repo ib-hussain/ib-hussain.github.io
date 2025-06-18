@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Load Navbar
-  fetch("/navbar.html")
+  
+  fetch("/navbar.html")//naigation bar
     .then(response => response.text())
     .then(data => {
       const navContainer = document.createElement("div");
       navContainer.innerHTML = data;
       document.body.insertBefore(navContainer, document.body.firstChild);
-
-      // Highlight active link
+//   active link
       const path = window.location.pathname.split("/").pop().split(".")[0];
       document.querySelectorAll("[data-page]").forEach(el => {
         if (el.getAttribute("data-page").toLowerCase() === path.toLowerCase()) {
@@ -15,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
-
-  // Load Footer
+// footer
   fetch("/footer.html")
     .then(response => response.text())
     .then(data => {
