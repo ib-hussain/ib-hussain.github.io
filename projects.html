@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="pictures/favicon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Projects</title>
+    <link rel="stylesheet" href="css/projects.css" />
+  </head>
+  <body>
+    <script src="js/layout.js"></script>
+    <link rel="html" href="navbar.html" />
+    <h1
+      style="align-items: center; justify-content: center; text-align:center; color: black; margin-top: 7%;">My
+      Projects</h1>
+
+    <section class="grid">
+      <a class="proj" onclick="openPopup('popup1')">
+        <img src="pictures/logo1.png" alt="Cinemago" class="imagee" />
+        <span class="Project-name">Cinemago</span>
+      </a>
+      <a class="proj" onclick="openPopup('popup6')">
+        <img src="pictures/movie-genre-detection-model.png"
+          alt="Movie Genre Detection" class="imagee" />
+        <span class="Project-name">Movie Genre Detection</span>
+      </a>
+      <a class="proj" onclick="openPopup('popup3')">
+        <img src="pictures/network_emulaotr.jpg" alt="Network Emulator"
+          class="imagee" />
+        <span class="Project-name">Network Emulator</span>
+      </a>
+      <a class="proj" onclick="openPopup('popup2')">
+        <img src="pictures/python.jpg" alt="Python Projects" class="imagee" />
+        <span class="Project-name">Python Projects</span>
+      </a>
+
+      <a class="proj" onclick="openPopup('popup4')">
+        <img src="pictures/gameboy.jpeg" alt="Gameboy 1984" class="imagee" />
+        <span class="Project-name">Gameboy 1984</span>
+      </a>
+      <a class="proj" onclick="openPopup('popup5')">
+        <img src="pictures/game-of-life.gif" alt="Game of Life"
+          class="imagee" />
+        <span class="Project-name">Game of Life</span>
+      </a>
+    </section>
+    <div class="popup-overlay" id="popup6">
+      <div class="popup-content">
+        <div class="info">
+          <img src="pictures/movie-genre-detection-model.png" loading="lazy"
+            alt="Movie Genre Detection Model" class="poster" />
+          <div class="details">
+            <h1 class="title">Movie Genre Detection Model</h1>
+            <p class="subinfo">Machine Learning Classification System</p>
+            <p class="description">A machine learning model that predicts movie
+              genres based on trailers.
+              The system uses NLP techniques to analyze text data and classify
+              movies into multiple genres with probability scores for each
+              category.
+              <br>
+              Key Features:
+              <br>
+              • Handles multi-label classification<br>
+              • Includes model evaluation metrics (precision, recall, F1-score)
+            </p>
+            <div class="links">Github Repository: <br>
+              <a class="hehe external-link"
+                href="https://github.com/ib-hussain/Movie-Genre-Detection-Model"
+                target="_blank" rel="noopener noreferrer"
+                onclick="event.stopPropagation()">
+                https://github.com/ib-hussain/Movie-Genre-Detection-Model
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="popup-button">
+          <button onclick="closePopup('popup6')" class="closer">Close</button>
+        </div>
+      </div>
+    </div>
+    <div class="popup-overlay" id="popup1">
+      <div class="popup-content">
+        <div class="info">
+          <img src="pictures/logo1.png" loading="lazy" alt="Cinemago"
+            class="poster" />
+          <div class="details">
+            <h1 class="title">Cinemago</h1>
+            <p class="subinfo">Movie recommendation site.</p>
+            <p class="description">Cinemago is a movie discovery and rating
+              platform built using Flask. Users can browse, rate, and suggest
+              movies. Admins can add new content via web scraping, and user
+              preferences are stored in a lightweight SQLite database.</p>
+
+            <div class="links">Live Link: <br>
+              <a class="hehe" href="https://cinemago-2u2f.onrender.com"
+                target="_blank" style="font-weight: normal;">
+                https://cinemago-2u2f.onrender.com
+              </a>
+            </div>
+
+            <div class="links">Github Repository: <br>
+              <a class="hehe" href="https://github.com/ib-hussain/Cinemago"
+                target="_blank">
+                https://github.com/ib-hussain/Cinemago
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="popup-button">
+          <button onclick="closePopup('popup1')" class="closer">Close</button>
+        </div>
+      </div>
+    </div>
+    <div class="popup-overlay" id="popup2">
+      <div class="popup-content">
+        <div class="info">
+          <img src="pictures/python.jpg" loading="lazy" alt="Python Projects"
+            class="poster" />
+          <div class="details">
+            <h1 class="title">Python Projects</h1>
+            <p class="subinfo">Collection of Python-based projects.</p>
+            <p class="description">Projects focusing on data cleaning, natural
+              language processing (NLP), statistical analysis, and basic machine
+              learning.<br>
+              These projects reflect my applied learning.</p>
+
+            <div class="links">Github Repository: <br>
+              <a class="hehe external-link"
+                href="https://github.com/ib-hussain/Projects.py"
+                target="_blank" rel="noopener noreferrer"
+                onclick="event.stopPropagation()">
+                https://github.com/ib-hussain/Projects.py
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="popup-button">
+          <button onclick="closePopup('popup2')" class="closer">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="popup3">
+      <div class="popup-content">
+        <div class="info">
+          <img src="pictures/network_emulaotr.jpg" loading="lazy"
+            alt="Network Emulator" class="poster" />
+          <div class="details">
+            <h1 class="title">Network Emulator</h1>
+            <p class="subinfo">The Network Emulator simulates a computer
+              network.</p>
+            <p class="description">The computer network consisting of routers
+              and end machines (e.g., computers).<br>
+              Messages are sent from one device to another
+              using destination addresses and follow a routing path across
+              multiple routers. This project aims to simulate routing, queuing,
+              and message handling in a simplified network.</p>
+
+            <div class="links">Github Repository: <br>
+              <a class="hehe external-link"
+                href="https://github.com/ib-hussain/Network-Emulator"
+                target="_blank" rel="noopener noreferrer"
+                onclick="event.stopPropagation()">
+                https://github.com/ib-hussain/Network-Emulator
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="popup-button">
+          <button onclick="closePopup('popup3')" class="closer">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="popup4">
+      <div class="popup-content">
+        <div class="info">
+          <img src="pictures/gameboy.jpeg" loading="lazy" alt="Gameboy 1984"
+            class="poster" />
+          <div class="details">
+            <h1 class="title">Gameboy 1984</h1>
+            <p class="subinfo">C++ based Gameboy.</p>
+            <p class="description">A lightweight C++ collection of classic
+              games(Snake, Wordle, Hangman), built with simplicity, logic, and
+              fun in mind, it is modeled on the GameBoy made by Nintendo in
+              1989.</p>
+
+            <div class="links">Github Repository: <br>
+              <a class="hehe external-link"
+                href="https://github.com/ib-hussain/GameBoy"
+                target="_blank" rel="noopener noreferrer"
+                onclick="event.stopPropagation()">
+                https://github.com/ib-hussain/GameBoy
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="popup-button">
+          <button onclick="closePopup('popup4')" class="closer">Close</button>
+        </div>
+      </div>
+    </div>
+    <div class="popup-overlay" id="popup5">
+      <div class="popup-content">
+        <div class="info">
+          <img src="pictures/game-of-life.gif" loading="lazy" alt="Game of Life"
+            class="poster" />
+          <div class="details">
+            <h1 class="title">Conway's Game of Life</h1>
+            <p class="subinfo">Cellular automaton simulation</p>
+            <p class="description">An implementation of John Conway's Game of
+              Life, a zero-player game that simulates cellular evolution based
+              on simple rules. The simulation runs on a 2D grid where each cell
+              can be alive or dead, evolving through generations. Features
+              include adjustable grid size, speed control, and pattern
+              saving/loading.
+            </p>
+            <div class="links">Github Repository: <br>
+              <a class="hehe external-link"
+                href="https://github.com/ib-hussain/Game-Of-Life"
+                target="_blank" rel="noopener noreferrer"
+                onclick="event.stopPropagation()">
+                https://github.com/ib-hussain/Game-Of-Life
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="popup-button">
+          <button onclick="closePopup('popup5')" class="closer">Close</button>
+        </div>
+      </div>
+    </div>
+    <h2
+      style="align-items: center; justify-content: center; text-align:center; color: black; margin-top: 7%;">More
+      projects comming soon!</h2>
+    <link rel="html" href="footer.html" />
+    <script src="js/projects.js"></script>
+  </body>
+</html>

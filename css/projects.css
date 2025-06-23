@@ -1,0 +1,248 @@
+body {
+  margin: 0;
+  padding-top: 60px;
+  width: 100%;
+  background-color: wheat;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow-x: hidden;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 80px;
+  margin-bottom: 5%;
+}
+/* Project Cards */
+.proj {
+  flex: 0 0 calc(50% - 48px);
+  max-width: 90%;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #171a1f;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+.proj img {
+  width: 360px;
+  height: 360px;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+}
+.Project-name {
+  display: block;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.proj:hover {
+  transform: scale(1.05);
+}
+
+/* Close Button */
+.closer {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 30px;
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #98db2e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.closer:hover {
+  color: #354e0d;
+}
+
+
+/* Popups */
+.popup-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: wheat;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 1200px;
+  width: 90%;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+.container {
+  padding: 40px;
+  background-color: wheat;
+  color: black;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.info {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.poster {
+  width: 360px;
+  height: 360px;
+  border-radius: 24px;
+  object-fit: contain;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.details {
+  max-width: 60%;
+}
+.title {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  margin: 0;
+}
+.subinfo {
+  font-size: 28px;
+  color: black;
+  margin: 10px 0;
+}
+.description {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+/* All your existing CSS remains exactly the same until the .links class */
+
+.links {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 10px 0;
+  padding-bottom: 3%;
+  /* Added to ensure links container behaves properly */
+  display: block;
+  width: 100%;
+}
+
+/* Modified .hehe class for links */
+.hehe {
+  color: black;
+  font-size: 18px;
+  margin-top: 10px;
+  /* Changed from padding-top to margin-top for better spacing */
+  margin-top: 5px;
+  display: inline-block; /* Ensures proper clickable area */
+  font-weight: normal; /* Matches your inline style */
+  text-decoration: underline; /* Makes it clear it's clickable */
+  pointer-events: auto; /* Ensures links are clickable */
+  position: relative; /* For z-index to work */
+  z-index: 1; /* Ensures links stay above other elements */
+}
+
+/* New class for links container */
+.links-container {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* Add hover effect for links */
+.hehe:hover {
+  color: #1faaaf; /* Your navbar color for consistency */
+}
+
+/* Add this to prevent overlay from blocking links */
+.popup-content {
+  /* Your existing styles remain */
+  pointer-events: auto; /* Add this line */
+}
+
+/* All your existing media queries remain exactly the same */
+
+@media (max-width: 768px) {
+  /* Your existing mobile styles remain unchanged */
+  
+  /* Only adding link-specific mobile adjustments */
+  .hehe {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  
+  .links {
+    font-size: 20px;
+    margin: 8px 0;
+  }
+}
+
+.label {
+  color: #171a1f;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .proj {
+    flex: 0 0 90%;
+  }
+  .proj img {
+    width: 80vw;
+    height: auto;
+  }
+  .popup-content {
+    padding: 20px;
+  }
+  .info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .poster {
+    width: 80vw;
+    height: auto;
+  }
+  .details {
+    max-width: 100%;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .subinfo {
+    font-size: 20px;
+  }
+  .description {
+    font-size: 18px;
+  }
+  .links {
+    font-size: 20px;
+  }
+  .hehe {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+}

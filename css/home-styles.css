@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding-top: 60px;
+    width: 100%;
+    background-color: #f5deb3;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+.name-intro {
+    margin: 80px 4% 20px 4%;
+    padding: 10px 2%;
+    color: black;
+    text-align: center;
+}
+.name {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.one-liner {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+}
+.profile {
+    font-family: 'Times New Roman', Times, serif;
+    border-top: 1px solid #333;
+    margin: 0 4%;
+    padding: 2% 0;
+}
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.resume-content {
+    flex: 1;
+    min-width: 250px;
+    color: black;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.resume-content h2 {
+    margin: 20px 0 10px;
+    color: black;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+.resume-content a {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.resume-content a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-pic {
+        width: 50vw;
+        height: 50vw;
+    }
+    .resume-content {
+        font-size: 0.95rem;
+        max-width: 95%;
+    }
+    .name {
+        font-size: 1.6rem;
+    }
+    .one-liner {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+}

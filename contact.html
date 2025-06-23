@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="pictures/favicon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+    <script src="js/layout.js"></script>
+    <link rel="html" href="navbar.html" />
+
+    <div class="container">
+      <h1 class="headingg">Get in Touch</h1>
+      <form
+        class="form-fill"
+        action="https://formspree.io/f/mjkrabwd"
+        method="POST">
+        <div class="form-left">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name"
+            placeholder="Your full name..." required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email"
+            placeholder="Your email address..." required />
+        </div>
+
+        <div class="form-right">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="7"
+            placeholder="Write your message here..." required></textarea>
+          <input type="text" name="_gotcha" style="display:none">
+          <button type="submit" class="submittion">Send Message</button>
+        </div>
+        <input type="hidden" name="_next"
+          value="https://ib-hussain.github.io/index.html">
+      </form>
+    </div>
+
+    <link rel="html" href="footer.html" />
+    <script src="js/contact.js"></script>
+  </body>
+</html>
