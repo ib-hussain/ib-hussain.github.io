@@ -12,34 +12,55 @@
     <link rel="html" href="navbar.html" />
 
     <div class="container">
-      <h1 class="headingg">Get in Touch</h1>
-      <form
-        class="form-fill"
-        action="https://formspree.io/f/mjkrabwd"
-        method="POST">
-        <div class="form-left">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name"
-            placeholder="Your full name..." required />
+      <div class="info">
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email"
-            placeholder="Your email address..." required />
+        <div class="links">
+          <a class="hehe external-link"
+            href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
+            target="_blank">
+            <img src="pictures/linkedin.png" alt="Linkedin" class="poster" />
+            Linkedin
+          </a>
+          <a class="hehe external-link" href="https://github.com/ib-hussain"
+            target="_blank">
+            <img src="pictures/github.png" alt="GitHub" class="poster" />
+            GitHub
+          </a>
+          <a class="hehe external-link"
+            href="mailto:ibrahimbeaconarion@gmail.com" target="_blank">
+            <img src="pictures/gmail.png" alt="Gmail" class="poster" />
+            Gmail
+          </a>
         </div>
 
-        <div class="form-right">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="7"
-            placeholder="Write your message here..." required></textarea>
-          <input type="text" name="_gotcha" style="display:none">
-          <button type="submit" class="submittion">Send Message</button>
-        </div>
-        <input type="hidden" name="_next"
-          value="https://ib-hussain.github.io/index.html">
-      </form>
-    </div>
+        <h1 class="headingg">Get in Touch</h1>
+        <form
+          class="form-fill"
+          action="https://formspree.io/f/mjkrabwd"
+          method="POST">
+          <div class="form-left">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name"
+              placeholder="Your full name..." required />
 
-    <link rel="html" href="footer.html" />
-    <script src="js/contact.js"></script>
-  </body>
-</html>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"
+              placeholder="Your email address..." required />
+          </div>
+
+          <div class="form-right">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="7"
+              placeholder="Write your message here..." required></textarea>
+            <input type="text" name="_gotcha" style="display:none">
+            <button type="submit" class="submittion">Send Message</button>
+          </div>
+          <input type="hidden" name="_next"
+            value="https://ib-hussain.github.io/index.html">
+        </form>
+      </div>
+
+      <link rel="html" href="footer.html" />
+      <script src="js/contact.js"></script>
+    </body>
+  </html>

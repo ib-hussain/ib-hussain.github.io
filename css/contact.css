@@ -78,4 +78,44 @@ input, textarea {
     font-size: 16px;
     padding: 10px 16px;
   }
+  .links {
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  }
+  .links a {
+    justify-content: center;
+    font-size: 18px;
+  }
+  .links .poster {
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+  }
 }
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* spacing between links */
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.links .poster {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
