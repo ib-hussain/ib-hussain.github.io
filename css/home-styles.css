@@ -2,8 +2,9 @@ body {
     margin: 0;
     padding-top: 60px;
     width: 100%;
-    background-color: #f5deb3;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* background-color: wheat; */
+  background: linear-gradient(to bottom, #98db2e, #749244);
+    font-family: 'Manrope', sans-serif;
     overflow-x: hidden;
 }
 .name-intro {
@@ -44,7 +45,7 @@ body {
     flex: 1;
     min-width: 250px;
     color: black;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.5;
 }
 .resume-content h2 {

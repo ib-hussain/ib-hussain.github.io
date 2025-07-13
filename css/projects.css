@@ -2,8 +2,9 @@ body {
   margin: 0;
   padding-top: 60px;
   width: 100%;
-  background-color: wheat;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* background-color: wheat; */
+  background: linear-gradient(to bottom, #98db2e, #749244);
+  font-family: 'Manrope', sans-serif;
   overflow-x: hidden;
 }
 .grid {
@@ -19,6 +20,8 @@ body {
   flex: 0 0 calc(50% - 48px);
   max-width: 90%;
   background-color: white;
+  /* background-color: #98db2e; */
+  /* background: linear-gradient(to bottom, #98db2e, #749244); */
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
   border-radius: 10px;
@@ -35,7 +38,7 @@ body {
   height: 360px;
   object-fit: contain;
   background-color: white;
-  border-radius: 10px 10px 0 0;
+  /* border-radius: 10px 10px 0 0; */
 }
 .Project-name {
   display: block;
@@ -88,7 +91,8 @@ body {
 }
 
 .popup-content {
-  background-color: wheat;
+  /* background-color: wheat; */
+  background: linear-gradient(to bottom, #98db2e, #749244);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -99,7 +103,7 @@ body {
 }
 .container {
   padding: 40px;
-  background-color: wheat;
+  /* background-color: wheat; */
   color: black;
   margin-left: 60px;
   margin-right: 60px;

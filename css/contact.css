@@ -2,8 +2,9 @@ body {
   margin: 0;
   padding-top: 60px;
   width: 100%;
-  background-color: wheat;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* background-color: wheat; */
+  background: linear-gradient(to bottom, #98db2e, #749244);
+  font-family: 'Manrope', sans-serif;
   overflow-x: hidden;
 }
 .container {
@@ -107,10 +108,16 @@ input, textarea {
 .links a {
   display: flex;
   align-items: center;
-  color: black;
+  color: #171a1f;
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
+  transition: transform 0.08s linear;
+}
+.links a:hover{
+  color: black;
+  text-decoration: underline;
+  transform: scale(1.1);
 }
 
 .links .poster {

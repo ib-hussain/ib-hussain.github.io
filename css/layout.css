@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1faaaf;
+  /* background-color: #1faaaf; */
+  background-color: #171a1f;
+  /* background: linear-gradient(to left, #171a1f, rgb(117, 30, 30)); */
   padding: 0;
   position: fixed;
   top: 0;
@@ -14,6 +16,7 @@
   overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: none;
+  /* font-weight: bold; */
 }
 .navbar::-webkit-scrollbar {
   display: none; 
@@ -35,10 +38,10 @@
   flex-shrink: 0;
 }
 .navbar nav a:hover {
-  color: #354e0d;
+  color: #7aaf25;
 }
 .navbar nav a.active {
-  color: #354e0d;
+  color: #98db2e;
 }
 
 /* footer----------------------------------------------------------------------------------------------------*/
@@ -73,7 +76,7 @@
 .footer-description {
   padding-top: 4%;
     flex: 1;
-    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    font-family:  'Manrope', sans-serif;
     font-size: 18px;
     line-height: 1.6;
     color:#171a1f;
@@ -85,10 +88,11 @@
   padding-right: 2.5%;
   padding-bottom: 1%;
   padding-top: 1%;
-  font-family:  Verdana, Geneva, Tahoma, sans-serif;
+  font-family:  'Manrope', sans-serif;
   font-size: 15px;
   color: white;
-  background-color:  #1faaaf;
+  /* background-color:  #1faaaf; */
+  background-color:  #171a1f;
   /* border-top: 1px solid #333; */
 }
 .credits a {
