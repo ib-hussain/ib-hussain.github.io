@@ -3,7 +3,7 @@ body {
   padding-top: 60px;
   width: 100%;
   /* background-color: wheat; */
-  background: linear-gradient(to bottom, #98db2e, #749244, );
+  background: linear-gradient(to bottom, #98db2e, #749244 );
   font-family: 'Manrope', sans-serif;
   overflow-x: hidden;
 }
