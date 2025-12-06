@@ -1,0 +1,479 @@
+/* GLOBAL VARIABLES — DO NOT TOUCH */
+* {
+    --theGreenColor: #09855b;
+    --TextColor: #171a1f;
+    --Pink: #F2E0E7;
+    --DarkBlue: #5C8BC0;
+    --LightBlue: #e0edfc;
+    --boxBackground: #afe4f163;
+    --Shadow: rgba(0,0,0,0.15);
+    --clickAbleLink: #ff2c2c;
+    --ratingYellow: #FF9100;
+    --statCardBG:#7f6d8d0a;
+    --statCardBorder: #dfdcbc;
+    --RedHover:#e50914;
+    --inputBG:rgba(255,255,255,0.95);
+}
+
+/* PAGE BACKGROUND */
+body {
+    margin: 0;
+    margin-top: 72px;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgb(196,255,250) 0%,
+        rgba(255,237,188,1) 30%,
+        rgba(236,217,255,1) 55%,
+        rgba(202,224,255,1) 80%
+    );
+    background-attachment: fixed;
+}
+
+/* MAIN PAGE SECTION */
+.profile-page {
+    padding: 32px 32px 48px;
+    box-sizing: border-box;
+}
+
+/* CENTERED GLASS CONTAINER */
+.profile-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.65);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+    padding: 28px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.profile-header-main {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.profile-avatar-wrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(0,0,0,0.1);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-name {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--TextColor);
+}
+
+.profile-handle {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.profile-bio {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #444;
+    max-width: 520px;
+}
+
+.profile-meta {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: #777;
+}
+
+.profile-header-actions {
+    display: flex;
+    align-items: flex-start;
+}
+
+.profile-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: var(--DarkBlue);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.profile-edit-btn:hover {
+    background: rgba(92,139,192,0.9);
+    transform: translateY(-1px);
+}
+
+.edit-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* makes icon white */
+}
+
+
+.profile-edit-btn img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* STATS ROW */
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.profile-stat-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--TextColor);
+}
+
+.profile-stat-label {
+    font-size: 12px;
+    color: #666;
+}
+
+/* LOWER CARD (GENRES + TABS + CONTENT) */
+.profile-lower-card {
+    margin-top: 6px;
+    padding: 20px 22px 18px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.14);
+}
+
+/* GENRES */
+.profile-genres-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 650;
+    color: var(--TextColor);
+}
+
+.link-button {
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    color: var(--DarkBlue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.profile-genres-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genre-pill {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(92,139,192,0.08);
+    border: 1px solid rgba(92,139,192,0.25);
+    color: var(--TextColor);
+}
+
+/* TABS */
+.profile-tabs {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.9);
+    padding: 7px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #444;
+    font-weight: 500;
+}
+
+.tab-btn.active {
+    background: var(--DarkBlue);
+    color: #fff;
+    border-color: var(--DarkBlue);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* TAB CONTENT WRAPPER */
+.profile-tab-contents {
+    margin-top: 18px;
+}
+
+/* hide / show */
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+/* REVIEWS LIST */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.review-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    padding: 14px 16px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.review-user {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-user-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--TextColor);
+}
+
+.review-meta {
+    margin: 2px 0 0;
+    font-size: 11px;
+    color: #777;
+}
+
+.review-film {
+    font-weight: 600;
+}
+
+.review-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ratingYellow);
+}
+
+.review-rating img {
+    width: 16px;
+    height: 16px;
+}
+
+.review-text {
+    margin: 10px 0 8px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #444;
+}
+
+.review-footer {
+    display: flex;
+    gap: 14px;
+    font-size: 11px;
+    color: #777;
+}
+
+.review-stat {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* MOVIE GRID (TOP MOVIES) */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.movie-card {
+    background: rgba(255,255,255,0.96);
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makes it a perfect square */
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+
+.movie-info {
+    padding: 10px 12px 12px;
+}
+
+.movie-title {
+    margin: 0 0 3px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--TextColor);
+}
+
+.movie-year {
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
+
+/* ACTIVITY LIST */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.96);
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.activity-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--DarkBlue);
+    margin-top: 4px;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-text {
+    margin: 0;
+    font-size: 13px;
+    color: #444;
+}
+
+.activity-highlight {
+    font-weight: 600;
+}
+
+.activity-time {
+    margin: 4px 0 0;
+    font-size: 11px;
+    color: #777;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .profile-shell {
+        padding: 24px 20px 26px;
+    }
+
+    .profile-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-header-actions {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 700px) {
+    .profile-page {
+        padding: 20px 16px 32px;
+    }
+
+    .profile-shell {
+        padding: 20px 16px 22px;
+    }
+
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
+}

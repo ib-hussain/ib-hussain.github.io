@@ -1,0 +1,140 @@
+/* Shared colour tokens */
+* {
+    --theGreenColor: #09855b;
+    --TextColor: #171a1f;
+    --Pink: #F2E0E7;
+    --DarkBlue: #5C8BC0;
+    --LightBlue: #e0edfc;
+    --boxBackground: #afe4f163;
+    --Shadow: rgba(0, 0, 0, 0.15);
+    --clickAbleLink: #ff2c2c;
+    --ratingYellow: #FF9100;
+    --statCardBG: #7f6d8d0a;
+    --statCardBorder: #dfdcbc;
+}
+body {
+    margin: 0;
+    margin-top: 72px; /* navbar height */
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgb(196, 255, 250) 0%,
+        rgba(255, 237, 188, 1) 30%,
+        rgba(236, 217, 255, 1) 55%,
+        rgba(202, 224, 255, 1) 80%
+    );
+    background-blend-mode: screen;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* Page layout (dashboard pattern) */
+.content-area {
+    margin-left: 260px;
+    padding: 96px 40px 40px;
+    transition: margin-left .25s ease;
+    color: var(--TextColor);
+    box-sizing: border-box;
+}
+
+body.sidebar-collapsed .content-area {
+    margin-left: 88px;
+}
+
+.help-main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.help-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.help-header p {
+    margin: 0 0 26px;
+    color: var(--TextColor);
+    font-size: 14px;
+}
+
+/* Cards grid */
+.help-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+
+
+/* Card style */
+.help-card {
+    background: var(--boxBackground);
+    margin-right: 75%;
+    border-radius: 36px;
+    padding: 20px 22px 26px;
+    border: 1px solid var(--statCardBorder);
+    box-shadow: 0 8px 18px var(--Shadow);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.help-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px var(--Shadow);
+}
+
+.help-icon-wrap img {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 14px;
+}
+
+.help-card h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: var(--TextColor);
+}
+
+.help-card p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.help-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: .25s ease;
+}
+
+/* Primary = Email */
+.help-btn--primary {
+    background: var(--DarkBlue);
+    color: white;
+    border: 1px solid var(--DarkBlue);
+}
+
+.help-btn--primary:hover {
+    background: #3f6694;
+    transform: scale(1.06);
+}
+
+/* Secondary = GitHub / FAQ */
+.help-btn--secondary {
+    background: var(--LightBlue);
+    color: var(--DarkBlue);
+    border: 1px solid var(--LightBlue);
+}
+
+.help-btn--secondary:hover {
+    background: var(--Pink);
+    color: var(--DarkBlue);
+    transform: scale(1.06);
+}

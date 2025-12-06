@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Anaheim&display=swap');
+/* ======================================
+   Global reset
+====================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --theGreenColor: #09855b;
+    --TextColor: #171a1f;
+    --Pink: #F2E0E7;
+    --DarkBlue: #5C8BC0;
+    --LightBlue: #e0edfc;
+    --boxBackground: #afe4f163;
+    --Shadow: rgba(0,0,0,0.15);
+    --clickAbleLink: #ff2c2c;   /* issue: to be decided, fix this colour later */
+    --ratingYellow: #FF9100;   
+    --statCardBG:#7f6d8d0a; 
+    --statCardBorder: #dfdcbc;
+}
+
+body {
+    background-color: #171a1f;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #fff;
+    background: transparent;
+    transition: transform .25s ease;
+}
+
+/* ======================================
+   NAVBAR CONTAINER
+====================================== */
+.navbar {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    width: 100%;
+    padding: 14px ;
+    padding-left: 10px;
+    padding-right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #171a1f;
+    gap: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* ======================================
+    BRAND (LEFT)
+====================================== */
+.navbar-brand {
+    font-family: 'Manrope', sans-serif;
+    font-weight: bolder;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1;
+    transition: transform .25s ease;
+    margin-left: 20px;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.06);
+}
+
+.navbar-logo {
+    height: 36px;
+    width: 36px;
+}
+
+
+/* ======================================
+   NAV RIGHT (ICONS + USER)
+====================================== */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.navbar-buttons {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+    padding: 8px 16px;
+    font-size: 15px;
+    background: var(--clickAbleLink);
+    border: 1px solid var(--clickAbleLink);
+    border-radius: 24px;
+    color: white;
+    /* cursor: pointer; */
+    transition: 0.25s;
+}
+
+.navbar-buttons:hover {
+    /* background: var(--Pink); */
+    transform: scale(1.06);
+}
+
+
+/* ======================================
+   SEPARATOR LINE
+====================================== */
+.nav-separator {
+    background-color: #ffffff;
+    width: 1px;
+    height: 36px;
+    opacity: 1;
+}
