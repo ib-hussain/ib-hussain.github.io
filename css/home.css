@@ -265,17 +265,20 @@
   transform: translateY(-2px);
 }
 
-/* What I Build Section - Add animation */
+/* What I Build Section */
 .section {
   animation: fadeInUp 1s ease 0.3s both;
+  width: 100%;
 }
 
 .section-head {
   margin-bottom: var(--space-3xl);
   text-align: center;
+  width: 100%;
 }
 
 .section-head h2 {
+  margin-top: 45px;
   font-size: var(--text-4xl);
   margin-bottom: var(--space-md);
   position: relative;
@@ -302,15 +305,17 @@
   margin: 0 auto;
 }
 
-/* FIXED: Tri-Grid Layout - Properly Centered */
+/* FIXED: Properly Centered Grid */
 .tri-grid {
   display: grid;
-  /* Fixed: Use auto-fit with exact column count for perfect centering */
-  grid-template-columns: repeat(4, 1fr);
+  /* Fixed: Use exact column count with consistent widths */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-xl);
   margin-top: var(--space-2xl);
-  /* Fixed: Center items horizontally */
-  justify-items: stretch;
+  /* Fixed: Center the grid container */
+  width: 100%;
+  /* Fixed: Ensure all cards have same width */
+  align-items: stretch;
 }
 
 .box {
@@ -325,10 +330,17 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  /* Add staggered animation */
   animation: fadeInUp 0.8s ease both;
+  /* Fixed: Ensure consistent width */
+  width: 100%;
+  margin: 0;
 }
-
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
 .box:nth-child(1) { animation-delay: 0.1s; }
 .box:nth-child(2) { animation-delay: 0.2s; }
 .box:nth-child(3) { animation-delay: 0.3s; }
@@ -396,13 +408,15 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Responsive Design */
+/* Responsive breakpoints */
 @media (max-width: 1200px) {
   .tri-grid {
     /* On medium screens, show 2 columns */
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
   }
 }
+
 
 @media (max-width: 1024px) {
   .hero-grid {

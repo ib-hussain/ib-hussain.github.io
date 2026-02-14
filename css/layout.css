@@ -1,4 +1,4 @@
-/* layout.css - Fixed Layout with Proper Spacing */
+/* layout.css - Fixed Navbar Vertical Alignment */
 
 /* Base Reset & Typography */
 * {
@@ -25,7 +25,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Fixed: Proper spacing for fixed navbar */
   padding-top: var(--nav-height);
 }
 
@@ -88,7 +87,7 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Fixed Navigation Header */
+/* ===== FIXED: Navigation Header - Proper Vertical Centering ===== */
 .site-header {
   position: fixed;
   top: 0;
@@ -102,21 +101,26 @@ a:hover {
   z-index: var(--z-sticky);
   transition: all var(--transition-base);
   box-shadow: var(--shadow-sm);
+  /* FIXED: Use flexbox for proper centering */
+  display: flex;
+  align-items: center;
 }
 
 .site-header.scrolled {
   box-shadow: var(--shadow-lg);
 }
 
-/* Navigation - Fixed vertical alignment */
+/* FIXED: Navigation - Full height with proper centering */
 .nav {
   height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-xl);
 }
 
+/* FIXED: Brand - Perfect vertical alignment */
 .brand {
   font-weight: 700;
   font-size: var(--text-2xl);
@@ -125,9 +129,11 @@ a:hover {
   letter-spacing: -0.02em;
   transition: all var(--transition-fast);
   position: relative;
-  /* Fixed: Ensure vertical centering */
+  /* FIXED: Ensure perfect vertical centering */
   display: flex;
   align-items: center;
+  height: 100%;
+  line-height: 1;
 }
 
 .brand::after {
@@ -146,21 +152,22 @@ a:hover {
   width: 100%;
 }
 
-/* Navigation Links - Fixed vertical alignment */
+/* FIXED: Navigation Links - Perfect vertical centering */
 .nav-links {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
   background: var(--bg-secondary);
-  padding: 6px;
+  padding: 4px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
-  /* Fixed: Ensure vertical centering */
+  /* FIXED: Ensure vertical centering */
   height: fit-content;
+  min-height: 48px;
 }
 
 .nav-links a {
-  padding: 10px 20px;
+  padding: 8px 20px;
   border-radius: var(--radius-md);
   font-weight: 500;
   font-size: var(--text-sm);
@@ -170,10 +177,11 @@ a:hover {
   letter-spacing: 0.01em;
   text-transform: uppercase;
   font-size: 0.8125rem;
-  /* Fixed: Ensure vertical centering */
+  /* FIXED: Perfect vertical centering */
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 40px;
+  line-height: 1;
 }
 
 .nav-links a:hover {
@@ -193,11 +201,12 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
-/* Navigation Controls - Fixed vertical alignment */
+/* FIXED: Navigation Controls - Perfect vertical alignment */
 .nav-ctrl {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  height: 100%;
 }
 
 .icon-btn {
@@ -208,11 +217,11 @@ a:hover {
   border: 1px solid var(--border-light);
   color: var(--text-secondary);
   cursor: pointer;
-  display: inline-flex;
+  /* FIXED: Perfect centering of icon */
+  display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
-  /* Fixed: Ensure consistent sizing */
   flex-shrink: 0;
 }
 
@@ -243,10 +252,9 @@ a:hover {
   display: none;
 }
 
-/* Main Content Area - Fixed spacing */
+/* Main Content Area */
 .page {
   flex: 1;
-  /* Fixed: Proper top spacing after navbar */
   padding-top: var(--section-spacing);
   padding-bottom: var(--space-3xl);
   min-height: calc(100vh - var(--nav-height));
@@ -373,13 +381,15 @@ a:hover {
   min-height: 120px;
 }
 
-/* Footer */
+/* ===== FIXED: Footer - Better Visibility in Light Mode ===== */
 .site-footer {
   background: var(--bg-secondary);
-  border-top: 1px solid var(--border-light);
+  border-top: 2px solid var(--border-medium);
   padding: var(--space-3xl) 0 var(--space-xl);
   margin-top: auto;
   backdrop-filter: blur(8px);
+  /* FIXED: Better contrast */
+  box-shadow: 0 -4px 20px var(--shadow);
 }
 
 .footer-inner {
@@ -400,11 +410,13 @@ a:hover {
   font-weight: 600;
 }
 
+/* FIXED: Better footer text contrast */
 .footer-left p {
   color: var(--text-secondary);
   font-size: var(--text-sm);
   line-height: 1.8;
   margin-bottom: var(--space-md);
+  opacity: 0.9;
 }
 
 .footer-links {
@@ -421,36 +433,49 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
+  /* FIXED: Better hover contrast */
+  font-weight: 500;
 }
 
 .footer-links a:hover {
   color: var(--primary);
   transform: translateX(4px);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .footer-links a svg {
   width: 18px;
   height: 18px;
-  opacity: 0.6;
+  opacity: 0.8;
+}
+
+.footer-links a:hover svg {
+  opacity: 1;
 }
 
 .credits {
   text-align: center;
   padding-top: var(--space-xl);
-  border-top: 1px solid var(--border-light);
-  color: var(--text-muted);
+  border-top: 2px solid var(--border-medium);
+  color: var(--text-tertiary);
   font-size: var(--text-sm);
+  font-weight: 500;
 }
 
 .credits a {
   color: var(--primary);
   font-weight: 600;
   transition: color var(--transition-fast);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--primary-light);
 }
 
 .credits a:hover {
   color: var(--primary-dark);
-  text-decoration: underline;
+  text-decoration-color: var(--primary);
 }
 
 /* Utility Classes */
@@ -502,8 +527,8 @@ a:hover {
     visibility: hidden;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-xl);
-    /* Fixed: Ensure it doesn't have height constraint */
     height: auto;
+    min-height: auto;
   }
 
   .nav-links.open {
@@ -517,8 +542,8 @@ a:hover {
     text-align: center;
     padding: var(--space-md) var(--space-lg);
     font-size: var(--text-base);
-    /* Fixed: Reset height for mobile */
     height: auto;
+    justify-content: center;
   }
 
   .nav-toggle {

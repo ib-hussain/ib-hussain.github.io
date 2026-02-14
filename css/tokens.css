@@ -1,4 +1,4 @@
-/* tokens.css - Custom Design System with Your Colors */
+/* tokens.css - Enhanced Dark Mode Colors */
 
 /* Font Loading */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -18,15 +18,15 @@
   --statCardBorder: #dfdcbc;
   
   /* Primary Brand Colors - Using your green */
-  --primary: var(--theGreenColor);        /* #09855b */
+  --primary: var(--theGreenColor);
   --primary-light: #D1FAE5;
   --primary-lighter: #ECFDF5;
   --primary-dark: #065F46;
   --primary-darker: #064E3B;
   
   /* Accent Colors - Using your blue */
-  --accent: var(--DarkBlue);              /* #5c8bc0 */
-  --accent-light: var(--LightBlue);       /* #e0edfc */
+  --accent: var(--DarkBlue);
+  --accent-light: var(--LightBlue);
   --accent-dark: #3B5F8F;
   
   /* Neutral Palette */
@@ -42,7 +42,7 @@
   --neutral-900: #0F172A;
   
   /* Semantic Color Mappings - Light Theme */
-  --text-primary: var(--TextColor);       /* #171a1f */
+  --text-primary: var(--TextColor);
   --text-secondary: var(--neutral-600);
   --text-tertiary: var(--neutral-500);
   --text-muted: var(--neutral-400);
@@ -74,9 +74,9 @@
   /* Status Colors */
   --success: #059669;
   --success-light: #D1FAE5;
-  --warning: var(--ratingYellow);         /* #ff9100 */
+  --warning: var(--ratingYellow);
   --warning-light: #FEF3C7;
-  --error: var(--clickAbleLink);          /* #ff2c2c */
+  --error: var(--clickAbleLink);
   --error-light: #FEE2E2;
   --info: var(--DarkBlue);
   --info-light: var(--LightBlue);
@@ -87,7 +87,7 @@
   --glass-border: rgba(175, 228, 241, 0.3);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   
-  /* Elevation Shadows - Using your shadow */
+  /* Elevation Shadows */
   --shadow-xs: 0 1px 2px 0 var(--Shadow);
   --shadow-sm: 0 1px 3px 0 var(--Shadow), 0 1px 2px -1px var(--Shadow);
   --shadow-md: 0 4px 6px -1px var(--Shadow), 0 2px 4px -2px var(--Shadow);
@@ -110,16 +110,16 @@
   --font-mono: "JetBrains Mono", "Fira Code", "Consolas", monospace;
   
   /* Font Sizes */
-  --text-xs: 0.75rem;      /* 12px */
-  --text-sm: 0.875rem;     /* 14px */
-  --text-base: 1rem;       /* 16px */
-  --text-lg: 1.125rem;     /* 18px */
-  --text-xl: 1.25rem;      /* 20px */
-  --text-2xl: 1.5rem;      /* 24px */
-  --text-3xl: 1.875rem;    /* 30px */
-  --text-4xl: 2.25rem;     /* 36px */
-  --text-5xl: 3rem;        /* 48px */
-  --text-6xl: 3.75rem;     /* 60px */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
   
   /* Layout */
   --max-width: 1280px;
@@ -129,13 +129,13 @@
   --section-spacing: 2rem;
   
   /* Spacing Scale */
-  --space-xs: 0.25rem;     /* 4px */
-  --space-sm: 0.5rem;      /* 8px */
-  --space-md: 1rem;        /* 16px */
-  --space-lg: 1.5rem;      /* 24px */
-  --space-xl: 2rem;        /* 32px */
-  --space-2xl: 3rem;       /* 48px */
-  --space-3xl: 4rem;       /* 64px */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
   
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -153,21 +153,21 @@
   --z-tooltip: 1070;
 }
 
-/* Dark Theme */
+/* ===== FIXED: Dark Theme - Enhanced Colors for Better Visibility ===== */
 :root[data-theme="dark"] {
-  /* Text Colors - Optimized for readability */
-  --text-primary: #F1F5F9;
-  --text-secondary: #CBD5E1;
-  --text-tertiary: #94A3B8;
-  --text-muted: #64748B;
+  /* Text Colors - Brighter for better readability */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-tertiary: #CBD5E1;
+  --text-muted: #94A3B8;
   --text-inverse: var(--neutral-900);
   
-  /* Background Colors */
+  /* Background Colors - Richer and deeper */
   --bg-gradient: radial-gradient(
     circle at 20% 20%,
-    rgba(9, 133, 91, 0.15) 0%,
-    rgba(92, 139, 192, 0.1) 30%,
-    rgba(15, 23, 42, 0.95) 55%,
+    rgba(9, 133, 92, 0.74) 0%,
+    rgba(73, 91, 110, 0.726) 30%,
+    rgba(44, 49, 63, 0.98) 75%,
     rgba(30, 41, 59, 1) 80%
   );
   
@@ -176,56 +176,57 @@
   --bg-tertiary: #334155;
   --bg-elevated: #1E293B;
   
-  /* Border Colors */
-  --border-light: #334155;
+  /* Border Colors - More defined */
+  --border-light: rgba(71, 85, 105, 0.6);
   --border-medium: #475569;
   --border-dark: #64748B;
   
-  /* Card Backgrounds */
-  --card-bg: rgba(30, 41, 59, 0.6);
-  --card-border: rgba(148, 163, 184, 0.2);
+  /* Card Backgrounds - More opaque for better contrast */
+  --card-bg: rgba(30, 41, 59, 0.85);
+  --card-border: rgba(148, 163, 184, 0.3);
   
-  /* Primary Adjustments */
+  /* Primary Colors - Brighter green */
   --primary: #10B981;
   --primary-light: #064E3B;
-  --primary-lighter: #065F46;
+  --primary-lighter: #1E3A5F;
   --primary-dark: #34D399;
+  --primary-darker: #6EE7B7;
   
-  /* Accent Adjustments */
+  /* Accent Colors - Brighter blue */
   --accent: #7CA9D8;
   --accent-light: #1E3A5F;
   --accent-dark: #A3C7E8;
   
-  /* Glass Effects */
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  --glass-bg-dark: rgba(30, 41, 59, 0.5);
-  --glass-border: rgba(148, 163, 184, 0.1);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  /* Glass Effects - More pronounced */
+  --glass-bg: rgba(30, 41, 59, 0.8);
+  --glass-bg-dark: rgba(30, 41, 59, 0.6);
+  --glass-border: rgba(148, 163, 184, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   
-  /* Status Colors */
-  --success: #10B981;
+  /* Status Colors - Brighter */
+  --success: #34D399;
   --success-light: #064E3B;
-  --warning: #F59E0B;
+  --warning: #FBBF24;
   --warning-light: #78350F;
-  --error: #EF4444;
+  --error: #F87171;
   --error-light: #7F1D1D;
-  --info: #7CA9D8;
+  --info: #93C5FD;
   --info-light: #1E3A5F;
   
-  /* Enhanced Shadows */
-  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px -1px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.6);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.7);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  /* Enhanced Shadows for depth */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.6), 0 1px 2px -1px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -2px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -4px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 8px 10px -6px rgba(0, 0, 0, 0.8);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
 }
 
 /* Smooth Theme Transitions - Exclude specific properties */
 *,
 *::before,
 *::after {
-  transition-property: background-color, border-color, color, fill, stroke;
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
   transition-duration: var(--transition-base);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
