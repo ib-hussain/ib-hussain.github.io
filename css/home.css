@@ -1,16 +1,20 @@
-/* home.css - Professional Homepage Design */
+/* home.css - Fixed Homepage with Centered Grid and Animations */
 
 /* Hero Section */
 .hero {
-  padding: var(--space-2xl) 0;
+  padding: 0;
+  margin-bottom: var(--space-3xl);
 }
 
 .hero-main {
   padding: var(--space-3xl) var(--space-2xl);
   margin: 0;
-  background: linear-gradient(135deg, var(--glass-bg) 0%, var(--bg-primary) 100%);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
+  /* Add animation */
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .hero-main::before {
@@ -21,7 +25,7 @@
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
-  opacity: 0.3;
+  opacity: 0.2;
   border-radius: 50%;
   pointer-events: none;
 }
@@ -261,11 +265,14 @@
   transform: translateY(-2px);
 }
 
-/* What I Build Section */
+/* What I Build Section - Add animation */
+.section {
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
 .section-head {
   margin-bottom: var(--space-3xl);
   text-align: center;
-  animation: fadeInUp 0.8s ease both;
 }
 
 .section-head h2 {
@@ -295,27 +302,37 @@
   margin: 0 auto;
 }
 
-/* Tri-Grid Layout */
+/* FIXED: Tri-Grid Layout - Properly Centered */
 .tri-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Fixed: Use auto-fit with exact column count for perfect centering */
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-xl);
   margin-top: var(--space-2xl);
+  /* Fixed: Center items horizontally */
+  justify-items: stretch;
 }
 
 .box {
   padding: var(--space-2xl) var(--space-xl);
   text-align: left;
-  background: var(--glass-bg);
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--card-border);
   transition: all var(--transition-base);
   height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  /* Add staggered animation */
+  animation: fadeInUp 0.8s ease both;
 }
+
+.box:nth-child(1) { animation-delay: 0.1s; }
+.box:nth-child(2) { animation-delay: 0.2s; }
+.box:nth-child(3) { animation-delay: 0.3s; }
+.box:nth-child(4) { animation-delay: 0.4s; }
 
 .box::before {
   content: '';
@@ -338,7 +355,7 @@
   transform: translateY(-8px);
   border-color: var(--primary-light);
   box-shadow: var(--shadow-2xl);
-  background: linear-gradient(135deg, var(--glass-bg), var(--bg-primary));
+  background: linear-gradient(135deg, var(--card-bg), var(--bg-primary));
 }
 
 .box h3 {
@@ -380,6 +397,13 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .tri-grid {
+    /* On medium screens, show 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -421,6 +445,7 @@
   }
 
   .tri-grid {
+    /* On mobile, show 1 column */
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }

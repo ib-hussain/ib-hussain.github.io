@@ -1,14 +1,29 @@
 /* contact.css - Professional Contact Form */
 
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .contact {
   padding: var(--space-3xl);
   margin: 0 0 var(--space-2xl);
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: var(--space-3xl);
-  background: linear-gradient(135deg, var(--glass-bg), var(--bg-primary));
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
+  /* Add animation */
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .contact::before {

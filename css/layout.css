@@ -1,4 +1,4 @@
-/* layout.css - Professional Layout System */
+/* layout.css - Fixed Layout with Proper Spacing */
 
 /* Base Reset & Typography */
 * {
@@ -16,13 +16,16 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--text-primary);
-  background: var(--bg-primary);
+  background: var(--bg-gradient);
+  background-blend-mode: screen;
+  background-size: cover;
+  background-attachment: fixed;
   line-height: 1.6;
   font-size: var(--text-base);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Prevent layout shift from fixed navbar */
+  /* Fixed: Proper spacing for fixed navbar */
   padding-top: var(--nav-height);
 }
 
@@ -95,17 +98,17 @@ a:hover {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--glass-border);
   z-index: var(--z-sticky);
   transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
 }
 
 .site-header.scrolled {
   box-shadow: var(--shadow-lg);
-  background: var(--glass-bg);
 }
 
-/* Navigation */
+/* Navigation - Fixed vertical alignment */
 .nav {
   height: 100%;
   display: flex;
@@ -122,6 +125,9 @@ a:hover {
   letter-spacing: -0.02em;
   transition: all var(--transition-fast);
   position: relative;
+  /* Fixed: Ensure vertical centering */
+  display: flex;
+  align-items: center;
 }
 
 .brand::after {
@@ -140,19 +146,21 @@ a:hover {
   width: 100%;
 }
 
-/* Navigation Links */
+/* Navigation Links - Fixed vertical alignment */
 .nav-links {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
   background: var(--bg-secondary);
-  padding: var(--space-xs);
+  padding: 6px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
+  /* Fixed: Ensure vertical centering */
+  height: fit-content;
 }
 
 .nav-links a {
-  padding: var(--space-sm) var(--space-lg);
+  padding: 10px 20px;
   border-radius: var(--radius-md);
   font-weight: 500;
   font-size: var(--text-sm);
@@ -162,6 +170,10 @@ a:hover {
   letter-spacing: 0.01em;
   text-transform: uppercase;
   font-size: 0.8125rem;
+  /* Fixed: Ensure vertical centering */
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav-links a:hover {
@@ -181,7 +193,7 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
-/* Navigation Controls */
+/* Navigation Controls - Fixed vertical alignment */
 .nav-ctrl {
   display: flex;
   align-items: center;
@@ -200,6 +212,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
+  /* Fixed: Ensure consistent sizing */
+  flex-shrink: 0;
 }
 
 .icon-btn:hover {
@@ -229,19 +243,21 @@ a:hover {
   display: none;
 }
 
-/* Main Content Area */
+/* Main Content Area - Fixed spacing */
 .page {
   flex: 1;
-  padding: var(--space-3xl) 0;
+  /* Fixed: Proper top spacing after navbar */
+  padding-top: var(--section-spacing);
+  padding-bottom: var(--space-3xl);
   min-height: calc(100vh - var(--nav-height));
 }
 
 /* Card Component */
 .card {
-  background: var(--glass-bg);
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
@@ -363,6 +379,7 @@ a:hover {
   border-top: 1px solid var(--border-light);
   padding: var(--space-3xl) 0 var(--space-xl);
   margin-top: auto;
+  backdrop-filter: blur(8px);
 }
 
 .footer-inner {
@@ -449,6 +466,22 @@ a:hover {
   margin: var(--space-3xl) 0;
 }
 
+/* Fade-in animations for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-load {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .nav-links {
@@ -469,6 +502,8 @@ a:hover {
     visibility: hidden;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-xl);
+    /* Fixed: Ensure it doesn't have height constraint */
+    height: auto;
   }
 
   .nav-links.open {
@@ -482,6 +517,8 @@ a:hover {
     text-align: center;
     padding: var(--space-md) var(--space-lg);
     font-size: var(--text-base);
+    /* Fixed: Reset height for mobile */
+    height: auto;
   }
 
   .nav-toggle {
@@ -498,6 +535,7 @@ a:hover {
   :root {
     --container-padding: 16px;
     --nav-height: 64px;
+    --section-spacing: 1.5rem;
   }
 
   body {
@@ -513,6 +551,7 @@ a:hover {
   }
 
   .page {
-    padding: var(--space-2xl) 0;
+    padding-top: var(--section-spacing);
+    padding-bottom: var(--space-2xl);
   }
 }

@@ -1,14 +1,29 @@
 /* resume.css - Minimalistic Resume Display */
 
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .resume-head {
   padding: var(--space-3xl) var(--space-2xl);
   margin: 0 0 var(--space-2xl);
   display: grid;
   grid-template-columns: 1.6fr 1fr;
   gap: var(--space-3xl);
-  background: linear-gradient(135deg, var(--glass-bg) 0%, var(--bg-primary) 100%);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
+  /* Add animation */
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .resume-head::before {
@@ -170,6 +185,8 @@
   margin-top: var(--space-2xl);
   background: var(--bg-secondary);
   border: 1px solid var(--border-light);
+  /* Add animation */
+  animation: fadeInUp 1s ease 0.2s both;
 }
 
 .pdf-wrap {
