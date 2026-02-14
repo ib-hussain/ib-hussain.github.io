@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="pictures/favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ibrahim Hussain | Portfolio</title>
-
+    <meta name="description" content="Ibrahim Hussain - Quantitative Data Scientist specializing in statistical modelling, AI systems, and production-ready analytics for finance, healthcare, and risk prediction." />
+    <meta name="keywords" content="Data Science, Quantitative Analysis, Machine Learning, AI, Statistical Modeling, Finance, Healthcare AI" />
+    <meta name="author" content="Ibrahim Hussain" />
+    
+    <title>Ibrahim Hussain | Quantitative Data Scientist</title>
+    <link rel="icon" type="image/png" href="pictures/favicon.png" />
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/home.css" />
   </head>
 
   <body data-page="index">
-    <!-- Static Navbar -->
+    <!-- Fixed Navigation Header -->
     <header class="site-header">
       <div class="container">
         <nav class="nav" aria-label="Primary navigation">
@@ -28,22 +33,27 @@
           <div class="nav-ctrl">
             <button class="icon-btn" id="themeBtn" type="button"
               aria-label="Toggle theme" title="Toggle theme">
-              <span id="themeIcon" aria-hidden="true">☀️</span>
-              <!-- make this into icon instead of emoji -->
+              <span id="themeIcon" aria-hidden="true"></span>
             </button>
 
             <button class="icon-btn nav-toggle" id="navToggle" type="button"
-              aria-label="Open menu" aria-expanded="false">
-              <span aria-hidden="true">☰</span>
+              aria-label="Toggle menu" aria-expanded="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
             </button>
           </div>
         </nav>
       </div>
     </header>
 
+    <!-- Main Content -->
     <main class="page">
+      <!-- Hero Section -->
       <section class="container hero">
-        <div class="hero-main card">
+        <div class="hero-main card no-hover">
           <div class="hero-grid">
             <div class="hero-text">
               <div class="pill-row">
@@ -55,112 +65,130 @@
 
               <h1>Production-grade data science for high-impact decisions.</h1>
               <p class="lead">
-                I specialise in extracting structure from messy,
-                high-dimensional data and building interpretable models
-                and AI systems used for finance, healthcare, marketing, and risk
-                prediction.
+                I specialise in extracting structure from messy, high-dimensional data 
+                and building interpretable models and AI systems for finance, healthcare, 
+                marketing, and risk prediction.
               </p>
 
               <div class="cta">
-                <a class="btn primary" href="projects.html">Explore projects</a>
-                <a class="btn" href="contact.html">Contact</a>
+                <a class="btn primary" href="projects.html">Explore Projects</a>
+                <a class="btn outline" href="contact.html">Get in Touch</a>
                 <a class="btn icon-link" href="https://github.com/ib-hussain"
                   target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round"><path
-                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
                 </a>
                 <a class="btn icon-link"
                   href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
                   target="_blank" rel="noopener noreferrer"
                   aria-label="LinkedIn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round"><path
-                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect
-                      x="2" y="9" width="4" height="12"></rect><circle cx="4"
-                      cy="4" r="2"></circle></svg>
+                    stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
                 </a>
               </div>
 
               <div class="mini">
-                <span class="dot">•</span>
-                <a class="mini-link"
-                  href="mailto:ibrahimbeaconarion@gmail.com">ibrahimbeaconarion@gmail.com</a>
+                <a class="mini-link" href="mailto:ibrahimbeaconarion@gmail.com">
+                  ibrahimbeaconarion@gmail.com
+                </a>
               </div>
             </div>
 
             <div class="hero-profile">
               <img class="avatar" src="pictures/ib.jpg"
                 alt="Portrait of Ibrahim Hussain" loading="lazy" />
-              <!-- make ths picture appear as a square with round corners-->
+              
               <div class="profile-meta">
                 <h2>Ibrahim Hussain</h2>
                 <p>BS Data Science — FAST University</p>
+                
                 <div class="badges">
                   <span class="badge">Time Series</span>
                   <span class="badge">Deep Learning</span>
                   <span class="badge">Multi-Agent Systems</span>
                   <span class="badge">Econometrics</span>
-                  <span class="badge">Cloud Architecture</span>
-                  <!-- add more here from my resume -->
+                  <span class="badge">OS Architecture</span>
+                  <span class="badge">NLP</span>
+                  <span class="badge">Computer Vision</span>
                 </div>
-                <a class="btn primary" href="projects.html#featured">View
-                  featured work</a>
+                
+                <a class="btn primary" href="projects.html#featured">
+                  View Featured Work
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- What I Build Section -->
       <section class="container section">
         <div class="section-head">
-          <h2>What I build</h2>
-          <p class="muted">A portfolio designed for recruiters across multiple
-            industries.</p>
+          <h2>What I Build</h2>
+          <p class="muted">
+            A portfolio designed for recruiters across multiple industries.
+          </p>
         </div>
 
         <div class="tri-grid">
-          <!-- make these all appear in 1 row or in a 2x2 -->
           <article class="card box">
             <h3>Quant Finance</h3>
-            <p class="muted">Time-series forecasting, econometrics, risk
-              modelling, regime patterns.</p>
-            <a class="btn link" href="projects.html?filter=finance">See
-              finance-relevant projects →</a>
+            <p class="muted">
+              Time-series forecasting, econometrics, risk modelling, regime 
+              detection, and statistical analysis of financial systems.
+            </p>
+            <a class="btn link" href="projects.html?filter=finance">
+              Explore Finance Projects →
+            </a>
           </article>
 
           <article class="card box">
             <h3>Marketing & Risk</h3>
-            <p class="muted">Segmentation, uplift-style thinking,
-              anomaly/outlier detection, decision analytics.</p>
-            <a class="btn link" href="projects.html?filter=risk">See risk &
-              analytics projects →</a>
+            <p class="muted">
+              Customer segmentation, uplift modeling, anomaly detection, 
+              decision analytics, and predictive risk assessment.
+            </p>
+            <a class="btn link" href="projects.html?filter=risk">
+              Explore Risk Analytics →
+            </a>
           </article>
 
           <article class="card box">
             <h3>Healthcare AI</h3>
-            <p class="muted">Multi-modal health AI, predictive modelling,
-              medical data classification pipelines.</p>
-            <a class="btn link" href="projects.html?filter=health">See
-              healthcare projects →</a>
+            <p class="muted">
+              Multi-modal health AI, predictive modeling, medical image 
+              classification, and clinical decision support systems.
+            </p>
+            <a class="btn link" href="projects.html?filter=health">
+              Explore Healthcare AI →
+            </a>
           </article>
 
           <article class="card box">
             <h3>Technology & DS</h3>
-            <p class="muted">Full-stack engineering, algorithms, system
-              architecture, and game development.</p>
-            <a class="btn link" href="projects.html?filter=tech">See technology
-              projects →</a>
+            <p class="muted">
+              Full-stack engineering, system architecture, algorithm design, 
+              database optimization, and game development.
+            </p>
+            <a class="btn link" href="projects.html?filter=tech">
+              Explore Tech Projects →
+            </a>
           </article>
         </div>
       </section>
     </main>
 
-    <!-- Static Footer -->
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-inner">
@@ -168,13 +196,11 @@
             <h3>About</h3>
             <p>
               Quantitative Data Science student focused on statistical modelling
-              of complex systems, high-dimensional analytics,
-              and production-ready AI pipelines for decision-making under
-              uncertainty.
+              of complex systems, high-dimensional analytics, and production-ready 
+              AI pipelines for decision-making under uncertainty.
             </p>
             <p>
-              Target domains: Quant Finance • Healthcare AI • Marketing
-              Analytics • Risk Prediction.
+              Target domains: Quant Finance • Healthcare AI • Marketing Analytics • Risk Prediction
             </p>
           </div>
 
@@ -193,11 +219,12 @@
 
         <div class="credits">
           Developed by <a href="https://github.com/ib-hussain" target="_blank"
-            rel="noopener noreferrer">ib-hussain</a>
+            rel="noopener noreferrer">Ibrahim Hussain</a>
         </div>
       </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/theme.js"></script>
     <script src="js/layout.js"></script>
   </body>
