@@ -1,10 +1,27 @@
-<header>
-  <link rel="stylesheet" href="css/layout.css">
-  <div class="navbar">
-    <nav>
-      <a href="index.html" data-page="index">Home</a>
-      <a href="projects.html" data-page="projects">Projects</a>
-      <a href="contact.html" data-page="contact">Contact Me</a>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">Ibrahim Hussain</a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" data-page="index">Home</a>
+        <a href="projects.html" data-page="projects">Projects</a>
+        <a href="resume.html" data-page="resume">Resume</a>
+        <a href="contact.html" data-page="contact">Contact</a>
+      </div>
+
+      <div class="nav-ctrl">
+        <button class="icon-btn" id="themeBtn" type="button"
+          aria-label="Toggle theme" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">☀️</span>
+          <!-- add a proper svg or icon here -->
+        </button>
+
+        <button class="icon-btn nav-toggle" id="navToggle" type="button"
+          aria-label="Open menu" aria-expanded="false">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
     </nav>
   </div>
 </header>

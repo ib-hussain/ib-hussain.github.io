@@ -4,63 +4,139 @@
     <link rel="icon" type="image/png" href="pictures/favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Me</title>
+    <title>Contact | Ibrahim Hussain</title>
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/contact.css" />
   </head>
-  <body>
-    <script src="js/layout.js"></script>
-    <link rel="html" href="navbar.html" />
 
-    <div class="container">
-      <div class="info">
+  <body data-page="contact">
+    <!-- Static Navbar -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="brand" href="index.html">Ibrahim Hussain</a>
 
-        <div class="links">
-          <a class="hehe external-link"
-            href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
-            target="_blank">
-            <img src="pictures/linkedin.png" alt="Linkedin" class="poster" />
-            Linkedin
-          </a>
-          <a class="hehe external-link" href="https://github.com/ib-hussain"
-            target="_blank">
-            <img src="pictures/github.png" alt="GitHub" class="poster" />
-            GitHub
-          </a>
-          <a class="hehe external-link"
-            href="mailto:ibrahimbeaconarion@gmail.com" target="_blank">
-            <img src="pictures/gmail.png" alt="Gmail" class="poster" />
-            Gmail
-          </a>
+          <div class="nav-links" id="navLinks">
+            <a href="index.html" data-page="index">Home</a>
+            <a href="projects.html" data-page="projects">Projects</a>
+            <a href="resume.html" data-page="resume">Resume</a>
+            <a href="contact.html" data-page="contact">Contact</a>
+          </div>
+
+          <div class="nav-ctrl">
+            <button class="icon-btn" id="themeBtn" type="button"
+              aria-label="Toggle theme" title="Toggle theme">
+              <span id="themeIcon" aria-hidden="true">☀️</span>
+              <!-- make this into icon instead of emoji -->
+            </button>
+
+            <button class="icon-btn nav-toggle" id="navToggle" type="button"
+              aria-label="Open menu" aria-expanded="false">
+              <span aria-hidden="true">☰</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="container">
+        <div class="contact card">
+          <div class="left">
+            <h1>Contact</h1>
+            <p class="muted">
+              For internships, entry-level roles, collaborations, or research
+              discussions — send a message.
+            </p>
+
+            <div class="quick">
+              <a class="btn"
+                href="mailto:ibrahimbeaconarion@gmail.com">Email</a>
+              <a class="btn"
+                href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
+                target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="btn" href="https://github.com/ib-hussain"
+                target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <form class="right form-fill" action="https://formspree.io/f/mjkrabwd"
+            method="POST">
+            <div class="row">
+              <div class="field">
+                <label>Name</label>
+                <input class="input" name="name" type="text"
+                  placeholder="Your name" required />
+              </div>
+
+              <div class="field">
+                <label>Email</label>
+                <input class="input" name="email" type="email"
+                  placeholder="Your email" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Message</label>
+              <textarea class="textarea" name="message" rows="7"
+                placeholder="Write your message..." required></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" style="display:none" />
+            <div class="actions">
+              <button class="btn primary" type="submit" id="sendBtn">Send
+                message</button>
+            </div>
+          </form>
         </div>
 
-        <h1 class="headingg">Get in Touch!</h1>
-        <form
-          class="form-fill"
-          action="https://formspree.io/f/mjkrabwd"
-          method="POST">
-          <div class="form-left">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name"
-              placeholder="Your full name..." required />
+        <div class="toast" id="toast" aria-live="polite"
+          aria-atomic="true"></div>
+      </section>
+    </main>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email"
-              placeholder="Your email address..." required />
+    <!-- Static Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-left">
+            <h3>About</h3>
+            <p>
+              Quantitative Data Science student focused on statistical modelling
+              of complex systems, high-dimensional analytics,
+              and production-ready AI pipelines for decision-making under
+              uncertainty.
+            </p>
+            <p>
+              Target domains: Quant Finance • Healthcare AI • Marketing
+              Analytics • Risk Prediction.
+            </p>
           </div>
 
-          <div class="form-right">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="7"
-              placeholder="Write your message here..." required></textarea>
-            <input type="text" name="_gotcha" style="display:none">
-            <button type="submit" class="submittion">Send Message</button>
+          <div class="footer-right">
+            <h3>Links</h3>
+            <ul class="footer-links">
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="https://github.com/ib-hussain" target="_blank"
+                  rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
+                  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
           </div>
-          <input type="hidden" name="_next"
-            value="https://ib-hussain.github.io/index.html">
-        </form>
+        </div>
+
+        <div class="credits">
+          Developed by <a href="https://github.com/ib-hussain" target="_blank"
+            rel="noopener noreferrer">ib-hussain</a>
+        </div>
       </div>
+    </footer>
 
-      <link rel="html" href="footer.html" />
-      <script src="js/contact.js"></script>
-    </body>
-  </html>
+    <script src="js/theme.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/contact.js"></script>
+  </body>
+</html>

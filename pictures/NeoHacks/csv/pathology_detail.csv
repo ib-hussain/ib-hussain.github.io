@@ -1,0 +1,176 @@
+cases.case_id,cases.submitter_id,pathology_details.consistent_pathology_review,pathology_details.extranodal_extension,pathology_details.lymph_node_dissection_method,pathology_details.lymph_node_dissection_site,pathology_details.lymph_nodes_positive,pathology_details.lymph_nodes_tested,pathology_details.lymphatic_invasion_present,pathology_details.margin_status,pathology_details.perineural_invasion_present,pathology_details.vascular_invasion_present
+03aca47b-7653-4938-9178-ed7c37eee6d5,TCGA-CR-7392,Yes,No Extranodal Extension,,,8.0,36.0,,,Yes,
+03aca47b-7653-4938-9178-ed7c37eee6d5,TCGA-CR-7392,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+0f718e17-86c1-4221-a878-d57ae87e744f,TCGA-HD-7831,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+0f718e17-86c1-4221-a878-d57ae87e744f,TCGA-HD-7831,Yes,No Extranodal Extension,,,3.0,21.0,No,Uninvolved,,No
+10b3f56a-e61e-486b-8d3c-176668d5dc34,TCGA-DQ-5631,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+10b3f56a-e61e-486b-8d3c-176668d5dc34,TCGA-DQ-5631,Yes,Microscopic Extension,,,1.0,20.0,Yes,Uninvolved,No,Yes
+13f63218-0949-41e6-a661-c844414c45b5,TCGA-CN-5364,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+13f63218-0949-41e6-a661-c844414c45b5,TCGA-CN-5364,Yes,Microscopic Extension,,,9.0,73.0,No,Uninvolved,Yes,No
+13f63218-0949-41e6-a661-c844414c45b5,TCGA-CN-5364,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+1465b7ec-8d2b-47dd-8387-977eed44cc86,TCGA-CV-5971,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+1465b7ec-8d2b-47dd-8387-977eed44cc86,TCGA-CV-5971,Yes,No Extranodal Extension,,,1.0,26.0,No,Uninvolved,No,No
+15714e69-e075-4688-8f51-c7102fe4ca07,TCGA-CV-6945,,,Radical Neck Dissection,"Neck, Right",,,,,,
+15714e69-e075-4688-8f51-c7102fe4ca07,TCGA-CV-6945,Yes,Microscopic Extension,,,5.0,45.0,,Uninvolved,Yes,
+16779eed-f386-4e8f-8475-04d33b9dd160,TCGA-CR-7383,Yes,,,,0.0,21.0,,Uninvolved,,
+16779eed-f386-4e8f-8475-04d33b9dd160,TCGA-CR-7383,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+1c25aad5-13f5-44dc-a18f-425d7626ce55,TCGA-CQ-5334,Yes,Gross Extension,,,6.0,46.0,No,Indeterminate,Yes,No
+1c25aad5-13f5-44dc-a18f-425d7626ce55,TCGA-CQ-5334,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+1c95de68-18d9-429b-b379-878838f88a72,TCGA-CR-7367,Yes,,,,1.0,30.0,No,Uninvolved,Yes,No
+1c95de68-18d9-429b-b379-878838f88a72,TCGA-CR-7367,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+1c95de68-18d9-429b-b379-878838f88a72,TCGA-CR-7367,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+1dd23cd6-3aa8-4553-8813-04701451846e,TCGA-CV-7103,Yes,No Extranodal Extension,,,2.0,14.0,,Uninvolved,,
+1dd23cd6-3aa8-4553-8813-04701451846e,TCGA-CV-7103,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+1dd23cd6-3aa8-4553-8813-04701451846e,TCGA-CV-7103,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+1e05fdbd-c80b-41c6-9b40-8a7200c92e76,TCGA-CV-5979,Yes,No Extranodal Extension,,,2.0,55.0,Yes,Uninvolved,Yes,Yes
+1e05fdbd-c80b-41c6-9b40-8a7200c92e76,TCGA-CV-5979,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+1f744ada-6de1-446d-b62c-76a7fc8b40af,TCGA-CN-4737,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+1f744ada-6de1-446d-b62c-76a7fc8b40af,TCGA-CN-4737,Yes,No Extranodal Extension,,,2.0,36.0,Yes,Uninvolved,Yes,Yes
+20ece2ca-8601-4cca-aec5-0a5c0b92594d,TCGA-CQ-7065,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+20ece2ca-8601-4cca-aec5-0a5c0b92594d,TCGA-CQ-7065,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+20ece2ca-8601-4cca-aec5-0a5c0b92594d,TCGA-CQ-7065,Yes,No Extranodal Extension,,,0.0,39.0,No,Uninvolved,No,No
+242bdece-75dc-45b9-a9b3-3e1bc305a3e3,TCGA-CR-7373,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+242bdece-75dc-45b9-a9b3-3e1bc305a3e3,TCGA-CR-7373,Yes,,,,1.0,19.0,,Uninvolved,No,
+277b02e9-ded5-4980-845d-af53690000ac,TCGA-CN-4741,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+277b02e9-ded5-4980-845d-af53690000ac,TCGA-CN-4741,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+277b02e9-ded5-4980-845d-af53690000ac,TCGA-CN-4741,Yes,No Extranodal Extension,,,0.0,46.0,No,Uninvolved,Yes,No
+27c28c89-f4e7-4aec-a806-c0da7756e47f,TCGA-CR-7368,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+27c28c89-f4e7-4aec-a806-c0da7756e47f,TCGA-CR-7368,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+27c28c89-f4e7-4aec-a806-c0da7756e47f,TCGA-CR-7368,Yes,,,,1.0,41.0,,Uninvolved,,
+2fbafcc5-896c-4e50-8956-a61540fc89be,TCGA-CV-7235,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+2fbafcc5-896c-4e50-8956-a61540fc89be,TCGA-CV-7235,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+2fbafcc5-896c-4e50-8956-a61540fc89be,TCGA-CV-7235,Yes,,,,,64.0,Yes,Involved,No,Yes
+2fc960bd-01b0-422d-ad33-34520fa3df0e,TCGA-CN-4729,Yes,Microscopic Extension,,,1.0,24.0,Yes,Uninvolved,No,Yes
+2fc960bd-01b0-422d-ad33-34520fa3df0e,TCGA-CN-4729,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+38cfe5af-02e4-4271-8978-8e2566d3dca7,TCGA-CV-7236,Yes,No Extranodal Extension,,,6.0,34.0,Yes,Uninvolved,Yes,Yes
+38cfe5af-02e4-4271-8978-8e2566d3dca7,TCGA-CV-7236,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+38cfe5af-02e4-4271-8978-8e2566d3dca7,TCGA-CV-7236,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+396ccdcb-40eb-4299-8575-b26753054434,TCGA-CN-6995,Yes,No Extranodal Extension,,,0.0,51.0,Yes,Uninvolved,No,Yes
+396ccdcb-40eb-4299-8575-b26753054434,TCGA-CN-6995,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+396ccdcb-40eb-4299-8575-b26753054434,TCGA-CN-6995,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+3c975b68-4a6e-4c97-a8d1-b9a427d4957c,TCGA-CV-5442,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+3c975b68-4a6e-4c97-a8d1-b9a427d4957c,TCGA-CV-5442,Yes,No Extranodal Extension,,,4.0,33.0,,,,
+3c975b68-4a6e-4c97-a8d1-b9a427d4957c,TCGA-CV-5442,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+3e5f451a-5882-4914-ae1a-95c898c2bcca,TCGA-BA-6872,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+3e5f451a-5882-4914-ae1a-95c898c2bcca,TCGA-BA-6872,Yes,,,,6.0,50.0,,Uninvolved,,
+3e5f451a-5882-4914-ae1a-95c898c2bcca,TCGA-BA-6872,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+444e5bfc-d4e5-4b0d-b96d-88ecea8873e9,TCGA-CN-4742,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+444e5bfc-d4e5-4b0d-b96d-88ecea8873e9,TCGA-CN-4742,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+444e5bfc-d4e5-4b0d-b96d-88ecea8873e9,TCGA-CN-4742,Yes,No Extranodal Extension,,,3.0,49.0,Yes,Uninvolved,Yes,Yes
+45c3cd39-1c5d-4e26-8afc-5bed3c230088,TCGA-CR-7372,Yes,,,,0.0,19.0,No,Uninvolved,No,No
+45c3cd39-1c5d-4e26-8afc-5bed3c230088,TCGA-CR-7372,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+467d5c94-1e67-4454-9e9c-9dffaa643032,TCGA-CR-6478,Yes,,,,,,,,,
+47d1fcaf-3c01-43ba-9a21-0870b4ea2976,TCGA-CX-7082,Yes,Gross Extension,,,2.0,15.0,No,Indeterminate,No,No
+47d1fcaf-3c01-43ba-9a21-0870b4ea2976,TCGA-CX-7082,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+4bfbce2b-9d0b-4e8a-950f-fd8e0ba3e05a,TCGA-BA-4077,,,,"Neck, NOS",,,,,,
+4bfbce2b-9d0b-4e8a-950f-fd8e0ba3e05a,TCGA-BA-4077,Yes,,,,,0.0,,Uninvolved,,
+4f5bc340-bdb5-418a-b3c4-96ac85e08b34,TCGA-CV-6934,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+4f5bc340-bdb5-418a-b3c4-96ac85e08b34,TCGA-CV-6934,Yes,,,,3.0,19.0,,Uninvolved,,
+4f5bc340-bdb5-418a-b3c4-96ac85e08b34,TCGA-CV-6934,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+534f85f2-b9eb-45be-87d5-c3dffd13d541,TCGA-CV-7255,Yes,,,,,,No,Uninvolved,Yes,No
+53d9a130-4a3a-4491-85cd-9a44415a1632,TCGA-DQ-5625,Yes,No Extranodal Extension,,,0.0,19.0,No,Uninvolved,No,No
+53d9a130-4a3a-4491-85cd-9a44415a1632,TCGA-DQ-5625,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+55838e1f-07e8-49ca-89d6-46216babc6f7,TCGA-CN-6018,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+55838e1f-07e8-49ca-89d6-46216babc6f7,TCGA-CN-6018,Yes,Microscopic Extension,,,2.0,20.0,No,Uninvolved,Yes,No
+55838e1f-07e8-49ca-89d6-46216babc6f7,TCGA-CN-6018,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+57212fda-fd32-4328-81dc-61f167970f89,TCGA-CV-7099,Yes,No Extranodal Extension,,,,,No,Uninvolved,No,No
+58574e35-8a30-4207-b127-59fff7c87a43,TCGA-BB-4224,,,,"Neck, NOS",,,,,,
+58574e35-8a30-4207-b127-59fff7c87a43,TCGA-BB-4224,Yes,,,,,51.0,,Uninvolved,,
+59398d50-45cf-4812-a24e-0c00c0199971,TCGA-CV-6441,Yes,No Extranodal Extension,,,0.0,44.0,No,Uninvolved,Yes,No
+59398d50-45cf-4812-a24e-0c00c0199971,TCGA-CV-6441,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+59398d50-45cf-4812-a24e-0c00c0199971,TCGA-CV-6441,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+5a976335-2326-46f0-abf1-29b744da1f43,TCGA-CV-7102,Yes,,,,3.0,24.0,Yes,Uninvolved,No,Yes
+5a976335-2326-46f0-abf1-29b744da1f43,TCGA-CV-7102,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+5a976335-2326-46f0-abf1-29b744da1f43,TCGA-CV-7102,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+5da2dbde-735b-4f05-b6d7-76de54d6d6ac,TCGA-CN-4726,Yes,Microscopic Extension,,,6.0,14.0,Yes,Involved,Yes,Yes
+5da2dbde-735b-4f05-b6d7-76de54d6d6ac,TCGA-CN-4726,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+600fc87b-a177-4bf9-9084-457f7e7e102c,TCGA-CV-7411,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+600fc87b-a177-4bf9-9084-457f7e7e102c,TCGA-CV-7411,Yes,,,,0.0,29.0,,Uninvolved,,
+600fc87b-a177-4bf9-9084-457f7e7e102c,TCGA-CV-7411,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+63b50e1c-7948-464f-bff1-8e0e5daafcc5,TCGA-CV-7434,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+63b50e1c-7948-464f-bff1-8e0e5daafcc5,TCGA-CV-7434,Yes,Microscopic Extension,,,1.0,1.0,,Uninvolved,Yes,
+657346f2-4280-4d80-983e-cab8004f184a,TCGA-CQ-5332,Yes,No Extranodal Extension,,,0.0,31.0,No,Uninvolved,No,No
+657346f2-4280-4d80-983e-cab8004f184a,TCGA-CQ-5332,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+657346f2-4280-4d80-983e-cab8004f184a,TCGA-CQ-5332,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+70741b73-9683-42bd-87fc-6a021a70103b,TCGA-BA-5556,Yes,No Extranodal Extension,,,0.0,81.0,No,,No,No
+70741b73-9683-42bd-87fc-6a021a70103b,TCGA-BA-5556,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+70741b73-9683-42bd-87fc-6a021a70103b,TCGA-BA-5556,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+78fcc813-d0a8-44aa-b004-62810dca9d12,TCGA-CV-7238,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+78fcc813-d0a8-44aa-b004-62810dca9d12,TCGA-CV-7238,Yes,,,,,73.0,No,Uninvolved,Yes,No
+7e0575ce-670b-4035-8a90-4d35279707b2,TCGA-BA-5557,Yes,No Extranodal Extension,,,1.0,34.0,No,Uninvolved,No,No
+7e0575ce-670b-4035-8a90-4d35279707b2,TCGA-BA-5557,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+832316ee-08ab-412b-9e4d-8a57ff84bc11,TCGA-CR-7391,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+832316ee-08ab-412b-9e4d-8a57ff84bc11,TCGA-CR-7391,Yes,No Extranodal Extension,,,0.0,10.0,No,Uninvolved,No,No
+8a3fdb52-63ef-48d7-95ff-167829825eb9,TCGA-DQ-7588,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+8a3fdb52-63ef-48d7-95ff-167829825eb9,TCGA-DQ-7588,Yes,No Extranodal Extension,,,1.0,30.0,No,Uninvolved,No,No
+8c238d30-df8e-4e6b-98fc-21696269a294,TCGA-CV-6956,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+8c238d30-df8e-4e6b-98fc-21696269a294,TCGA-CV-6956,Yes,No Extranodal Extension,,,1.0,27.0,Yes,Uninvolved,Yes,Yes
+8ebe8c25-5ef9-42d4-9414-8313227b673f,TCGA-CQ-7068,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+8ebe8c25-5ef9-42d4-9414-8313227b673f,TCGA-CQ-7068,Yes,No Extranodal Extension,,,0.0,32.0,No,Uninvolved,No,No
+8fc1f1be-d2d5-4b3a-9973-f4d964018beb,TCGA-CV-5973,Yes,No Extranodal Extension,,,1.0,58.0,No,Uninvolved,Yes,No
+8fc1f1be-d2d5-4b3a-9973-f4d964018beb,TCGA-CV-5973,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+8fc1f1be-d2d5-4b3a-9973-f4d964018beb,TCGA-CV-5973,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+90a8d2cb-1f31-45f9-8575-eed3cb9a7798,TCGA-CV-7100,Yes,No Extranodal Extension,,,,,No,Involved,No,No
+93b742eb-5fc3-4ce2-b7f6-c89f97e0dcc9,TCGA-CV-7263,Yes,,,,,,No,Involved,No,No
+96415324-6859-41eb-8d07-be4e6f7d9781,TCGA-CV-7416,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+96415324-6859-41eb-8d07-be4e6f7d9781,TCGA-CV-7416,Yes,Gross Extension,,,,,,Uninvolved,No,
+96415324-6859-41eb-8d07-be4e6f7d9781,TCGA-CV-7416,,,Radical Neck Dissection,"Neck, Left",,,,,,
+9a76bd98-1d2b-4d0f-9772-883520ff6210,TCGA-CR-6481,Yes,,,,,,,,,
+9ae5101b-6031-4ab1-bfca-198c41af3184,TCGA-CR-6487,Yes,,,,,,,Uninvolved,,
+9d0f5938-6a01-4c06-8536-dff834f7f2f9,TCGA-CV-7097,Yes,No Extranodal Extension,,,,,No,Indeterminate,Yes,No
+9f89510c-ed07-471f-b35e-7c87c237b9fe,TCGA-CR-7385,Yes,,,,,,Yes,Uninvolved,No,Yes
+9ffa79fa-d2d8-48e1-8fd6-4b020ecf357c,TCGA-CQ-5330,Yes,Microscopic Extension,,,3.0,44.0,No,Uninvolved,Yes,No
+9ffa79fa-d2d8-48e1-8fd6-4b020ecf357c,TCGA-CQ-5330,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+a63ca97d-ef31-4118-9547-a6730967290f,TCGA-BA-4074,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+a63ca97d-ef31-4118-9547-a6730967290f,TCGA-BA-4074,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+a63ca97d-ef31-4118-9547-a6730967290f,TCGA-BA-4074,Yes,Gross Extension,,,5.0,47.0,,Involved,,
+ad6c9d09-2c03-4786-a72d-dd2aa5f603d4,TCGA-CX-7086,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+ad6c9d09-2c03-4786-a72d-dd2aa5f603d4,TCGA-CX-7086,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+ad6c9d09-2c03-4786-a72d-dd2aa5f603d4,TCGA-CX-7086,Yes,,,,1.0,64.0,Yes,Uninvolved,No,Yes
+b3342767-62bc-407f-8a83-5be50e3bdc3e,TCGA-CV-7413,Yes,No Extranodal Extension,,,,,No,Uninvolved,No,No
+b3631718-9e0a-454c-bee1-8f36ebc509d8,TCGA-BA-5153,Yes,,,,,0.0,,Involved,No,
+b3bed685-e9db-436b-9938-2b8a0a0d5b83,TCGA-CR-7376,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+b3bed685-e9db-436b-9938-2b8a0a0d5b83,TCGA-CR-7376,Yes,No Extranodal Extension,,,1.0,22.0,Yes,Involved,No,Yes
+b43b8aed-d166-4f00-8144-24ad3fe314ed,TCGA-CR-6493,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+b43b8aed-d166-4f00-8144-24ad3fe314ed,TCGA-CR-6493,Yes,No Extranodal Extension,,,2.0,16.0,No,Uninvolved,Yes,No
+b4a41682-4aca-4f1d-bacd-66f5e6ec7466,TCGA-DQ-5624,Yes,Microscopic Extension,,,1.0,24.0,No,Uninvolved,Yes,No
+b4a41682-4aca-4f1d-bacd-66f5e6ec7466,TCGA-DQ-5624,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+b74519ff-b338-45e9-9307-008223726dac,TCGA-CR-6477,Yes,,,,,,,,,
+bf6b931e-cb2e-4cc0-b603-e9fc71fdc509,TCGA-BA-6873,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+bf6b931e-cb2e-4cc0-b603-e9fc71fdc509,TCGA-BA-6873,Yes,Gross Extension,,,3.0,48.0,Yes,Indeterminate,Yes,Yes
+bfaa4b3f-3e38-478e-99b3-013f2cda80f5,TCGA-CN-5359,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+bfaa4b3f-3e38-478e-99b3-013f2cda80f5,TCGA-CN-5359,Yes,No Extranodal Extension,,,3.0,29.0,No,Uninvolved,Yes,No
+bfaa4b3f-3e38-478e-99b3-013f2cda80f5,TCGA-CN-5359,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+c1f50a22-38df-41cc-a1f4-f7985504a7ac,TCGA-BB-4225,Yes,,,,,,,,,
+cac30b32-03ef-4ecb-88d8-d5577ab6b2a6,TCGA-BB-4228,Yes,,,,,,,Uninvolved,,
+d296cdb5-a0f6-40cc-8ce7-73e4ccd176f3,TCGA-CR-7394,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+d296cdb5-a0f6-40cc-8ce7-73e4ccd176f3,TCGA-CR-7394,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+d296cdb5-a0f6-40cc-8ce7-73e4ccd176f3,TCGA-CR-7394,Yes,,,,0.0,57.0,,Uninvolved,Yes,
+d5eedfb5-4fa3-4a1e-ad0d-ea550b22a5ba,TCGA-CV-6433,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+d5eedfb5-4fa3-4a1e-ad0d-ea550b22a5ba,TCGA-CV-6433,Yes,No Extranodal Extension,,,0.0,5.0,No,Uninvolved,No,No
+dbf4e04d-095e-4554-a48c-fe7cb711ac42,TCGA-CQ-5331,Yes,No Extranodal Extension,,,,,No,Uninvolved,No,No
+de206681-3e27-4d4f-8669-aefb12b5b1e3,TCGA-CV-7183,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+de206681-3e27-4d4f-8669-aefb12b5b1e3,TCGA-CV-7183,Yes,No Extranodal Extension,,,0.0,36.0,,Uninvolved,,
+dea53b7f-3e7d-41a3-ae2d-58548fe0b595,TCGA-CR-7379,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+dea53b7f-3e7d-41a3-ae2d-58548fe0b595,TCGA-CR-7379,Yes,,,,2.0,33.0,No,Uninvolved,Yes,No
+e2e64c5d-44ba-42f0-ab9d-ec16b21d2545,TCGA-CR-7401,Yes,No Extranodal Extension,,,0.0,27.0,No,Uninvolved,No,No
+e2e64c5d-44ba-42f0-ab9d-ec16b21d2545,TCGA-CR-7401,,,Modified Radical Neck Dissection,"Neck, Right",,,,,,
+e37c83dc-c2c4-4e5f-a57b-39ffcf9aa3cf,TCGA-CN-4740,Yes,No Extranodal Extension,,,0.0,26.0,No,Uninvolved,No,No
+e37c83dc-c2c4-4e5f-a57b-39ffcf9aa3cf,TCGA-CN-4740,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+e4733700-ff23-43ff-bfa0-e679ce9352c9,TCGA-D6-6516,Yes,,,,0.0,8.0,No,Indeterminate,,No
+e4733700-ff23-43ff-bfa0-e679ce9352c9,TCGA-D6-6516,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+eb611a76-eecf-452c-bfbe-ab49b362f49c,TCGA-BA-7269,Yes,No Extranodal Extension,,,1.0,17.0,No,Uninvolved,Yes,No
+eb611a76-eecf-452c-bfbe-ab49b362f49c,TCGA-BA-7269,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+eeae67ac-c9e0-468d-aad6-052501f7b982,TCGA-H7-7774,Yes,No Extranodal Extension,,,0.0,21.0,No,,No,No
+ef3ce0e5-d2e8-4616-8b1a-a78c591cf235,TCGA-CV-6959,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+ef3ce0e5-d2e8-4616-8b1a-a78c591cf235,TCGA-CV-6959,Yes,No Extranodal Extension,,,0.0,28.0,No,Uninvolved,No,No
+f458d21d-1854-4baf-9eb1-79c29b663804,TCGA-CR-6488,,,Modified Radical Neck Dissection,"Neck, Left",,,,,,
+f458d21d-1854-4baf-9eb1-79c29b663804,TCGA-CR-6488,Yes,,,,0.0,22.0,No,Uninvolved,Yes,No
+fbdab01c-191c-4aef-9451-ca3afec55fa1,TCGA-D6-6823,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+fbdab01c-191c-4aef-9451-ca3afec55fa1,TCGA-D6-6823,Yes,No Extranodal Extension,,,0.0,6.0,,Indeterminate,,
+fcf0dc48-b889-4593-a15b-aa715aae7bf5,TCGA-CV-6948,Yes,,,,30.0,44.0,,Uninvolved,,
+fcf0dc48-b889-4593-a15b-aa715aae7bf5,TCGA-CV-6948,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,
+fcf0dc48-b889-4593-a15b-aa715aae7bf5,TCGA-CV-6948,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+ffcf851d-7fa1-4b45-911a-a3fbd74c253a,TCGA-CN-6016,Yes,Microscopic Extension,,,1.0,75.0,Yes,Uninvolved,Yes,Yes
+ffcf851d-7fa1-4b45-911a-a3fbd74c253a,TCGA-CN-6016,,,Functional (Limited) Neck Dissection,"Neck, Right",,,,,,
+ffcf851d-7fa1-4b45-911a-a3fbd74c253a,TCGA-CN-6016,,,Functional (Limited) Neck Dissection,"Neck, Left",,,,,,

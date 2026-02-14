@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="pictures/favicon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume | Ibrahim Hussain</title>
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/resume.css" />
+  </head>
+
+  <body data-page="resume">
+    <!-- Static Navbar -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="brand" href="index.html">Ibrahim Hussain</a>
+
+          <div class="nav-links" id="navLinks">
+            <a href="index.html" data-page="index">Home</a>
+            <a href="projects.html" data-page="projects">Projects</a>
+            <a href="resume.html" data-page="resume">Resume</a>
+            <a href="contact.html" data-page="contact">Contact</a>
+          </div>
+
+          <div class="nav-ctrl">
+            <button class="icon-btn" id="themeBtn" type="button"
+              aria-label="Toggle theme" title="Toggle theme">
+              <span id="themeIcon" aria-hidden="true">☀️</span>
+              <!-- make this into icon instead of emoji -->
+            </button>
+
+            <button class="icon-btn nav-toggle" id="navToggle" type="button"
+              aria-label="Open menu" aria-expanded="false">
+              <span aria-hidden="true">☰</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="container">
+        <div class="resume-head card">
+          <div class="left">
+            <h1>Resume</h1>
+            <p class="muted">
+              Download my resume or view it directly below.
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="assets/Ibrahim_Resume.pdf"
+                target="_blank" rel="noopener noreferrer">
+                Open PDF
+              </a>
+              <a class="btn" href="assets/Ibrahim_Resume.pdf" download>
+                Download
+              </a>
+            </div>
+
+            <div class="meta">
+              <span class="pill">Quantitative Modelling</span>
+              <span class="pill">AI Systems</span>
+              <span class="pill">Data Engineering</span>
+              <span class="pill">Full-Stack Engineering</span>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="mini card">
+              <h3>Quick links</h3>
+              <a class="mini-link" href="projects.html">Projects →</a>
+              <a class="mini-link" href="contact.html">Contact →</a>
+              <a class="mini-link" href="https://github.com/ib-hussain"
+                target="_blank" rel="noopener noreferrer">GitHub →</a>
+              <a class="mini-link"
+                href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
+                target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="viewer card">
+          <!-- <div class="viewer-top"> -->
+            <!-- <h2>Preview</h2>
+            <p class="muted">If preview doesn’t load (mobile/some browsers), use
+              “Open PDF”.</p> -->
+          <!-- </div> -->
+
+          <div class="pdf-wrap">
+            <iframe
+              class="pdf"
+              src="assets/Ibrahim's Resume.pdf"
+              title="Ibrahim Hussain Resume PDF"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Static Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-left">
+            <h3>About</h3>
+            <p>
+              Quantitative Data Science student focused on statistical modelling
+              of complex systems, high-dimensional analytics,
+              and production-ready AI pipelines for decision-making under
+              uncertainty.
+            </p>
+            <p>
+              Target domains: Quant Finance • Healthcare AI • Marketing
+              Analytics • Risk Prediction.
+            </p>
+          </div>
+
+          <div class="footer-right">
+            <h3>Links</h3>
+            <ul class="footer-links">
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="https://github.com/ib-hussain" target="_blank"
+                  rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
+                  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="credits">
+          Developed by <a href="https://github.com/ib-hussain" target="_blank"
+            rel="noopener noreferrer">ib-hussain</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/layout.js"></script>
+  </body>
+</html>

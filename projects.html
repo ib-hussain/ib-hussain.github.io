@@ -4,276 +4,135 @@
     <link rel="icon" type="image/png" href="pictures/favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Projects</title>
+    <title>Projects | Ibrahim Hussain</title>
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/projects.css" />
   </head>
-  <body>
+
+  <body data-page="projects">
+    <!-- Static Navbar (no runtime fetch) -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="brand" href="index.html">Ibrahim Hussain</a>
+
+          <div class="nav-links" id="navLinks">
+            <a href="index.html" data-page="index">Home</a>
+            <a href="projects.html" data-page="projects">Projects</a>
+            <a href="resume.html" data-page="resume">Resume</a>
+            <a href="contact.html" data-page="contact">Contact</a>
+          </div>
+
+          <div class="nav-ctrl">
+            <button class="icon-btn" id="themeBtn" type="button"
+              aria-label="Toggle theme" title="Toggle theme">
+              <span id="themeIcon" aria-hidden="true">☀️</span>
+              <!-- make this into icon instead of emoji -->
+              <!-- Add icon here instead of enoji of sun and moon -->
+            </button>
+
+            <button class="icon-btn nav-toggle" id="navToggle" type="button"
+              aria-label="Open menu" aria-expanded="false">
+              <span aria-hidden="true">☰</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="container">
+        <div class="proj-head card" id="featured">
+          <div class="proj-title">
+            <h1>Projects</h1>
+            <p class="muted">Search and filter by domain. Click any card for
+              details.</p>
+          </div>
+
+          <div class="proj-controls">
+            <input class="input" id="searchInput" type="text"
+              placeholder="Search (e.g., health, ARIMA, Flask, vision, SQL)..." />
+              <!-- remove search bar, just keep he categorisation -->
+            <div class="filters" id="filterRow"></div>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid" role="region"
+          aria-label="Projects list"></div>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal" id="projectModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close="true"></div>
+        <div class="modal-panel card" role="dialog" aria-modal="true"
+          aria-label="Project details">
+          <button class="icon-btn modal-close" type="button" aria-label="Close"
+            data-close="true">✕</button>
+
+          <div class="modal-body">
+            <img id="modalImg" class="modal-img" alt />
+            <div class="modal-content">
+              <h2 id="modalTitle"></h2>
+              <p id="modalSubtitle" class="muted"></p>
+              <p id="modalDesc" class="modal-desc"></p>
+
+              <div class="tag-wrap" id="modalTags"></div>
+
+              <div class="modal-links">
+                <a id="modalLive" class="btn primary" href="#" target="_blank"
+                  rel="noopener noreferrer">Live</a>
+                <a id="modalRepo" class="btn" href="#" target="_blank"
+                  rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Static Footer (no runtime fetch) -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-left">
+            <h3>About</h3>
+            <p>
+              Quantitative Data Science student focused on statistical modelling
+              of complex systems, high-dimensional analytics,
+              and production-ready AI pipelines for decision-making under
+              uncertainty.
+            </p>
+            <p>
+              Target domains: Quant Finance • Healthcare AI • Marketing
+              Analytics • Risk Prediction.
+            </p>
+          </div>
+
+          <div class="footer-right">
+            <h3>Links</h3>
+            <ul class="footer-links">
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="https://github.com/ib-hussain" target="_blank"
+                  rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://linkedin.com/in/ibrahim-hussain-1084ba255"
+                  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="credits">
+          Developed by <a href="https://github.com/ib-hussain" target="_blank"
+            rel="noopener noreferrer">ib-hussain</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
     <script src="js/layout.js"></script>
-    <link rel="html" href="navbar.html" />
-    <h1
-      style="align-items: center; justify-content: center; text-align:center; color: black; margin-top: 7%;">My
-      Projects</h1>
-
-    <section class="grid">
-      <a class="proj" onclick="openPopup('popup1')">
-        <img src="pictures/lessSharp.png" alt="Cinemago" class="imagee" />
-        <span class="Project-name">Cinemago</span>
-      </a>
-      <a class="proj" onclick="openPopup('popup7')">
-        <img src="pictures/virtualhealth.png" alt="Multi-Agentic Health Assistant" class="imagee" />
-        <span class="Project-name">Multi-Agentic Health Assistant</span>
-      </a>
-      
-      <a class="proj" onclick="openPopup('popup6')">
-        <img src="pictures/movie-genre-detection-model.png"
-          alt="Movie Genre Detection" class="imagee" />
-        <span class="Project-name">Movie Genre Detection</span>
-      </a>
-      <a class="proj" onclick="openPopup('popup3')">
-        <img src="pictures/network_emulaotr.jpg" alt="Network Emulator"
-          class="imagee" />
-        <span class="Project-name">Network Emulator</span>
-      </a>
-      <a class="proj" onclick="openPopup('popup2')">
-        <img src="pictures/python.jpg" alt="Python Projects" class="imagee" />
-        <span class="Project-name">Python Projects</span>
-      </a>
-
-      <a class="proj" onclick="openPopup('popup4')">
-        <img src="pictures/gameboy.jpeg" alt="Gameboy 1984" class="imagee" />
-        <span class="Project-name">Gameboy 1984</span>
-      </a>
-      <a class="proj" onclick="openPopup('popup5')">
-        <img src="pictures/game-of-life.gif" alt="Game of Life"
-          class="imagee" />
-        <span class="Project-name">Game of Life</span>
-      </a>
-    </section>
-    <div class="popup-overlay" id="popup6">
-      <div class="popup-content">
-        <div class="info">
-          <img src="pictures/movie-genre-detection-model.png" loading="lazy"
-            alt="Movie Genre Detection Model" class="poster" />
-          <div class="details">
-            <h1 class="title">Movie Genre Detection Model</h1>
-            <p class="subinfo">Machine Learning Classification System</p>
-            <p class="description">A machine learning model that predicts movie
-              genres based on trailers.
-              The system uses NLP techniques to analyze text data and classify
-              movies into multiple genres with probability scores for each
-              category.
-              <br>
-              Key Features:
-              <br>
-              • Handles multi-label classification<br>
-              • Includes model evaluation metrics (precision, recall, F1-score)
-            </p>
-            <div class="links">Github Repository: <br>
-              <a class="hehe external-link"
-                href="https://github.com/ib-hussain/Movie-Genre-Detection-Model"
-                target="_blank" rel="noopener noreferrer"
-                onclick="event.stopPropagation()">
-                https://github.com/ib-hussain/Movie-Genre-Detection-Model
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="popup-button">
-          <button onclick="closePopup('popup6')" class="closer">Close</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="popup-overlay" id="popup1">
-      <div class="popup-content">
-        <div class="info">
-          <img src="pictures/lessSharp.png" loading="lazy" alt="Cinemago"
-            class="poster" />
-          <div class="details">
-            <h1 class="title">Cinemago</h1>
-            <p class="subinfo">Movie recommendation site.</p>
-            <p class="description">Cinemago is a movie discovery and rating
-              platform built using Flask. Users can browse, rate, and suggest
-              movies. Admins can add new content via web scraping, and user
-              preferences are stored in a lightweight SQLite database.</p>
-
-            <div class="links">Live Link: <br>
-              <a class="hehe" href="https://cinemago-2u2f.onrender.com"
-                target="_blank" style="font-weight: normal;">
-                https://cinemago-2u2f.onrender.com
-              </a>
-            </div>
-
-            <div class="links">Github Repository: <br>
-              <a class="hehe" href="https://github.com/ib-hussain/Cinemago"
-                target="_blank">
-                https://github.com/ib-hussain/Cinemago
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="popup-button">
-          <button onclick="closePopup('popup1')" class="closer">Close</button>
-        </div>
-      </div>
-    </div>
-    <div class="popup-overlay" id="popup7">
-      <div class="popup-content">
-        <div class="info">
-          <img src="pictures/virtualhealth.png" loading="lazy" alt="Multi-Agentic Health Assistant"
-            class="poster" />
-          <div class="details">
-            <h1 class="title">Multi-Agentic Health Assistant</h1>
-            <p class="subinfo">Virtual Health Assistant</p>
-            <p class="description">Agentic-AI powered wellness platform with multiple specialized agents
-               for mental health support, diet tracking with vision analysis, 
-               and personalized exercise planning. Built with DeepSeek, LLaMA, Google models. Used LangChain, LangGraph, Streamlit & Flask.</p>
-
-            <div class="links">Live Link: <br>
-              <a class="hehe" href="https://multi-agentic-health-assistant.onrender.com"
-                target="_blank" style="font-weight: normal;">
-                https://multi-agentic-health-assistant.onrender.com
-              </a>
-            </div>
-
-            <div class="links">Github Repository: <br>
-              <a class="hehe" href="https://github.com/ib-hussain/Multi-Agentic_Health_Assistant"
-                target="_blank">
-                https://github.com/ib-hussain/Multi-Agentic_Health_Assistant
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="popup-button">
-          <button onclick="closePopup('popup7')" class="closer">Close</button>
-        </div>
-      </div>
-    </div>
-    <div class="popup-overlay" id="popup2">
-      <div class="popup-content">
-        <div class="info">
-          <img src="pictures/python.jpg" loading="lazy" alt="Python Projects"
-            class="poster" />
-          <div class="details">
-            <h1 class="title">Python Projects</h1>
-            <p class="subinfo">Collection of Python-based projects.</p>
-            <p class="description">Projects focusing on data cleaning, natural
-              language processing (NLP), statistical analysis, and basic machine
-              learning.<br>
-              These projects reflect my applied learning.</p>
-
-            <div class="links">Github Repository: <br>
-              <a class="hehe external-link"
-                href="https://github.com/ib-hussain/Projects.py"
-                target="_blank" rel="noopener noreferrer"
-                onclick="event.stopPropagation()">
-                https://github.com/ib-hussain/Projects.py
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="popup-button">
-          <button onclick="closePopup('popup2')" class="closer">Close</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="popup-overlay" id="popup3">
-      <div class="popup-content">
-        <div class="info">
-          <img src="pictures/network_emulaotr.jpg" loading="lazy"
-            alt="Network Emulator" class="poster" />
-          <div class="details">
-            <h1 class="title">Network Emulator</h1>
-            <p class="subinfo">The Network Emulator simulates a computer
-              network.</p>
-            <p class="description">The computer network consisting of routers
-              and end machines (e.g., computers).<br>
-              Messages are sent from one device to another
-              using destination addresses and follow a routing path across
-              multiple routers. This project aims to simulate routing, queuing,
-              and message handling in a simplified network.</p>
-
-            <div class="links">Github Repository: <br>
-              <a class="hehe external-link"
-                href="https://github.com/ib-hussain/Network-Emulator"
-                target="_blank" rel="noopener noreferrer"
-                onclick="event.stopPropagation()">
-                https://github.com/ib-hussain/Network-Emulator
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="popup-button">
-          <button onclick="closePopup('popup3')" class="closer">Close</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="popup-overlay" id="popup4">
-      <div class="popup-content">
-        <div class="info">
-          <img src="pictures/gameboy.jpeg" loading="lazy" alt="Gameboy 1984"
-            class="poster" />
-          <div class="details">
-            <h1 class="title">Gameboy 1984</h1>
-            <p class="subinfo">C++ based Gameboy.</p>
-            <p class="description">A lightweight C++ collection of classic
-              games(Snake, Wordle, Hangman), built with simplicity, logic, and
-              fun in mind, it is modeled on the GameBoy made by Nintendo in
-              1989.</p>
-
-            <div class="links">Github Repository: <br>
-              <a class="hehe external-link"
-                href="https://github.com/ib-hussain/GameBoy"
-                target="_blank" rel="noopener noreferrer"
-                onclick="event.stopPropagation()">
-                https://github.com/ib-hussain/GameBoy
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="popup-button">
-          <button onclick="closePopup('popup4')" class="closer">Close</button>
-        </div>
-      </div>
-    </div>
-    
-    <div class="popup-overlay" id="popup5">
-      <div class="popup-content">
-        <div class="info">
-          <img src="pictures/game-of-life.gif" loading="lazy" alt="Game of Life"
-            class="poster" />
-          <div class="details">
-            <h1 class="title">Conway's Game of Life</h1>
-            <p class="subinfo">Cellular automaton simulation</p>
-            <p class="description">An implementation of John Conway's Game of
-              Life, a zero-player game that simulates cellular evolution based
-              on simple rules. The simulation runs on a 2D grid where each cell
-              can be alive or dead, evolving through generations. Features
-              include adjustable grid size, speed control, and pattern
-              saving/loading.
-            </p>
-            <div class="links">Github Repository: <br>
-              <a class="hehe external-link"
-                href="https://github.com/ib-hussain/Game-Of-Life"
-                target="_blank" rel="noopener noreferrer"
-                onclick="event.stopPropagation()">
-                https://github.com/ib-hussain/Game-Of-Life
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="popup-button">
-          <button onclick="closePopup('popup5')" class="closer">Close</button>
-        </div>
-      </div>
-    </div>
-
-    <h2
-      style="align-items: center; justify-content: center; text-align:center; color: black; margin-top: 7%;">More
-      projects coming soon!</h2>
-    <link rel="html" href="footer.html" />
+    <script src="js/projects-data.js"></script>
     <script src="js/projects.js"></script>
   </body>
 </html>

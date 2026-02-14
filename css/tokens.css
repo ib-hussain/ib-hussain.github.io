@@ -1,0 +1,75 @@
+/* ===== Your palette (canonical) ===== */
+:root{
+  --theGreenColor: #09855b;
+  --TextColor: #171a1f;
+  --Pink: #F2E0E7;
+  --DarkBlue: #5C8BC0;
+  --LightBlue: #e0edfc;
+  --boxBackground: #afe4f163;
+  --Shadow: rgba(0,0,0,0.15);
+  --clickAbleLink: #ff2c2c; /* you said you'll refine later */
+  --ratingYellow: #FF9100;
+  --statCardBG:#7f6d8d0a;
+  --statCardBorder: #dfdcbc;
+}
+
+/* ===== Theme variables (mapped) ===== */
+:root{
+  --radius-xl: 22px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+
+  --maxW: 1120px;
+  --pad: 20px;
+
+  --font: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* motion */
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --shadow-1: 0 10px 30px var(--Shadow);
+  --shadow-2: 0 18px 60px rgba(0,0,0,0.18);
+
+  /* default theme = light */
+  --bg: #fbfcfe;
+  --surface: rgba(255,255,255,0.72);
+  --surface-2: rgba(255,255,255,0.92);
+  --card: rgba(255,255,255,0.86);
+  --text: var(--TextColor);
+  --muted: rgba(23,26,31,0.72);
+  --line: rgba(23,26,31,0.10);
+
+  --brand: var(--theGreenColor);
+  --accent: var(--DarkBlue);
+  --soft: var(--LightBlue);
+  --soft-2: var(--Pink);
+  --warn: var(--ratingYellow);
+  --danger: var(--clickAbleLink);
+
+  --chip: rgba(9,133,91,0.10);
+  --chipLine: rgba(9,133,91,0.22);
+  --focus: rgba(9,133,91,0.25);
+
+  /* background decoration */
+  --bgGlow1: rgba(92,139,192,0.22);
+  --bgGlow2: rgba(9,133,91,0.16);
+  --bgGlow3: rgba(242,224,231,0.35);
+}
+
+/* ===== Dark theme overrides ===== */
+:root[data-theme="dark"]{
+  --bg: #0b1013;
+  --surface: rgba(16,22,26,0.60);
+  --surface-2: rgba(16,22,26,0.88);
+  --card: rgba(16,22,26,0.84);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+  --line: rgba(255,255,255,0.12);
+
+  --chip: rgba(224,237,252,0.08);
+  --chipLine: rgba(224,237,252,0.14);
+  --focus: rgba(224,237,252,0.18);
+
+  --bgGlow1: rgba(92,139,192,0.18);
+  --bgGlow2: rgba(9,133,91,0.20);
+  --bgGlow3: rgba(242,224,231,0.10);
+}
