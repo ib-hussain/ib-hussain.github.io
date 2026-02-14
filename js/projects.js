@@ -1,4 +1,4 @@
-// js/projects.js - Enhanced Project Display System (Horizontal Cards)
+// js/projects.js - Project Cards + Modal (2-per-row layout, no subtitle on cards)
 
 // Use static project data from projects-data.js
 const projects = window.PROJECTS || [];
@@ -23,29 +23,26 @@ let activeFilter = 'all';
  */
 function renderFilters() {
   filterRow.innerHTML = '';
-  
+
   filters.forEach(f => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'filter-pill' + (f.key === activeFilter ? ' active' : '');
     button.textContent = f.label;
     button.setAttribute('aria-pressed', f.key === activeFilter);
-    
+
     button.addEventListener('click', () => {
       activeFilter = f.key;
       renderFilters();
       renderProjects();
-      
+
       // Update URL without page reload
       const url = new URL(window.location);
-      if (f.key === 'all') {
-        url.searchParams.delete('filter');
-      } else {
-        url.searchParams.set('filter', f.key);
-      }
+      if (f.key === 'all') url.searchParams.delete('filter');
+      else url.searchParams.set('filter', f.key);
       window.history.replaceState({}, '', url);
     });
-    
+
     filterRow.appendChild(button);
   });
 }
@@ -54,21 +51,21 @@ function renderFilters() {
  * Check if project matches current filter
  */
 function matches(project) {
-  const matchesFilter = activeFilter === 'all' || 
-                       project.domain === activeFilter || 
-                       project.tags.includes(activeFilter);
-  
-  return matchesFilter;
+  return (
+    activeFilter === 'all' ||
+    project.domain === activeFilter ||
+    (Array.isArray(project.tags) && project.tags.includes(activeFilter))
+  );
 }
 
 /**
- * Render project cards - Horizontal Layout
+ * Render project cards
  */
 function renderProjects() {
   grid.innerHTML = '';
-  
+
   const filteredProjects = projects.filter(matches);
-  
+
   // Empty state
   if (filteredProjects.length === 0) {
     const empty = document.createElement('div');
@@ -82,8 +79,7 @@ function renderProjects() {
     grid.appendChild(empty);
     return;
   }
-  
-  // Render project cards - HORIZONTAL LAYOUT like watchlist reference
+
   filteredProjects.forEach((project, index) => {
     const card = document.createElement('article');
     card.className = 'project-card card';
@@ -91,77 +87,81 @@ function renderProjects() {
     card.setAttribute('role', 'button');
     card.setAttribute('aria-label', `View details for ${project.title}`);
     card.style.animationDelay = `${index * 50}ms`;
-    
-    // Create the horizontal card structure - SIMPLIFIED
+
+    const safeTags = Array.isArray(project.tags) ? project.tags : [];
+
+    // NOTE: subtitle intentionally removed from card markup
     card.innerHTML = `
-      <img class="thumb" src="${project.image}" alt="${project.title}" loading="lazy" 
+      <img class="thumb" src="${project.image}" alt="${project.title}" loading="lazy"
            onerror="this.src='pictures/favicon.png'" />
       <div>
         <div class="pname">${project.title}</div>
-        <p class="pmeta">${project.subtitle}</p>
         <div class="card-tags">
-          ${project.tags.slice(0, 3).map(tag => `<span>${tag}</span>`).join('')}
-          ${project.tags.length > 3 ? `<span>+${project.tags.length - 3}</span>` : ''}
+          ${safeTags.slice(0, 4).map(tag => considerTag(tag)).join('')}
+          ${safeTags.length > 4 ? `<span>+${safeTags.length - 4}</span>` : ''}
         </div>
       </div>
     `;
-    
-    // Click handler
+
     card.addEventListener('click', () => openModal(project));
-    
-    // Keyboard handler
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         openModal(project);
       }
     });
-    
+
     grid.appendChild(card);
   });
-  
-  // Announce count to screen readers
+
   const announcement = `Showing ${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''}`;
   grid.setAttribute('aria-label', announcement);
+}
+
+function considerTag(tag) {
+  // simple guard: stringify + basic escape via textContent trick
+  const span = document.createElement('span');
+  span.textContent = String(tag);
+  return span.outerHTML;
 }
 
 /**
  * Open project detail modal
  */
 function openModal(project) {
-  // Update modal content
   document.getElementById('modalImg').src = project.image;
   document.getElementById('modalImg').alt = project.title;
   document.getElementById('modalTitle').textContent = project.title;
-  document.getElementById('modalSubtitle').textContent = project.subtitle;
-  document.getElementById('modalDesc').textContent = project.description;
-  
-  // Render tags
+  document.getElementById('modalSubtitle').textContent = project.subtitle || '';
+  document.getElementById('modalDesc').textContent = project.description || '';
+
   const tagsContainer = document.getElementById('modalTags');
-  tagsContainer.innerHTML = project.tags.map(tag => `<span>${tag}</span>`).join('');
-  
-  // Update links
+  const safeTags = Array.isArray(project.tags) ? project.tags : [];
+  tagsContainer.innerHTML = safeTags.map(tag => `<span>${tag}</span>`).join('');
+
   const liveBtn = document.getElementById('modalLive');
   const repoBtn = document.getElementById('modalRepo');
-  
+
   if (project.live && project.live.trim() !== '') {
     liveBtn.href = project.live;
     liveBtn.style.display = 'inline-flex';
   } else {
     liveBtn.style.display = 'none';
   }
-  
-  repoBtn.href = project.repo;
-  
+
+  repoBtn.href = project.repo || '#';
+
   // Update URL hash
   window.location.hash = project.id;
-  
+
   // Show modal
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
+
+  // Prevent background scroll
   document.body.style.overflow = 'hidden';
-  
-  // Focus management
+
+  // Focus close button
   setTimeout(() => {
     const closeBtn = modal.querySelector('.modal-close');
     if (closeBtn) closeBtn.focus();
@@ -175,29 +175,23 @@ function closeModal() {
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  
-  // Clear hash without scrolling
-  history.replaceState(null, null, ' ');
-  
-  // Return focus to trigger element
-  const activeCard = document.activeElement;
-  if (activeCard && activeCard.classList.contains('project-card')) {
-    activeCard.focus();
-  }
+
+  // Remove hash safely (keep path + query)
+  const url = new URL(window.location.href);
+  url.hash = '';
+  window.history.replaceState({}, '', url);
 }
 
 /**
  * Setup modal close handlers
  */
 function setupModalHandlers() {
-  // Click on backdrop or close button
   modal.addEventListener('click', (e) => {
-    if (e.target.dataset.close === 'true') {
+    if (e.target && e.target.dataset && e.target.dataset.close === 'true') {
       closeModal();
     }
   });
-  
-  // Escape key
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
       closeModal();
@@ -210,20 +204,16 @@ function setupModalHandlers() {
  */
 function initFromURL() {
   const params = new URLSearchParams(window.location.search);
-  
-  // Set filter from URL
+
   const filterParam = params.get('filter');
   if (filterParam && filters.some(f => f.key === filterParam)) {
     activeFilter = filterParam;
   }
-  
-  // Open modal from hash
+
   const hash = window.location.hash.slice(1);
   if (hash) {
     const project = projects.find(p => p.id === hash);
-    if (project) {
-      setTimeout(() => openModal(project), 200);
-    }
+    if (project) setTimeout(() => openModal(project), 200);
   }
 }
 
@@ -237,7 +227,6 @@ function init() {
   setupModalHandlers();
 }
 
-// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {

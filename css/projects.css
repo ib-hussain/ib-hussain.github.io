@@ -1,15 +1,9 @@
-/* projects.css - Fixed with Horizontal Cards Like Reference Image */
+/* projects.css - 2-per-row grid + cleaner cards + poster-style image frame */
 
 /* Fade-in animation */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Project Header */
@@ -38,9 +32,7 @@
 }
 
 /* Filter Controls */
-.proj-controls {
-  margin-top: var(--space-2xl);
-}
+.proj-controls { margin-top: var(--space-2xl); }
 
 .filters {
   display: flex;
@@ -83,26 +75,30 @@
   border-color: var(--primary-dark);
 }
 
-/* ===== FIXED: Projects Grid - 2 Cards Per Row, EQUAL DIMENSIONS ===== */
+/* =========================================================
+   FIX: Projects Grid = ALWAYS 2 per row (except mobile)
+   ========================================================= */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
   margin-top: var(--space-2xl);
-  max-width: 1200px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ===== FIXED: Project Card - SQUARE ASPECT RATIO ===== */
+/* =========================================================
+   Project Card
+   ========================================================= */
 .project-card {
   cursor: pointer;
-  padding: 24px;
+  padding: 22px;
   background: var(--card-bg);
   backdrop-filter: blur(12px);
   border: 1px solid var(--card-border);
   border-radius: 24px;
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,12 +107,10 @@
   position: relative;
   animation: fadeInUp 0.6s ease both;
   overflow: hidden;
-  aspect-ratio: 1.5 / 1;
-  justify-content: center;
 }
 
 .project-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.025);
   border-color: var(--primary-light);
   box-shadow: 0 12px 25px var(--Shadow);
 }
@@ -126,67 +120,72 @@
   outline-offset: 2px;
 }
 
-/* ===== FIXED: Thumbnail - Larger, Centered ===== */
+/* Thumbnail Frame: make image touch border in at least one direction */
 .thumb {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  background: #fff;
-  border-radius: 16px;
-  border: none;
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 340px;
+  height: 190px;
+
+  object-fit: contain;      /* keeps aspect ratio, no distortion */
+  object-position: center;
+
+  padding: 0;               /* IMPORTANT: removes inner gap */
+  background: transparent;  /* no “inner canvas” */
+
+  border-radius: 18px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+
+  display: block;
   transition: transform 0.25s ease;
 }
 
-:root[data-theme="dark"] .thumb {
-  background: #fff;
-}
-
 .project-card:hover .thumb {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
-/* ===== FIXED: Card Content - Centered ===== */
+
+:root[data-theme="dark"] .thumb { background: #ffffff; }
+
+
+/* Card Content */
 .project-card > div {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   width: 100%;
 }
 
 .pname {
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 800;
+  font-size: 20px;
   margin: 0;
   color: var(--text-primary);
   font-family: var(--font-display);
-  line-height: 1.2;
+  line-height: 1.15;
+  max-width: 520px;
 }
 
+/* Subtitle exists for modal, but we will NOT render it in cards via JS */
 .pmeta {
-  color: var(--text-tertiary);
-  font-size: 12px;
-  margin: 0 0 8px 0;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  display: none;
 }
 
-/* Tags - Centered */
+/* Tags */
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   justify-content: center;
 }
 
 .card-tags span {
-  padding: 6px 12px;
+  padding: 7px 12px;
   border-radius: 999px;
   background: var(--bg-tertiary);
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 11px;
   border: 1px solid var(--border-light);
   transition: all var(--transition-fast);
@@ -221,7 +220,9 @@
   font-family: var(--font-display);
 }
 
-/* Modal Styles (unchanged, keeping your existing modal) */
+/* =========================================================
+   Modal - keep scroll, hide scrollbar (as you wanted)
+   ========================================================= */
 .modal {
   display: none;
   position: fixed;
@@ -232,9 +233,7 @@
   padding: var(--space-xl);
 }
 
-.modal.open {
-  display: flex;
-}
+.modal.open { display: flex; }
 
 .modal-backdrop {
   position: absolute;
@@ -246,18 +245,12 @@
 
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .modal-panel {
@@ -271,7 +264,11 @@
   box-shadow: var(--shadow-2xl);
   animation: slideUp 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 1px solid var(--border-light);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+.modal-panel::-webkit-scrollbar { width: 0; height: 0; }
 
 .modal-close {
   position: absolute;
@@ -317,14 +314,9 @@
   box-shadow: var(--shadow-lg);
 }
 
-:root[data-theme="dark"] .modal-img {
-  background: #fff;
-}
+:root[data-theme="dark"] .modal-img { background: #fff; }
 
-.modal-content {
-  display: flex;
-  flex-direction: column;
-}
+.modal-content { display: flex; flex-direction: column; }
 
 .modal-content h2 {
   font-size: var(--text-3xl);
@@ -339,7 +331,7 @@
   letter-spacing: 0.1em;
   color: var(--text-tertiary);
   margin-bottom: var(--space-xl);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .modal-desc {
@@ -366,7 +358,7 @@
   border-radius: var(--radius-full);
   background: var(--bg-primary);
   color: var(--text-secondary);
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--text-xs);
   border: 1px solid var(--border-light);
   letter-spacing: 0.02em;
@@ -379,49 +371,18 @@
   margin-top: auto;
 }
 
-.modal-links .btn {
-  flex: 1;
-  justify-content: center;
-}
+.modal-links .btn { flex: 1; justify-content: center; }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 900px) {
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 per row on mobile/small */
     gap: 16px;
-  }
-  
-  .project-card {
-    aspect-ratio: auto;
-    padding: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .proj-head {
-    padding: var(--space-xl);
-  }
-
-  .proj-title h1 {
-    font-size: var(--text-4xl);
   }
 
   .thumb {
-    width: 80px;
-    height: 80px;
-  }
-
-  .pname {
-    font-size: 16px;
-  }
-
-  .pmeta {
-    font-size: 11px;
-  }
-
-  .card-tags span {
-    font-size: 10px;
-    padding: 4px 10px;
+    height: 170px;
+    max-width: 100%;
   }
 
   .modal-body {
@@ -429,17 +390,10 @@
     gap: var(--space-xl);
     padding: var(--space-xl);
   }
-
-  .modal-close {
-    top: var(--space-md);
-    right: var(--space-md);
-  }
 }
 
 @media (max-width: 480px) {
-  .filters {
-    justify-content: center;
-  }
+  .filters { justify-content: center; }
 
   .filter-pill {
     flex: 1 1 auto;
@@ -447,14 +401,5 @@
     text-align: center;
     padding: var(--space-sm) var(--space-md);
     font-size: 0.75rem;
-  }
-
-  .thumb {
-    width: 70px;
-    height: 70px;
-  }
-
-  .pname {
-    font-size: 15px;
   }
 }
