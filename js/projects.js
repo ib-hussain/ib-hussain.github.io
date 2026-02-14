@@ -1,4 +1,4 @@
-// js/projects.js - Enhanced Project Display System
+// js/projects.js - Enhanced Project Display System (Horizontal Cards)
 
 // Use static project data from projects-data.js
 const projects = window.PROJECTS || [];
@@ -6,19 +6,17 @@ const filters = window.PROJECT_DOMAINS || [
   { key: 'all', label: 'All Projects' },
   { key: 'health', label: 'Healthcare AI' },
   { key: 'finance', label: 'Quantitative Finance' },
-  { key: 'risk', label: 'Marketing & Risk' },
-  { key: 'tech', label: 'Technology & DS' }
+  { key: 'risk', label: 'Marketing & Risk Prediction' },
+  { key: 'tech', label: 'Technology & Data Science' }
 ];
 
 // DOM Elements
 const grid = document.getElementById('projectsGrid');
 const filterRow = document.getElementById('filterRow');
-const searchInput = document.getElementById('searchInput');
 const modal = document.getElementById('projectModal');
 
 // State
 let activeFilter = 'all';
-let query = '';
 
 /**
  * Render filter pills
@@ -53,26 +51,18 @@ function renderFilters() {
 }
 
 /**
- * Check if project matches current filters
+ * Check if project matches current filter
  */
 function matches(project) {
-  const searchText = (
-    project.title + ' ' +
-    project.subtitle + ' ' +
-    project.description + ' ' +
-    project.tags.join(' ')
-  ).toLowerCase();
-  
-  const matchesQuery = !query || searchText.includes(query);
   const matchesFilter = activeFilter === 'all' || 
                        project.domain === activeFilter || 
                        project.tags.includes(activeFilter);
   
-  return matchesQuery && matchesFilter;
+  return matchesFilter;
 }
 
 /**
- * Render project cards
+ * Render project cards - Horizontal Layout
  */
 function renderProjects() {
   grid.innerHTML = '';
@@ -87,13 +77,13 @@ function renderProjects() {
     empty.style.textAlign = 'center';
     empty.innerHTML = `
       <b>No projects found</b>
-      <p class="muted">Try adjusting your search or filter selection.</p>
+      <p class="muted">Try selecting a different filter category.</p>
     `;
     grid.appendChild(empty);
     return;
   }
   
-  // Render project cards
+  // Render project cards - HORIZONTAL LAYOUT like watchlist reference
   filteredProjects.forEach((project, index) => {
     const card = document.createElement('article');
     card.className = 'project-card card';
@@ -102,6 +92,7 @@ function renderProjects() {
     card.setAttribute('aria-label', `View details for ${project.title}`);
     card.style.animationDelay = `${index * 50}ms`;
     
+    // Create the horizontal card structure - SIMPLIFIED
     card.innerHTML = `
       <img class="thumb" src="${project.image}" alt="${project.title}" loading="lazy" 
            onerror="this.src='pictures/favicon.png'" />
@@ -109,8 +100,8 @@ function renderProjects() {
         <div class="pname">${project.title}</div>
         <p class="pmeta">${project.subtitle}</p>
         <div class="card-tags">
-          ${project.tags.slice(0, 4).map(tag => `<span>${tag}</span>`).join('')}
-          ${project.tags.length > 4 ? `<span>+${project.tags.length - 4} more</span>` : ''}
+          ${project.tags.slice(0, 3).map(tag => `<span>${tag}</span>`).join('')}
+          ${project.tags.length > 3 ? `<span>+${project.tags.length - 3}</span>` : ''}
         </div>
       </div>
     `;
@@ -215,16 +206,6 @@ function setupModalHandlers() {
 }
 
 /**
- * Setup search handler
- */
-function setupSearch() {
-  searchInput.addEventListener('input', (e) => {
-    query = e.target.value.trim().toLowerCase();
-    renderProjects();
-  });
-}
-
-/**
  * Initialize from URL parameters
  */
 function initFromURL() {
@@ -254,7 +235,6 @@ function init() {
   renderFilters();
   renderProjects();
   setupModalHandlers();
-  setupSearch();
 }
 
 // Initialize when DOM is ready
