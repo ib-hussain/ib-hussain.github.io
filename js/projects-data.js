@@ -4,18 +4,6 @@
 
 window.PROJECTS = [
   {
-    id: "multi-agentic-health-assistant",
-    title: "Multi-Agentic Health Assistant",
-    subtitle: "Healthcare AI",
-    // also make this for technology domain as it has applications
-    description: "An innovative wellness platform combining multiple Large Language Models (LLMs) and vision models to provide personalized support for physical and mental well-being. Features three specialised AI agents for diet tracking, exercise planning, and mental health support with persistent memory using PostgreSQL & Pinecone.",
-    tags: ["healthcare-ai", "agents", "postgres", "vector-db", "vision", "llm", "multi-modal", "flask"],
-    domain: "health",
-    image: "pictures/Multi-Agentic_Health_Assistant/virtualhealth.png",
-    repo: "https://github.com/ib-hussain/Multi-Agentic_Health_Assistant",
-    live: "https://multi-agentic-health-assistant.onrender.com"
-  },
-  {
     id: "writers-block",
     title: "Writer's Block",
     subtitle: "Marketing & Risk Prediction",
@@ -28,63 +16,27 @@ window.PROJECTS = [
     live: "https://writers-block-weup.onrender.com"
   },
   {
-    id: "statistical-analysis",
-    title: "Inflation Dynamics in Pakistan",
-    subtitle: "Quantitative Finance",
-    // also make this for marketing domain as it has applications 
-    description: "Advanced statistical analysis of Pakistan's inflation using annual macroeconomic data (1980–2023) with 2024 forecast. Analyzed inflation drivers using ARIMA and regularised regression (Ridge/Lasso/Elastic Net), comparing models with AIC/MSE/RMSE and applying statistical tests to identify significant factors.",
-    tags: ["finance", "timeseries", "arima", "regression", "forecasting", "econometrics", "statistics"],
-    domain: "finance",
-    image: "pictures/Statistical Analysis/Statistical Analysis.png",
-    repo: "https://github.com/ib-hussain/Projects.py/tree/main/Statistical%20Analysis",
+    id: "neohacks",
+    title: "Multi-Omics Cancer Detector",
+    subtitle: "Healthcare AI",
+    description: "Developed an integrative machine learning model to classify Head and Neck Cancer (HNC) stages and predict risk factors using multi-omics data (genomics, epigenomics, transcriptomics) and histopathology images. Built end-to-end in under 24 hours, combining high-dimensional biomedical data with rigorous feature engineering to address real-world clinical challenges.",
+    tags: ["healthcare-ai", "machine-learning", "catboost", "epigenetics", "biomedical", "python"],
+    domain: "health",
+    image: "pictures/NeoHacks/histopathology.png",
+    repo: "https://github.com/ib-hussain/TCGA-Integrative-Analysis",
     live: ""
   },
   {
-    id: "cinemago",
-    title: "Cinemago",
-    subtitle: "Technology & Data Science",
-    description: "A movie discovery and rating platform built using Flask. Users can browse, rate, and suggest movies. Admins can add new content via web scraping. Features weighted rating system, user classification, admin dashboard, and SQLite database with community suggestions.",
-    tags: ["web", "flask", "sqlite", "web-scraping", "full-stack"],
-    domain: "tech",
-    image: "pictures/Cinemago/cinemago_light.png",
-    // use the above on light mode and the below on dark mode for better visibility
-    // pictures\Cinemago\cinemago_dark.png
-    repo: "https://github.com/ib-hussain/Cinemago",
-    live: "https://cinemago-2u2f.onrender.com/"
-  },
-
-  {
-    id: "3moviecollectors",
-    title: "3movieCollectors",
-    subtitle: "Technology & Data Science",
-    description: "Comprehensive movie community web application with social features, movie catalog, and advanced admin management system. Features include friend system, messaging, watch events, discussion posts, real-time notifications, admin dashboard with Chart.js visualizations, content moderation, audit logging, and comprehensive security monitoring.",
-    tags: ["web", "nodejs", "mysql", "full-stack", "admin-panel", "social-features"],
-    domain: "tech",
-    image: "pictures/3movieCollectors/3movCollectors.png",
-    repo: "https://github.com/ib-hussain/3movieCollectors",
-    live: ""
-  },
-  {
-    id: "game-of-life",
-    title: "Conway's Game of Life",
-    subtitle: "Technology & Data Science",
-    description: "A C++ implementation of Conway's Game of Life, simulating the evolution of cellular automata based on simple rules. Features terminal-based grid visualisation, real-time cell evolution, efficient array-based updates, and clean beginner-friendly structure exploring algorithms and grid manipulation.",
-    tags: ["cpp", "algorithms", "simulation", "cellular-automata"],
-    domain: "tech",
-    image: "pictures/Game-Of-Life/game-of-life.gif",
-    repo: "https://github.com/ib-hussain/Game-Of-Life",
-    live: ""
-  },
-  {
-    id: "gameboy",
-    title: "GameBoy",
-    subtitle: "Technology & Data Science",
-    description: "A lightweight C++ collection of classic games (Snake, Wordle, Hangman) built with simplicity, logic, and fun in mind. Features OOP design, interactive GUI with real-time feedback, score tracking, and modular architecture for easy extension.",
-    tags: ["cpp", "oop", "games", "gui"],
-    domain: "tech",
-    image: "pictures/GameBoy/gameboy.jpeg",
-    repo: "https://github.com/ib-hussain/GameBoy",
-    live: ""
+    id: "multi-agentic-health-assistant",
+    title: "Multi-Agentic Health Assistant",
+    subtitle: "Healthcare AI",
+    // also make this for technology domain as it has applications
+    description: "An innovative wellness platform combining multiple Large Language Models (LLMs) and vision models to provide personalized support for physical and mental well-being. Features three specialised AI agents for diet tracking, exercise planning, and mental health support with persistent memory using PostgreSQL & Pinecone.",
+    tags: ["healthcare-ai", "agents", "postgres", "vector-db", "vision", "llm", "multi-modal", "flask"],
+    domain: "health",
+    image: "pictures/Multi-Agentic_Health_Assistant/virtualhealth.png",
+    repo: "https://github.com/ib-hussain/Multi-Agentic_Health_Assistant",
+    live: "https://multi-agentic-health-assistant.onrender.com"
   },
   {
     id: "movie-genre-detection",
@@ -100,14 +52,26 @@ window.PROJECTS = [
     live: ""
   },
   {
-    id: "neohacks",
-    title: "NeoHacks ML Challenge",
-    subtitle: "Healthcare AI",
-    description: "Machine learning competition project focused on pathology cohort analysis using epigenetic scoring and mutation data. Applied advanced ML engineering techniques including data cleaning, feature engineering, and CatBoost modeling for biomedical prediction tasks.",
-    tags: ["healthcare-ai", "machine-learning", "catboost", "epigenetics", "biomedical", "python"],
-    domain: "health",
-    image: "pictures/favicon.png",
-    repo: "https://github.com/ib-hussain",
+    id: "3moviecollectors",
+    title: "3movieCollectors",
+    subtitle: "Technology & Data Science",
+    description: "Comprehensive movie community web application with social features, movie catalog, and advanced admin management system. Features include friend system, messaging, watch events, discussion posts, real-time notifications, admin dashboard with Chart.js visualizations, content moderation, audit logging, and comprehensive security monitoring.",
+    tags: ["web", "nodejs", "mysql", "full-stack", "admin-panel", "social-features"],
+    domain: "tech",
+    image: "pictures/3movieCollectors/3movCollectors.png",
+    repo: "https://github.com/ib-hussain/3movieCollectors",
+    live: ""
+  },
+  {
+    id: "statistical-analysis",
+    title: "Inflation Dynamics in Pakistan",
+    subtitle: "Quantitative Finance",
+    // also make this for marketing domain as it has applications 
+    description: "Advanced statistical analysis of Pakistan's inflation using annual macroeconomic data (1980–2023) with 2024 forecast. Analyzed inflation drivers using ARIMA and regularised regression (Ridge/Lasso/Elastic Net), comparing models with AIC/MSE/RMSE and applying statistical tests to identify significant factors.",
+    tags: ["finance", "timeseries", "arima", "regression", "forecasting", "econometrics", "statistics"],
+    domain: "finance",
+    image: "pictures/Statistical Analysis/Statistical Analysis.png",
+    repo: "https://github.com/ib-hussain/Projects.py/tree/main/Statistical%20Analysis",
     live: ""
   },
   {
@@ -131,6 +95,41 @@ window.PROJECTS = [
     domain: "tech",
     image: "pictures/Projects.py/python.jpg",
     repo: "https://github.com/ib-hussain/Projects.py",
+    live: ""
+  },
+  {
+    id: "cinemago",
+    title: "Cinemago",
+    subtitle: "Technology & Data Science",
+    description: "A movie discovery and rating platform built using Flask. Users can browse, rate, and suggest movies. Admins can add new content via web scraping. Features weighted rating system, user classification, admin dashboard, and SQLite database with community suggestions.",
+    tags: ["web", "flask", "sqlite", "web-scraping", "full-stack"],
+    domain: "tech",
+    image: "pictures/Cinemago/cinemago_light.png",
+    // use the above on light mode and the below on dark mode for better visibility
+    // pictures\Cinemago\cinemago_dark.png
+    repo: "https://github.com/ib-hussain/Cinemago",
+    live: "https://cinemago-2u2f.onrender.com/"
+  },
+  {
+    id: "gameboy",
+    title: "GameBoy",
+    subtitle: "Technology & Data Science",
+    description: "A lightweight C++ collection of classic games (Snake, Wordle, Hangman) built with simplicity, logic, and fun in mind. Features OOP design, interactive GUI with real-time feedback, score tracking, and modular architecture for easy extension.",
+    tags: ["cpp", "oop", "games", "gui"],
+    domain: "tech",
+    image: "pictures/GameBoy/gameboy.jpeg",
+    repo: "https://github.com/ib-hussain/GameBoy",
+    live: ""
+  },
+  {
+    id: "game-of-life",
+    title: "Conway's Game of Life",
+    subtitle: "Technology & Data Science",
+    description: "A C++ implementation of Conway's Game of Life, simulating the evolution of cellular automata based on simple rules. Features terminal-based grid visualisation, real-time cell evolution, efficient array-based updates, and clean beginner-friendly structure exploring algorithms and grid manipulation.",
+    tags: ["cpp", "algorithms", "simulation", "cellular-automata"],
+    domain: "tech",
+    image: "pictures/Game-Of-Life/game-of-life.gif",
+    repo: "https://github.com/ib-hussain/Game-Of-Life",
     live: ""
   }
 ];
