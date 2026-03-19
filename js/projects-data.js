@@ -24,7 +24,7 @@ window.PROJECTS = [
     domain: "health",
     image: "pictures/NeoHacks/histopathology.png",
     repo: "https://github.com/ib-hussain/TCGA-Integrative-Analysis",
-    live: ""
+    live: "https://ib-hussain.github.io/TCGA-Integrative-Analysis/"
   },
   {
     id: "multi-agentic-health-assistant",
@@ -37,6 +37,30 @@ window.PROJECTS = [
     image: "pictures/Multi-Agentic_Health_Assistant/virtualhealth.png",
     repo: "https://github.com/ib-hussain/Multi-Agentic_Health_Assistant",
     live: "https://multi-agentic-health-assistant.onrender.com"
+  },
+  {
+    id: "secret-to-happiness",
+    title: "The Secret to Happiness",
+    subtitle: "Technology & Data Science",
+    // also make this for health and finance domains as it analyzes public health, economic data, and governance
+    description: "Multi-dimensional investigation into the structural determinants of global happiness across 150+ countries using 13 years of data (2011–2023). Features an end-to-end data engineering pipeline to merge 12+ international datasets (World Bank, OWID), statistical feature engineering, and high-dimensional visual analytics to explore economic thresholds, governance quality, and shifting human needs.",
+    tags: ["data-science", "data-engineering", "data-visualization", "statistics", "python", "pandas"],
+    domain: "tech",
+    image: "pictures/secret_to_happiness/Choropleth Map Global Happiness Score Distribution.png",
+    repo: "https://github.com/ib-hussain/secret_to_happiness",
+    live: "https://ib-hussain.github.io/secret_to_happiness/"
+  },
+  {
+    id: "statistical-analysis",
+    title: "Inflation Dynamics in Pakistan",
+    subtitle: "Quantitative Finance",
+    // also make this for marketing domain as it has applications 
+    description: "Advanced statistical analysis of Pakistan's inflation using annual macroeconomic data (1980–2023) with 2024 forecast. Analyzed inflation drivers using ARIMA and regularised regression (Ridge/Lasso/Elastic Net), comparing models with AIC/MSE/RMSE and applying statistical tests to identify significant factors.",
+    tags: ["finance", "timeseries", "arima", "regression", "forecasting", "econometrics", "statistics"],
+    domain: "finance",
+    image: "pictures/Statistical Analysis/Statistical Analysis.png",
+    repo: "https://github.com/ib-hussain/Projects.py/tree/main/Statistical%20Analysis",
+    live: "https://ib-hussain.github.io/Projects.py/Statistical%20Analysis/"
   },
   {
     id: "movie-genre-detection",
@@ -63,18 +87,6 @@ window.PROJECTS = [
     live: ""
   },
   {
-    id: "statistical-analysis",
-    title: "Inflation Dynamics in Pakistan",
-    subtitle: "Quantitative Finance",
-    // also make this for marketing domain as it has applications 
-    description: "Advanced statistical analysis of Pakistan's inflation using annual macroeconomic data (1980–2023) with 2024 forecast. Analyzed inflation drivers using ARIMA and regularised regression (Ridge/Lasso/Elastic Net), comparing models with AIC/MSE/RMSE and applying statistical tests to identify significant factors.",
-    tags: ["finance", "timeseries", "arima", "regression", "forecasting", "econometrics", "statistics"],
-    domain: "finance",
-    image: "pictures/Statistical Analysis/Statistical Analysis.png",
-    repo: "https://github.com/ib-hussain/Projects.py/tree/main/Statistical%20Analysis",
-    live: ""
-  },
-  {
     id: "network-emulator",
     title: "Network Emulator",
     subtitle: "Technology & Data Science",
@@ -95,7 +107,7 @@ window.PROJECTS = [
     domain: "tech",
     image: "pictures/Projects.py/python.jpg",
     repo: "https://github.com/ib-hussain/Projects.py",
-    live: ""
+    live: "https://ib-hussain.github.io/Projects.py/"
   },
   {
     id: "cinemago",
