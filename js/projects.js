@@ -51,9 +51,13 @@ function renderFilters() {
  * Check if project matches current filter
  */
 function matches(project) {
+  const domainMatch = Array.isArray(project.domain) 
+    ? project.domain.includes(activeFilter) 
+    : project.domain === activeFilter;
+
   return (
     activeFilter === 'all' ||
-    project.domain === activeFilter ||
+    domainMatch ||
     (Array.isArray(project.tags) && project.tags.includes(activeFilter))
   );
 }
