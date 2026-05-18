@@ -83,9 +83,9 @@
   animation: fadeInUp 0.8s ease both;
 }
 
-.hero-text h1 {
+.hero-text h2 {
   margin-bottom: var(--space-xl);
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(235deg, var(--text-primary) 25%, var(--primary-dark) 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

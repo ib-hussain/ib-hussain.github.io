@@ -1,8 +1,19 @@
 // projects-data.js
 // Static project data - manually curated from pictures/* folders
-// Last updated: 2026-02-14
+// Last updated: 2026-05-19
 
 window.PROJECTS = [
+  {
+    id: "fin-glassbox",
+    title: "fin-glassbox",
+    subtitle: ["Technology & Data Science", "Quantitative Finance"],
+    description: "An explainable multimodal neural framework for financial risk management that decomposes market decision-making into specialised modules combining temporal market encoders, FinBERT financial text analysis, graph neural networks for contagion risk, and classical financial risk measures. Features full system XAI traces and risk-constrained fusion with interpretable position sizing.",
+    tags: ["finance", "neural-framework", "gnn", "lstm", "risk-management", "finbert", "market-analysis", "xai", "multi-modal"],
+    domain: ["risk", "finance", "tech"],
+    image: "pictures/fin-glassbox/fin-glassbox2.png",
+    repo: "https://github.com/ib-hussain/fin-glassbox",
+    live: "https://ib-hussain.github.io/fin-glassbox/"
+  },
   {
     id: "writers-block",
     title: "Writer's Block",
@@ -19,7 +30,7 @@ window.PROJECTS = [
     title: "Multi-Omics Cancer Detector",
     subtitle: ["Healthcare AI", "Technology & Data Science"],
     description: "Developed an integrative machine learning model to classify Head and Neck Cancer (HNC) stages and predict risk factors using multi-omics data (genomics, epigenomics, transcriptomics) and histopathology images. Built end-to-end in under 24 hours, combining high-dimensional biomedical data with rigorous feature engineering to address real-world clinical challenges.",
-    tags: ["healthcare-ai", "machine-learning", "catboost", "epigenetics", "biomedical", "python"],
+    tags: ["healthcare-ai", "epigenetics", "pathology", "methylation", "machine-learning", "biomedical", "multi-modal"],
     domain: ["health", "tech"],
     image: "pictures/NeoHacks/histopathology.png",
     repo: "https://github.com/ib-hussain/TCGA-Integrative-Analysis",
@@ -60,7 +71,7 @@ window.PROJECTS = [
   },
   {
     id: "statistical-analysis",
-    title: "Inflation Dynamics in Pakistan",
+    title: "Inflation Dynamics for Pakistan",
     subtitle: ["Quantitative Finance", "Technology & Data Science", "Marketing & Risk Prediction"],
     description: "Advanced statistical analysis of Pakistan's inflation using annual macroeconomic data (1980–2023) with 2024 forecast. Analyzed inflation drivers using ARIMA and regularised regression (Ridge/Lasso/Elastic Net), comparing models with AIC/MSE/RMSE and applying statistical tests to identify significant factors.",
     tags: ["finance", "timeseries", "arima", "regression", "forecasting", "econometrics", "statistics"],
@@ -104,18 +115,18 @@ window.PROJECTS = [
     repo: "https://github.com/ib-hussain/Network-Emulator",
     live: ""
   },
-  {
-    id: "python-projects",
-    title: "Python Projects",
-    subtitle: ["Technology & Data Science"],
-    // this is also for finance and marketing domains as it has applications in financial data analysis, marketing analytics, and general data science
-    description: "Collection of Python-based projects focusing on data cleaning, statistical analysis, basic machine learning, Natural Language Processing (NLP), and Computer Vision (CV). Includes multilingual NLP (Urdu text processing), hypothesis testing, regression models, probabilistic inflation prediction, and image processing with OpenCV.",
-    tags: ["python", "nlp", "machine-learning", "opencv", "statistics", "data-science"],
-    domain: ["tech"],
-    image: "pictures/Projects.py/python.jpg",
-    repo: "https://github.com/ib-hussain/Projects.py",
-    live: "https://ib-hussain.github.io/Projects.py/"
-  },
+  // {
+  //   id: "python-projects",
+  //   title: "Python Projects",
+  //   subtitle: ["Technology & Data Science"],
+  //   // this is also for finance and marketing domains as it has applications in financial data analysis, marketing analytics, and general data science
+  //   description: "Collection of Python-based projects focusing on data cleaning, statistical analysis, basic machine learning, Natural Language Processing (NLP), and Computer Vision (CV). Includes multilingual NLP (Urdu text processing), hypothesis testing, regression models, probabilistic inflation prediction, and image processing with OpenCV.",
+  //   tags: ["python", "nlp", "machine-learning", "opencv", "statistics", "data-science"],
+  //   domain: ["tech"],
+  //   image: "pictures/Projects.py/python.jpg",
+  //   repo: "https://github.com/ib-hussain/Projects.py",
+  //   live: "https://ib-hussain.github.io/Projects.py/"
+  // },
   {
     id: "cinemago",
     title: "Cinemago",
