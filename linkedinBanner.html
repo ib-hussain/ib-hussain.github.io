@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>LinkedIn Banner • Ibrahim Hussain</title>
+  <!-- Google Fonts (kept for consistent typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS TOKENS (merged tokens.css) ===== */
+    :root {
+      --theGreenColor: #09855b;
+      --TextColor: #171a1f;
+      --Pink: #f2e0e7;
+      --DarkBlue: #5c8bc0;
+      --LightBlue: #e0edfc;
+      --boxBackground: #afe4f163;
+      --Shadow: rgba(0, 0, 0, 0.15);
+      --clickAbleLink: #ff2c2c;
+      --ratingYellow: #ff9100;
+      --statCardBG: #7f6d8d0a;
+      --statCardBorder: #dfdcbc;
+      
+      --primary: var(--theGreenColor);
+      --primary-light: #D1FAE5;
+      --primary-lighter: #ECFDF5;
+      --primary-dark: #065F46;
+      --primary-darker: #064E3B;
+      
+      --accent: var(--DarkBlue);
+      --accent-light: var(--LightBlue);
+      --accent-dark: #3B5F8F;
+      
+      --neutral-50: #F8FAFC;
+      --neutral-100: #F1F5F9;
+      --neutral-200: #E2E8F0;
+      --neutral-300: #CBD5E1;
+      --neutral-400: #94A3B8;
+      --neutral-500: #64748B;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1E293B;
+      --neutral-900: #0F172A;
+      
+      --text-primary: var(--TextColor);
+      --text-secondary: var(--neutral-600);
+      --text-tertiary: var(--neutral-500);
+      --text-muted: var(--neutral-400);
+      --text-inverse: #FFFFFF;
+      
+      --bg-gradient: radial-gradient(
+        circle at 20% 20%,
+        rgb(196, 255, 250) 0%,
+        rgba(255, 237, 188, 1) 30%,
+        rgba(236, 217, 255, 1) 55%,
+        rgba(202, 224, 255, 1) 80%
+      );
+      
+      --bg-primary: #FFFFFF;
+      --bg-secondary: var(--statCardBG);
+      --bg-tertiary: var(--neutral-100);
+      --bg-elevated: #FFFFFF;
+      
+      --border-light: var(--statCardBorder);
+      --border-medium: var(--neutral-300);
+      --border-dark: var(--neutral-400);
+      
+      --card-bg: var(--boxBackground);
+      --card-border: var(--statCardBorder);
+      
+      --success: #059669;
+      --success-light: #D1FAE5;
+      --warning: var(--ratingYellow);
+      --warning-light: #FEF3C7;
+      --error: var(--clickAbleLink);
+      --error-light: #FEE2E2;
+      --info: var(--DarkBlue);
+      --info-light: var(--LightBlue);
+      
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-bg-dark: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(175, 228, 241, 0.3);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      
+      --shadow-xs: 0 1px 2px 0 var(--Shadow);
+      --shadow-sm: 0 1px 3px 0 var(--Shadow), 0 1px 2px -1px var(--Shadow);
+      --shadow-md: 0 4px 6px -1px var(--Shadow), 0 2px 4px -2px var(--Shadow);
+      --shadow-lg: 0 10px 15px -3px var(--Shadow), 0 4px 6px -4px var(--Shadow);
+      --shadow-xl: 0 20px 25px -5px var(--Shadow), 0 8px 10px -6px var(--Shadow);
+      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      
+      --radius-xs: 4px;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 24px;
+      --radius-full: 9999px;
+      
+      --font-display: "Fraunces", "Playfair Display", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+      
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      --text-6xl: 3.75rem;
+      
+      --max-width: 1280px;
+      --content-width: 900px;
+      --nav-height: 70px;
+      --container-padding: 24px;
+      --section-spacing: 2rem;
+      
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      
+      --z-dropdown: 1000;
+      --z-sticky: 1020;
+      --z-fixed: 1030;
+      --z-modal-backdrop: 1040;
+      --z-modal: 1050;
+      --z-popover: 1060;
+      --z-tooltip: 1070;
+    }
+
+    /* ===== LAYOUT RESET & BASE (merged layout.css) ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-primary);
+      background: var(--bg-gradient);
+      background-blend-mode: screen;
+      background-size: cover;
+      background-attachment: fixed;
+      line-height: 1.6;
+      font-size: var(--text-base);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      /* banner doesn’t need nav offset, keep it clean */
+      padding-top: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      font-family: var(--font-display);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: var(--space-lg);
+    }
+
+    p {
+      margin-bottom: var(--space-md);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+      width: 100%;
+    }
+
+    /* ===== HOMEPAGE STYLES (merged home.css, only used parts) ===== */
+    .hero {
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    .hero-main {
+      padding: var(--space-3xl) var(--space-2xl);
+      margin: 0;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+      border-radius: var(--radius-2xl);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-main::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+      opacity: 0.2;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* single column for right alignment */
+      gap: var(--space-3xl);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text {
+      animation: fadeInUp 0.8s ease both;
+      /* RIGHT ALIGNMENT: push text to the right */
+      text-align: right;
+      width: 100%;
+    }
+
+    .hero-text h2 {
+      margin-bottom: var(--space-xl);
+      background: linear-gradient(235deg, var(--text-primary) 25%, var(--primary-dark) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      /* keep heading right */
+      text-align: right;
+    }
+
+    .lead {
+      font-size: var(--text-xl);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-2xl);
+      max-width: 90%;
+      /* right alignment */
+      margin-left: auto;
+      text-align: right;
+    }
+
+    /* subtle decorative element to reinforce right margin */
+    .hero-text::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: var(--radius-full);
+      margin-top: var(--space-xl);
+      margin-left: auto; /* align line to the right */
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments for banner dimensions (LinkedIn banner ~ 1584 x 396, but we keep readable) */
+    @media (max-width: 768px) {
+      .hero-main {
+        padding: var(--space-2xl) var(--space-lg);
+      }
+      .lead {
+        max-width: 100%;
+      }
+    }
+
+    /* ensure container spacing looks good on all screens */
+    .page {
+      flex: 1;
+      padding-top: var(--space-2xl);
+      padding-bottom: var(--space-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* card no-hover keeps static look (perfect for screenshot) */
+    .card.no-hover:hover {
+      transform: none;
+    }
+
+    /* smooth transitions only where needed */
+    *,
+    *::before,
+    *::after {
+      transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+      transition-duration: var(--transition-base);
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body data-page="index">
+  <!-- Only the main content: hero section with right-aligned text -->
+  <main class="page">
+    <section class="container hero">
+      <!-- <div class="hero-main card no-hover"> -->
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h2>Production-grade data systems and AI-driven analytics for better decisions under uncertainty.</h2>
+            <p class="lead">
+              I'm a data scientist focused on building intelligent systems that integrate data engineering, 
+              quantitative modelling, and predictive analytics. My work spans financial risk systems, 
+              economic forecasting, multi-modal AI orchestration, and large-scale data governance;
+              combining statistical rigour with production-ready engineering across finance, healthcare, 
+              and decision analytics.
+            </p>
+            <!-- mini contact removed as requested; only the two text blocks remain -->
+          </div>
+        </div>
+      <!-- </div> -->
+    </section>
+  </main>
+</body>
+</html>
