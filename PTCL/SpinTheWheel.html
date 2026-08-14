@@ -454,7 +454,7 @@
             <div class="center-logo">
                 <img src="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png"
                      alt="PTCL Logo" id="centerLogoImg" loading="eager" decoding="async"
-                     onerror="this.style.display='none'; this.parentElement.style.background='#00cc66'; this.parentElement.innerHTML='&lt;span style=&quot;color:#fff;font-weight:800;font-size:1.2rem;&quot;&gt;PTCL&lt;/span&gt;';">
+                     onerror="this.style.display='none'; this.parentElement.style.background='#ffffff'; this.parentElement.innerHTML='&lt;span style=&quot;color:#00aa4a;font-weight:900;font-size:1.3rem;letter-spacing:1px;&quot;&gt;PTCL&lt;/span&gt;';">
             </div>
         </div>
 
@@ -838,9 +838,16 @@
                     });
                 }
 
+                // Guarantee the logo (or its fallback) is always visible: if the image
+                // hasn't loaded within 4s (slow/blocked network), force the fallback
+                // even though no error event fired yet.
                 const logoImg = document.getElementById('centerLogoImg');
-                if (logoImg && !storedPrize) {
-                    // error fallback already wired inline via onerror attribute
+                if (logoImg) {
+                    const forceFallback = function() {
+                        if (!logoImg.isConnected || logoImg.complete && logoImg.naturalWidth > 0) return;
+                        logoImg.dispatchEvent(new Event('error'));
+                    };
+                    setTimeout(forceFallback, 4000);
                 }
             }
 
