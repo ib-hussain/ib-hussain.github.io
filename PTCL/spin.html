@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>PTCL Spin to Win — Free Play</title>
+
+    <!-- Favicon / touch icons — all pointing at the real PTCL logo -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png">
+    <link rel="shortcut icon" href="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png">
+    <meta property="og:image" content="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png">
+    <style>
+        :root {
+            --bg: #0a0a1a;
+            --accent: #ffd700;
+            --btn-bg: #ff6b35;
+            --btn-hover: #ff8c5a;
+            --text: #ffffff;
+            --overlay-bg: rgba(0, 0, 0, 0.85);
+            --card-bg: #1a1a2e;
+            --gold: #ffd700;
+            --danger: #e74c3c;
+            --green: #00cc66;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+
+        html, body {
+            overscroll-behavior: none;
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 16px;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .title {
+            color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-align: center;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #00cc66, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title-sub {
+            color: #aaa;
+            font-size: 0.8rem;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-top: -6px;
+        }
+
+        .wheel-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1;
+            margin: 0 auto;
+        }
+
+        /* Pointer at top */
+        .pointer {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: 0;
+            height: 0;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-top: 28px solid var(--gold);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+            pointer-events: none;
+        }
+
+        .pointer::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Canvas for the wheel */
+        #wheelCanvas {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.25), 0 0 80px rgba(0, 102, 255, 0.15),
+                0 12px 40px rgba(0, 0, 0, 0.6);
+            border: 6px solid #fff;
+            transition: none;
+            will-change: transform;
+            display: block;
+            touch-action: manipulation;
+        }
+
+        /* Center logo overlay */
+        .center-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            width: 31%;
+            height: 31%;
+            min-width: 80px;
+            min-height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 0 25px rgba(0, 0, 0, 0.5),
+                0 4px 12px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .center-logo img {
+            width: 88%;
+            height: 88%;
+            object-fit: contain;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Spin button */
+        #spinBtn {
+            background: var(--btn-bg);
+            color: #fff;
+            border: none;
+            padding: 16px 48px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: inherit;
+        }
+
+        #spinBtn:hover {
+            background: var(--btn-hover);
+            box-shadow: 0 8px 28px rgba(255, 107, 53, 0.7), 0 2px 12px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        #spinBtn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #spinBtn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+            letter-spacing: 2px;
+        }
+
+        #spinBtn:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        #spinBtn .btn-sub {
+            display: block;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        /* Result overlay */
+        .result-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay-bg);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 16px;
+        }
+
+        .result-overlay.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 36px 28px;
+            text-align: center;
+            max-width: 380px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(255, 215, 0, 0.3);
+            animation: popIn 0.4s ease forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: conic-gradient(from 0deg, #ffd700, #ff6b35, #00cc66, #0066ff, #ffd700);
+            animation: rotateGlow 4s linear infinite;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .result-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-emoji {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .result-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .result-prize {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .result-note {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .result-close-btn {
+            background: var(--gold);
+            color: #000;
+            border: none;
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .result-close-btn:hover {
+            background: #ffe44d;
+            transform: scale(1.05);
+        }
+
+        .result-close-btn:active {
+            transform: scale(0.95);
+        }
+        /* Footer */
+        .footer {
+            color: #555;
+            font-size: 0.7rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .app-container { gap: 10px; padding: 10px; }
+            .title { font-size: 1.1rem; }
+            .wheel-wrapper { max-width: 320px; }
+            .pointer {
+                border-left-width: 14px;
+                border-right-width: 14px;
+                border-top-width: 22px;
+                top: -6px;
+            }
+            .pointer::after { width: 12px; height: 12px; top: -24px; left: -6px; }
+            #spinBtn { padding: 13px 32px; font-size: 1.1rem; letter-spacing: 2px; }
+            .result-prize { font-size: 1.7rem; }
+            .result-card { padding: 26px 20px; }
+            .center-logo { min-width: 60px; min-height: 60px; }
+        }
+
+        @media (max-width: 360px) {
+            .wheel-wrapper { max-width: 270px; }
+            .title { font-size: 0.9rem; }
+            #spinBtn { padding: 10px 24px; font-size: 1rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .result-emoji { animation: none; }
+            .result-card::before { animation: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="title">PTCL Spin to Win</div>
+        <div class="title-sub">SPIN • WIN • SMILE</div>
+
+        <div class="wheel-wrapper" id="wheelWrapper">
+            <div class="pointer"></div>
+            <canvas id="wheelCanvas" width="600" height="600" style="transform: rotate(0deg);"></canvas>
+            <div class="center-logo">
+                <img src="https://crystalpng.com/wp-content/uploads/2025/09/ptcl-logo-1024x1024.png"
+                     alt="PTCL Logo" id="centerLogoImg" loading="eager" decoding="async"
+                     onerror="this.style.display='none'; this.parentElement.style.background='#ffffff'; this.parentElement.innerHTML='&lt;span style=&quot;color:#00aa4a;font-weight:900;font-size:1.3rem;letter-spacing:1px;&quot;&gt;PTCL&lt;/span&gt;';">
+            </div>
+        </div>
+
+        <button id="spinBtn" aria-label="Spin the wheel">SPIN<span class="btn-sub">TAP TO WIN</span></button>
+
+        <div class="footer">PTCL EVENT PROMOTION • GOOD LUCK!</div>
+    </div>
+
+    <!-- Result Modal -->
+    <div class="result-overlay" id="resultOverlay" role="dialog" aria-modal="true" aria-labelledby="resultPrize">
+        <div class="result-card">
+            <div class="result-emoji">🎉</div>
+            <div class="result-title">You Won!</div>
+            <div class="result-prize" id="resultPrize">—</div>
+            <div class="result-note" id="resultNote">Show this screen to the staff to claim your prize.</div>
+            <button class="result-close-btn" id="resultCloseBtn" type="button">GOT IT</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ============================================================
+            // CONFIGURATION
+            // ============================================================
+
+            // All 12 slices. Equal angles (30° each).
+            const slices = [
+                { text: "BADGES", color: "#00aa4a", subText: null },
+                { text: "BOTTLE", color: "#006400", subText: null },
+                { text: "MINI PLANT", color: "#c4a882", subText: null },
+                { text: "STICKERS", color: "#ff8c00", subText: null },
+                { text: "KEYCHAIN", color: "#ffb347", subText: null },
+                { text: "INSTALLATION", color: "#e60000", subText: { oldPrice: "5000", newPrice: "1500" } },
+                { text: "COFFEE 2x", color: "#800080", subText: null },
+                { text: "BADGES", color: "#00008b", subText: null },
+                { text: "STICKERS", color: "#dda0dd", subText: null },
+                { text: "KEYCHAIN", color: "#ffb347", subText: null },
+                { text: "STICKERS", color: "#ff8c00", subText: null },
+                { text: "STYLUS PEN", color: "#4b0082", subText: null },
+            ];
+
+            const NUM_SLICES = slices.length;
+            const SLICE_ANGLE_DEG = 360 / NUM_SLICES; // 30°
+            const SLICE_ANGLE_RAD = (Math.PI * 2) / NUM_SLICES;
+
+            const CANVAS_SIZE = 600;
+            const CENTER_X = CANVAS_SIZE / 2;
+            const CENTER_Y = CANVAS_SIZE / 2;
+            const WHEEL_RADIUS = CANVAS_SIZE / 2 - 10;
+            const TEXT_CENTER_RADIUS = (95 + 265) / 2; // ~180
+
+            const SPIN_DURATION_MS = 10000;
+            const MIN_FULL_ROTATIONS = 5;
+            const MAX_FULL_ROTATIONS = 24;
+
+            // ============================================================
+            // DOM REFERENCES
+            // ============================================================
+            const canvas = document.getElementById('wheelCanvas');
+            const ctx = canvas.getContext('2d');
+            const spinBtn = document.getElementById('spinBtn');
+            const resultOverlay = document.getElementById('resultOverlay');
+            const resultPrize = document.getElementById('resultPrize');
+            const resultNote = document.getElementById('resultNote');
+            const resultCloseBtn = document.getElementById('resultCloseBtn');
+
+            // ============================================================
+            // STATE
+            // ============================================================
+            let currentRotation = 0;
+            let isSpinning = false;
+            // ============================================================
+            // CANVAS DRAWING
+            // ============================================================
+            function drawWheel() {
+                ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+
+                for (let i = 0; i < NUM_SLICES; i++) {
+                    const startAngle = -Math.PI / 2 + i * SLICE_ANGLE_RAD;
+                    const endAngle = startAngle + SLICE_ANGLE_RAD;
+                    const midAngle = startAngle + SLICE_ANGLE_RAD / 2;
+                    const slice = slices[i];
+
+                    ctx.beginPath();
+                    ctx.moveTo(CENTER_X, CENTER_Y);
+                    ctx.arc(CENTER_X, CENTER_Y, WHEEL_RADIUS, startAngle, endAngle, false);
+                    ctx.closePath();
+
+                    const grad = ctx.createRadialGradient(CENTER_X, CENTER_Y, 50, CENTER_X, CENTER_Y, WHEEL_RADIUS);
+                    grad.addColorStop(0, lightenColor(slice.color, 25));
+                    grad.addColorStop(0.6, slice.color);
+                    grad.addColorStop(1, darkenColor(slice.color, 15));
+                    ctx.fillStyle = grad;
+                    ctx.fill();
+
+                    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(CENTER_X, CENTER_Y);
+                    ctx.lineTo(CENTER_X + WHEEL_RADIUS * Math.cos(startAngle), CENTER_Y + WHEEL_RADIUS * Math.sin(startAngle));
+                    ctx.stroke();
+
+                    drawSliceText(ctx, midAngle, slice);
+                }
+
+                ctx.beginPath();
+                ctx.arc(CENTER_X, CENTER_Y, WHEEL_RADIUS + 4, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                ctx.lineWidth = 8;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(CENTER_X, CENTER_Y, 78, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+
+            /**
+             * Draw text for a single slice, rotated radially (reads outward from center).
+             * Slices with subText (e.g. INSTALLATION) get two lines: the label, then
+             * "old price | new price" with a strikethrough through the old price.
+             */
+            function drawSliceText(context, midAngle, slice) {
+                context.save();
+                context.translate(CENTER_X, CENTER_Y);
+                context.rotate(midAngle);
+
+                context.fillStyle = '#ffffff';
+                context.textAlign = 'center';
+                context.textBaseline = 'middle';
+                context.shadowColor = 'rgba(0,0,0,0.7)';
+                context.shadowBlur = 4;
+                context.shadowOffsetX = 1;
+                context.shadowOffsetY = 1;
+
+                if (slice.subText) {
+                    // The promotional slice is deliberately rendered as TWO
+                    // compact lines in the slice, not as one long radial line.
+                    // x = radial distance from center; y = tangential offset.
+                    // This keeps both lines inside the 30° slice.
+                    const textRadius = 178;
+                    const labelY = -10;
+                    const priceY = 11;
+
+                    context.font = '800 11px "Segoe UI", Arial, sans-serif';
+                    context.textAlign = 'center';
+                    context.fillText(slice.text, textRadius, labelY);
+
+                    const oldPrice = slice.subText.oldPrice;
+                    const newPrice = slice.subText.newPrice;
+                    const sep = ' | ';
+
+                    context.font = '800 13px "Segoe UI", Arial, sans-serif';
+                    const oldWidth = context.measureText(oldPrice).width;
+                    const sepWidth = context.measureText(sep).width;
+                    const newWidth = context.measureText(newPrice).width;
+                    const totalWidth = oldWidth + sepWidth + newWidth;
+                    const startX = textRadius - totalWidth / 2;
+
+                    context.textAlign = 'left';
+                    context.fillText(oldPrice, startX, priceY);
+
+                    // Strike-through ONLY the old price (5000).
+                    context.save();
+                    context.shadowBlur = 0;
+                    context.strokeStyle = '#ffffff';
+                    context.lineWidth = 2.25;
+                    context.beginPath();
+                    context.moveTo(startX - 1, priceY);
+                    context.lineTo(startX + oldWidth + 1, priceY);
+                    context.stroke();
+                    context.restore();
+
+                    context.fillText(sep + newPrice, startX + oldWidth, priceY);
+                    context.textAlign = 'center';
+                } else {
+                    const textRadius = TEXT_CENTER_RADIUS;
+                    context.font = 'bold 16px "Segoe UI", Arial, sans-serif';
+                    const textWidth = context.measureText(slice.text).width;
+                    const maxTextWidth = 88;
+                    if (textWidth > maxTextWidth) {
+                        const scale = maxTextWidth / textWidth;
+                        const newFontSize = Math.floor(16 * scale);
+                        context.font = 'bold ' + Math.max(11, newFontSize) + 'px "Segoe UI", Arial, sans-serif';
+                    }
+                    context.fillText(slice.text, textRadius, 0);
+                }
+
+                context.restore();
+            }
+
+            function lightenColor(hex, percent) {
+                const num = parseInt(hex.replace('#', ''), 16);
+                const r = Math.min(255, Math.floor(((num >> 16) & 0xFF) + (255 - ((num >> 16) & 0xFF)) * (percent / 100)));
+                const g = Math.min(255, Math.floor(((num >> 8) & 0xFF) + (255 - ((num >> 8) & 0xFF)) * (percent / 100)));
+                const b = Math.min(255, Math.floor((num & 0xFF) + (255 - (num & 0xFF)) * (percent / 100)));
+                return 'rgb(' + r + ',' + g + ',' + b + ')';
+            }
+
+            function darkenColor(hex, percent) {
+                const num = parseInt(hex.replace('#', ''), 16);
+                const r = Math.max(0, Math.floor(((num >> 16) & 0xFF) * (1 - percent / 100)));
+                const g = Math.max(0, Math.floor(((num >> 8) & 0xFF) * (1 - percent / 100)));
+                const b = Math.max(0, Math.floor((num & 0xFF) * (1 - percent / 100)));
+                return 'rgb(' + r + ',' + g + ',' + b + ')';
+            }
+
+            // ============================================================
+            // SPIN LOGIC
+            // ============================================================
+
+            // Uniform random integer in [0, maxExclusive), using the Web Crypto
+            // API with rejection sampling so every slice has the same probability.
+            // A Math.random fallback is retained only for browsers/environments
+            // that do not expose crypto.getRandomValues().
+            function fairRandomInt(maxExclusive) {
+                if (!Number.isInteger(maxExclusive) || maxExclusive <= 0) {
+                    throw new Error('maxExclusive must be a positive integer');
+                }
+
+                if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
+                    const uintMax = 0x100000000; // 2^32
+                    const limit = Math.floor(uintMax / maxExclusive) * maxExclusive;
+                    const sample = new Uint32Array(1);
+
+                    do {
+                        window.crypto.getRandomValues(sample);
+                    } while (sample[0] >= limit);
+
+                    return sample[0] % maxExclusive;
+                }
+
+                return Math.floor(Math.random() * maxExclusive);
+            }
+
+            function normalizeDegrees(degrees) {
+                return ((degrees % 360) + 360) % 360;
+            }
+
+            function getTargetAngleForSlice(sliceIndex, currentRotationDeg) {
+                // Each slice starts at -90° (12 o'clock). The pointer is fixed at -90°.
+                // To place the exact CENTER of sliceIndex under the pointer:
+                // rotation = -(sliceIndex + 0.5) * sliceAngle (mod 360).
+                const targetModulo = normalizeDegrees(-(sliceIndex + 0.5) * SLICE_ANGLE_DEG);
+                const currentModulo = normalizeDegrees(currentRotationDeg);
+                const delta = normalizeDegrees(targetModulo - currentModulo);
+
+                // Extra turns are only animation; they do not influence the prize.
+                const extraTurns = MIN_FULL_ROTATIONS +
+                    fairRandomInt(MAX_FULL_ROTATIONS - MIN_FULL_ROTATIONS + 1);
+
+                return currentRotationDeg + extraTurns * 360 + delta;
+            }
+
+            // Derive the slice from the ACTUAL final wheel rotation at the pointer.
+            // This is the value used for the announcement, so the UI cannot announce
+            // one prize while the arrow visibly lands on another.
+            function getSliceIndexAtPointer(rotationDeg) {
+                const pointerAngle = normalizeDegrees(-90 - rotationDeg);
+                const relativeAngle = normalizeDegrees(pointerAngle + 90);
+                return Math.floor(relativeAngle / SLICE_ANGLE_DEG) % NUM_SLICES;
+            }
+
+            function spinWheel() {
+                if (isSpinning) return;
+
+                isSpinning = true;
+                spinBtn.disabled = true;
+                spinBtn.innerHTML = 'SPINNING<span class="btn-sub">GOOD LUCK!</span>';
+
+                // Select the intended slice using uniform randomness.
+                const intendedIndex = fairRandomInt(NUM_SLICES);
+                const targetAngle = getTargetAngleForSlice(intendedIndex, currentRotation);
+
+                const startAngle = currentRotation;
+                const totalDelta = targetAngle - startAngle;
+                const startTime = performance.now();
+                const duration = SPIN_DURATION_MS;
+
+                function animateSpin(timestamp) {
+                    const elapsed = timestamp - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 4); // ease-out quart
+
+                    const currentAngle = startAngle + totalDelta * eased;
+                    canvas.style.transform = 'rotate(' + currentAngle + 'deg)';
+                    currentRotation = currentAngle;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animateSpin);
+                    } else {
+                        currentRotation = targetAngle;
+                        canvas.style.transform = 'rotate(' + currentRotation + 'deg)';
+
+                        // Resolve the result ONLY from the final wheel rotation under
+                        // the fixed arrow. This is the same geometry the customer sees.
+                        const winningIndex = getSliceIndexAtPointer(currentRotation);
+
+                        isSpinning = false;
+                        onSpinComplete(winningIndex);
+                    }
+                }
+
+                requestAnimationFrame(animateSpin);
+            }
+
+            function onSpinComplete(winningIndex) {
+                const slice = slices[winningIndex];
+
+                let prizeText;
+                if (slice.subText) {
+                    prizeText = slice.text + ' — ' + slice.subText.oldPrice + ' | ' + slice.subText.newPrice;
+                } else {
+                    prizeText = slice.text;
+                }
+                const prizeNote = 'Show this screen to the staff to claim your prize. 🎁';
+
+                resultPrize.textContent = prizeText;
+                resultNote.textContent = prizeNote;
+                resultOverlay.classList.add('show');
+                spinBtn.disabled = false;
+                spinBtn.innerHTML = 'SPIN<span class="btn-sub">TAP TO WIN</span>';
+            }
+
+            function closeResult() {
+                resultOverlay.classList.remove('show');
+            }
+
+            // ============================================================
+            // EVENT LISTENERS
+            // ============================================================
+            spinBtn.addEventListener('click', spinWheel);
+            resultCloseBtn.addEventListener('click', closeResult);
+            resultOverlay.addEventListener('click', function(e) {
+                if (e.target === resultOverlay) closeResult();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    if (!resultOverlay.classList.contains('show') && !isSpinning) {
+                        e.preventDefault();
+                        spinWheel();
+                    } else if (resultOverlay.classList.contains('show')) {
+                        e.preventDefault();
+                        closeResult();
+                    }
+                }
+                if (e.key === 'Escape' && resultOverlay.classList.contains('show')) {
+                    closeResult();
+                }
+            });
+
+            // ============================================================
+            // INITIALIZATION
+            // ============================================================
+            function init() {
+                canvas.style.transform = 'rotate(0deg)';
+                currentRotation = 0;
+
+                drawWheel();
+
+                spinBtn.disabled = false;
+                spinBtn.innerHTML = 'SPIN<span class="btn-sub">TAP TO WIN</span>';
+
+                // Guarantee the logo (or its fallback) is always visible: if the image
+                // hasn't loaded within 4s (slow/blocked network), force the fallback
+                // even though no error event fired yet.
+                const logoImg = document.getElementById('centerLogoImg');
+                if (logoImg) {
+                    const forceFallback = function() {
+                        if (!logoImg.isConnected || logoImg.complete && logoImg.naturalWidth > 0) return;
+                        logoImg.dispatchEvent(new Event('error'));
+                    };
+                    setTimeout(forceFallback, 4000);
+                }
+            }
+
+            init();
+        })();
+    </script>
+
+</body>
+</html>
