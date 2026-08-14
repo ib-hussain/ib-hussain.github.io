@@ -328,6 +328,27 @@
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
+        .result-prize .prize-label {
+            display: block;
+        }
+
+        .result-prize .prize-price {
+            display: block;
+            font-size: 1.35rem;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .result-prize .old-price {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #fff;
+        }
+
+        .result-prize .new-price {
+            color: var(--gold);
+        }
+
         .result-note {
             color: #aaa;
             font-size: 0.85rem;
@@ -390,6 +411,22 @@
             font-weight: 800;
             letter-spacing: 0.5px;
             line-height: 1.3;
+        }
+
+        .won-banner-prize .prize-label,
+        .won-banner-prize .prize-price {
+            display: block;
+        }
+
+        .won-banner-prize .prize-price {
+            margin-top: 4px;
+            font-size: 0.95rem;
+        }
+
+        .won-banner-prize .old-price {
+            text-decoration: line-through;
+            text-decoration-thickness: 1.5px;
+            color: #fff;
         }
 
         .view-prize-btn {
@@ -521,11 +558,15 @@
             const WHEEL_RADIUS = CANVAS_SIZE / 2 - 10;
             const TEXT_CENTER_RADIUS = (95 + 265) / 2; // ~180
 
-            const PLAYED_KEY = 'ptcl_wheel_spun_v1';
-            const PRIZE_KEY = 'ptcl_wheel_prize_v1';
-            const SPIN_DURATION_MS = 4500;
+            // NOTE: GitHub Pages is static. These keys enforce one-play behavior
+            // only on this browser/device via localStorage; they are not a secure,
+            // cross-device identity or server-side draw lock.
+            const PLAYED_KEY = 'ptcl_wheel_spun_v3';
+            const PRIZE_KEY = 'ptcl_wheel_prize_v3';
+            const ROTATION_KEY = 'ptcl_wheel_rotation_v3';
+            const SPIN_DURATION_MS = 10000;
             const MIN_FULL_ROTATIONS = 5;
-            const MAX_FULL_ROTATIONS = 8;
+            const MAX_FULL_ROTATIONS = 24;
 
             // ============================================================
             // DOM REFERENCES
@@ -565,16 +606,39 @@
                     hasPlayed = true;
                     let prize;
                     try { prize = JSON.parse(storedPrize); } catch (e) { prize = { text: storedPrize, note: '' }; }
+
+                    // Restore the exact final wheel position so the arrow and
+                    // the persisted announcement always refer to the same slice.
+                    const storedRotation = Number(safeGet(ROTATION_KEY));
+                    if (Number.isFinite(storedRotation)) {
+                        currentRotation = storedRotation;
+                        canvas.style.transform = 'rotate(' + currentRotation + 'deg)';
+                    } else {
+                        currentRotation = 0;
+                        canvas.style.transform = 'rotate(0deg)';
+                    }
+
                     lockButtonAsPlayed();
-                    showWonBanner(prize.text);
+                    const storedSlice = Number.isInteger(prize.index) ? slices[prize.index] : null;
+                    if (storedSlice) {
+                        renderPrize(wonBannerPrize, storedSlice);
+                    } else {
+                        wonBannerPrize.textContent = prize.text;
+                    }
+                    wonBanner.classList.add('show');
                     return prize;
                 }
                 return null;
             }
 
-            function persistPrize(prizeText, prizeNote) {
+            function persistPrize(prizeText, prizeNote, finalRotationDeg, winningIndex) {
                 safeSet(PLAYED_KEY, 'true');
-                safeSet(PRIZE_KEY, JSON.stringify({ text: prizeText, note: prizeNote }));
+                safeSet(PRIZE_KEY, JSON.stringify({
+                    text: prizeText,
+                    note: prizeNote,
+                    index: winningIndex
+                }));
+                safeSet(ROTATION_KEY, String(finalRotationDeg));
                 hasPlayed = true;
             }
 
@@ -586,6 +650,35 @@
             function showWonBanner(prizeText) {
                 wonBannerPrize.textContent = prizeText;
                 wonBanner.classList.add('show');
+            }
+
+            // Render the promotional price with the original price visibly struck
+            // out wherever the prize is announced.
+            function renderPrize(element, slice) {
+                element.textContent = '';
+                if (!slice.subText) {
+                    element.textContent = slice.text;
+                    return;
+                }
+
+                const label = document.createElement('span');
+                label.className = 'prize-label';
+                label.textContent = slice.text;
+
+                const price = document.createElement('span');
+                price.className = 'prize-price';
+
+                const oldPrice = document.createElement('span');
+                oldPrice.className = 'old-price';
+                oldPrice.textContent = slice.subText.oldPrice;
+
+                const separator = document.createTextNode(' | ');
+                const newPrice = document.createElement('span');
+                newPrice.className = 'new-price';
+                newPrice.textContent = slice.subText.newPrice;
+
+                price.append(oldPrice, separator, newPrice);
+                element.append(label, price);
             }
 
             // ============================================================
@@ -656,37 +749,44 @@
                 context.shadowOffsetY = 1;
 
                 if (slice.subText) {
-                    // Line 1: label (e.g. "INSTALLATION")
-                    const line1Radius = 138;
-                    context.font = 'bold 15px "Segoe UI", Arial, sans-serif';
-                    context.fillText(slice.text, line1Radius, 0);
+                    // The promotional slice is deliberately rendered as TWO
+                    // compact lines in the slice, not as one long radial line.
+                    // x = radial distance from center; y = tangential offset.
+                    // This keeps both lines inside the 30° slice.
+                    const textRadius = 178;
+                    const labelY = -10;
+                    const priceY = 11;
 
-                    // Line 2: "5000 | 1500" with strikethrough on the old price
-                    const line2Radius = 192;
-                    context.font = 'bold 14px "Segoe UI", Arial, sans-serif';
+                    context.font = '800 11px "Segoe UI", Arial, sans-serif';
+                    context.textAlign = 'center';
+                    context.fillText(slice.text, textRadius, labelY);
+
                     const oldPrice = slice.subText.oldPrice;
                     const newPrice = slice.subText.newPrice;
-                    const sep = '  |  ';
-                    const textOld = context.measureText(oldPrice).width;
-                    const textSep = context.measureText(sep).width;
-                    const textNew = context.measureText(newPrice).width;
-                    const totalWidth = textOld + textSep + textNew;
-                    const startX = line2Radius - totalWidth / 2;
+                    const sep = ' | ';
+
+                    context.font = '800 13px "Segoe UI", Arial, sans-serif';
+                    const oldWidth = context.measureText(oldPrice).width;
+                    const sepWidth = context.measureText(sep).width;
+                    const newWidth = context.measureText(newPrice).width;
+                    const totalWidth = oldWidth + sepWidth + newWidth;
+                    const startX = textRadius - totalWidth / 2;
 
                     context.textAlign = 'left';
-                    context.fillText(oldPrice, startX, 0);
+                    context.fillText(oldPrice, startX, priceY);
 
-                    // Strikethrough line through the old price
+                    // Strike-through ONLY the old price (5000).
+                    context.save();
                     context.shadowBlur = 0;
                     context.strokeStyle = '#ffffff';
-                    context.lineWidth = 2.5;
+                    context.lineWidth = 2.25;
                     context.beginPath();
-                    context.moveTo(startX - 2, 0);
-                    context.lineTo(startX + textOld + 2, 0);
+                    context.moveTo(startX - 1, priceY);
+                    context.lineTo(startX + oldWidth + 1, priceY);
                     context.stroke();
-                    context.shadowBlur = 4;
+                    context.restore();
 
-                    context.fillText(sep + newPrice, startX + textOld, 0);
+                    context.fillText(sep + newPrice, startX + oldWidth, priceY);
                     context.textAlign = 'center';
                 } else {
                     const textRadius = TEXT_CENTER_RADIUS;
@@ -723,16 +823,57 @@
             // ============================================================
             // SPIN LOGIC
             // ============================================================
-            function getTargetAngleForSlice(sliceIndex, currentRotationDeg) {
-                // Middle of slice i sits at (i + 0.5) * 30° clockwise from top.
-                // After rotating by θ, the slice at the pointer is at original angle (360 - θ) mod 360.
-                // So: θ ≡ 360 - (i + 0.5) * 30  (mod 360)
-                const targetModulo = ((360 - (sliceIndex + 0.5) * SLICE_ANGLE_DEG) % 360 + 360) % 360;
-                const currentModulo = ((currentRotationDeg % 360) + 360) % 360;
-                let delta = (targetModulo - currentModulo + 360) % 360;
 
-                const extraRotations = (MIN_FULL_ROTATIONS + Math.random() * (MAX_FULL_ROTATIONS - MIN_FULL_ROTATIONS)) * 360;
-                return currentRotationDeg + extraRotations + delta;
+            // Uniform random integer in [0, maxExclusive), using the Web Crypto
+            // API with rejection sampling so every slice has the same probability.
+            // A Math.random fallback is retained only for browsers/environments
+            // that do not expose crypto.getRandomValues().
+            function fairRandomInt(maxExclusive) {
+                if (!Number.isInteger(maxExclusive) || maxExclusive <= 0) {
+                    throw new Error('maxExclusive must be a positive integer');
+                }
+
+                if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
+                    const uintMax = 0x100000000; // 2^32
+                    const limit = Math.floor(uintMax / maxExclusive) * maxExclusive;
+                    const sample = new Uint32Array(1);
+
+                    do {
+                        window.crypto.getRandomValues(sample);
+                    } while (sample[0] >= limit);
+
+                    return sample[0] % maxExclusive;
+                }
+
+                return Math.floor(Math.random() * maxExclusive);
+            }
+
+            function normalizeDegrees(degrees) {
+                return ((degrees % 360) + 360) % 360;
+            }
+
+            function getTargetAngleForSlice(sliceIndex, currentRotationDeg) {
+                // Each slice starts at -90° (12 o'clock). The pointer is fixed at -90°.
+                // To place the exact CENTER of sliceIndex under the pointer:
+                // rotation = -(sliceIndex + 0.5) * sliceAngle (mod 360).
+                const targetModulo = normalizeDegrees(-(sliceIndex + 0.5) * SLICE_ANGLE_DEG);
+                const currentModulo = normalizeDegrees(currentRotationDeg);
+                const delta = normalizeDegrees(targetModulo - currentModulo);
+
+                // Extra turns are only animation; they do not influence the prize.
+                const extraTurns = MIN_FULL_ROTATIONS +
+                    fairRandomInt(MAX_FULL_ROTATIONS - MIN_FULL_ROTATIONS + 1);
+
+                return currentRotationDeg + extraTurns * 360 + delta;
+            }
+
+            // Derive the slice from the ACTUAL final wheel rotation at the pointer.
+            // This is the value used for the announcement, so the UI cannot announce
+            // one prize while the arrow visibly lands on another.
+            function getSliceIndexAtPointer(rotationDeg) {
+                const pointerAngle = normalizeDegrees(-90 - rotationDeg);
+                const relativeAngle = normalizeDegrees(pointerAngle + 90);
+                return Math.floor(relativeAngle / SLICE_ANGLE_DEG) % NUM_SLICES;
             }
 
             function spinWheel() {
@@ -742,8 +883,9 @@
                 spinBtn.disabled = true;
                 spinBtn.innerHTML = 'SPINNING<span class="btn-sub">GOOD LUCK!</span>';
 
-                const winningIndex = Math.floor(Math.random() * NUM_SLICES);
-                const targetAngle = getTargetAngleForSlice(winningIndex, currentRotation);
+                // Select the intended slice using uniform randomness.
+                const intendedIndex = fairRandomInt(NUM_SLICES);
+                const targetAngle = getTargetAngleForSlice(intendedIndex, currentRotation);
 
                 const startAngle = currentRotation;
                 const totalDelta = targetAngle - startAngle;
@@ -764,15 +906,20 @@
                     } else {
                         currentRotation = targetAngle;
                         canvas.style.transform = 'rotate(' + currentRotation + 'deg)';
+
+                        // Resolve the prize ONLY from the actual final wheel rotation.
+                        // There is no separate announcement value to drift out of sync.
+                        const winningIndex = getSliceIndexAtPointer(currentRotation);
+
                         isSpinning = false;
-                        onSpinComplete(winningIndex);
+                        onSpinComplete(winningIndex, currentRotation);
                     }
                 }
 
                 requestAnimationFrame(animateSpin);
             }
 
-            function onSpinComplete(winningIndex) {
+            function onSpinComplete(winningIndex, finalRotationDeg) {
                 const slice = slices[winningIndex];
 
                 let prizeText;
@@ -783,11 +930,13 @@
                 }
                 const prizeNote = 'Show this screen to the staff to claim your prize. 🎁';
 
-                persistPrize(prizeText, prizeNote);
+                // Persist both the announcement and the exact visual end position.
+                persistPrize(prizeText, prizeNote, finalRotationDeg, winningIndex);
                 lockButtonAsPlayed();
-                showWonBanner(prizeText);
+                renderPrize(wonBannerPrize, slice);
+                wonBanner.classList.add('show');
 
-                resultPrize.textContent = prizeText;
+                renderPrize(resultPrize, slice);
                 resultNote.textContent = prizeNote;
                 resultOverlay.classList.add('show');
             }
@@ -830,9 +979,8 @@
             // INITIALIZATION
             // ============================================================
             function init() {
-                canvas.style.transform = 'rotate(0deg)';
                 currentRotation = 0;
-
+                canvas.style.transform = 'rotate(0deg)';
                 drawWheel();
 
                 const storedPrize = loadPlayedState();
@@ -843,7 +991,14 @@
                 } else {
                     // Wire up the "show my prize" button to reopen the popup on demand.
                     viewPrizeBtn.addEventListener('click', function() {
-                        openResultOverlay(storedPrize.text, storedPrize.note);
+                        const storedSlice = Number.isInteger(storedPrize.index) ? slices[storedPrize.index] : null;
+                        if (storedSlice) {
+                            renderPrize(resultPrize, storedSlice);
+                        } else {
+                            resultPrize.textContent = storedPrize.text;
+                        }
+                        resultNote.textContent = storedPrize.note || 'Show this screen to the staff to claim your prize. 🎁';
+                        resultOverlay.classList.add('show');
                     });
                 }
 
