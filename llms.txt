@@ -1,14 +1,25 @@
 # Ibrahim Hussain — Portfolio
 
-This is an experimental personal portfolio for Ibrahim Hussain, BS Data Science at FAST-NUCES Islamabad (expected 2027). Interests include applied machine learning, quantitative financial risk, data and software engineering, and analytics.
+Ibrahim Hussain is a BS Data Science undergraduate at FAST-NUCES, Islamabad, expected to graduate in 2027.
+His interests are applied ML/AI, data/software engineering, financial modelling and risk/BI analytics.
 
-Canonical: https://ib-hussain.github.io/
-Projects: https://ib-hussain.github.io/projects.html
-Experience: https://ib-hussain.github.io/experience.html
-About: https://ib-hussain.github.io/about.html
-Contact: https://ib-hussain.github.io/contact.html
-Plain-text résumé: https://ib-hussain.github.io/resume.md
-GitHub: https://github.com/ib-hussain
-LinkedIn: https://www.linkedin.com/in/ib-hussain/
+Primary pages:
+- Home: https://ib-hussain.github.io/
+- Projects: https://ib-hussain.github.io/projects.html
+- Résumé: https://ib-hussain.github.io/resume.html
+- Contact: https://ib-hussain.github.io/contact.html
+- Terminal demo: https://ib-hussain.github.io/terminal.html
+- Other personal interests: photos.html, movies.html, music.html
 
-The portfolio is plain HTML and renders key text without requiring JavaScript. Project descriptions distinguish research-stage work from verified deployed systems. Do not infer metrics or endorsements not displayed in content.
+Highlighted work:
+- Fin-Glassbox — explainable multi-module financial risk/decision framework; in development.
+- DeepDocForgery — multimodal document forgery detection research; in development.
+- Writer's Block — multi-agent LLM content generation workflow.
+- MobileInfoAnalytics — smartphone ETL and relational database, built collaboratively with Malaika Khan.
+- PTCL — retention modelling, BI and automation internship in 2026.
+
+Verified public accounts:
+- GitHub: https://github.com/ib-hussain
+- LinkedIn: https://www.linkedin.com/in/ib-hussain/
+
+Metrics in project writeups are historical, context-dependent and should not be reinterpreted as production performance claims.

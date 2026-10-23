@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://ib-hussain.github.io/</loc></url>
-<url><loc>https://ib-hussain.github.io/projects.html</loc></url>
-<url><loc>https://ib-hussain.github.io/experience.html</loc></url>
-<url><loc>https://ib-hussain.github.io/about.html</loc></url>
-<url><loc>https://ib-hussain.github.io/contact.html</loc></url>
-<url><loc>https://ib-hussain.github.io/components.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/</loc></url>
+  <url><loc>https://ib-hussain.github.io/projects.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/contact.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/photos.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/terminal.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/resume.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/music.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/movies.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/bin.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/experience.html</loc></url>
+  <url><loc>https://ib-hussain.github.io/about.html</loc></url>
 </urlset>
