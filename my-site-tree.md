@@ -1,0 +1,341 @@
+# Public page tree for https://ib-hussain.github.io/
+
+Found **512 public URL(s)** using public GitHub repository trees, sitemaps, and same-host page links.
+
+> This is a public-surface inventory, not a guarantee of every URL on the site. The crawler uses public repository files for GitHub Pages, plus sitemaps and same-site links. Pages not exposed by those sources cannot be found without already knowing their URLs. Entries marked `repository entry; not fetched` come from source trees and may not be published. It does not guess paths or bypass access controls.
+
+## Pages
+
+- **assets/**
+  - [Ibrahim%27s%20Resume.pdf](https://ib-hussain.github.io/assets/Ibrahim%27s%20Resume.pdf) - HTTP 200
+- **disaster-recovery-analysis/**
+  - **docs/**
+    - [Report.pdf](https://ib-hussain.github.io/disaster-recovery-analysis/docs/Report.pdf) - HTTP 200
+  - **pictures/**
+    - [dashboard.html](https://ib-hussain.github.io/disaster-recovery-analysis/pictures/dashboard.html) - HTTP 200 - RRS Dashboard – Main Dashboard
+    - [dashboard.png](https://ib-hussain.github.io/disaster-recovery-analysis/pictures/dashboard.png) - HTTP 200
+    - [geo_map.html](https://ib-hussain.github.io/disaster-recovery-analysis/pictures/geo_map.html) - HTTP 200 - RRS Dashboard – Geo Map
+    - [line_chart.html](https://ib-hussain.github.io/disaster-recovery-analysis/pictures/line_chart.html) - HTTP 200 - RRS Dashboard – Evolution of Resilience
+    - [scatter_plot.html](https://ib-hussain.github.io/disaster-recovery-analysis/pictures/scatter_plot.html) - HTTP 200 - RRS Dashboard – Scatter Plot
+    - [RRS_documentation.pdf](https://ib-hussain.github.io/disaster-recovery-analysis/RRS/RRS_documentation.pdf) - repository entry; not fetched
+  - **tableau/**
+    - [Final_Dashboard.twb](https://ib-hussain.github.io/disaster-recovery-analysis/tableau/Final_Dashboard.twb) - repository entry; not fetched
+    - [~Final_Dashboard__13168.twbr](https://ib-hussain.github.io/disaster-recovery-analysis/tableau/~Final_Dashboard__13168.twbr) - repository entry; not fetched
+  - [index](https://ib-hussain.github.io/disaster-recovery-analysis/) - HTTP 200 - Quantifying National Resilience: A Data-Driven Assessment Using the Resilience Recovery Score | disaster-recovery-analysis
+  - [DATA_PROCESSING.html](https://ib-hussain.github.io/disaster-recovery-analysis/DATA_PROCESSING.html) - HTTP 200 - Data Operations and Transformations | disaster-recovery-analysis
+  - [DATA_PROCESSING.md](https://ib-hussain.github.io/disaster-recovery-analysis/DATA_PROCESSING.md) - HTTP 200
+  - [README.md](https://ib-hussain.github.io/disaster-recovery-analysis/README.md) - HTTP 200
+- **fin-glassbox/**
+  - **code/**
+    - **analysts/**
+      - [index](https://ib-hussain.github.io/fin-glassbox/code/analysts/) - HTTP 200 - code/analysts/ Folder Documentation | fin-glassbox
+      - [NewsAnalyst.html](https://ib-hussain.github.io/fin-glassbox/code/analysts/NewsAnalyst.html) - HTTP 200 - News Analyst Module | fin-glassbox
+      - [NewsAnalyst.md](https://ib-hussain.github.io/fin-glassbox/code/analysts/NewsAnalyst.md) - HTTP 200
+      - [QualitativeAnalyst.html](https://ib-hussain.github.io/fin-glassbox/code/analysts/QualitativeAnalyst.html) - HTTP 200 - Qualitative Synthesis Layer Analyst | fin-glassbox
+      - [QualitativeAnalyst.md](https://ib-hussain.github.io/fin-glassbox/code/analysts/QualitativeAnalyst.md) - HTTP 200
+      - [QuantitativeAnalyst.html](https://ib-hussain.github.io/fin-glassbox/code/analysts/QuantitativeAnalyst.html) - HTTP 200 - Quantitative Synthesis Layer Analyst | fin-glassbox
+      - [QuantitativeAnalyst.md](https://ib-hussain.github.io/fin-glassbox/code/analysts/QuantitativeAnalyst.md) - HTTP 200
+      - [README.md](https://ib-hussain.github.io/fin-glassbox/code/analysts/README.md) - HTTP 200
+      - [SentimentAnalyst.html](https://ib-hussain.github.io/fin-glassbox/code/analysts/SentimentAnalyst.html) - HTTP 200 - Sentiment Analyst Module | fin-glassbox
+      - [SentimentAnalyst.md](https://ib-hussain.github.io/fin-glassbox/code/analysts/SentimentAnalyst.md) - HTTP 200
+      - [TechnicalAnalyst.html](https://ib-hussain.github.io/fin-glassbox/code/analysts/TechnicalAnalyst.html) - HTTP 200 - Technical Analysis Module | fin-glassbox
+      - [TechnicalAnalyst.md](https://ib-hussain.github.io/fin-glassbox/code/analysts/TechnicalAnalyst.md) - HTTP 200
+    - **encoders/**
+      - [index](https://ib-hussain.github.io/fin-glassbox/code/encoders/) - HTTP 200 - code/encoders/ Folder Documentation | fin-glassbox
+      - [FinBERT_Encoder.html](https://ib-hussain.github.io/fin-glassbox/code/encoders/FinBERT_Encoder.html) - HTTP 200 - FinBERT Financial Text Encoder | fin-glassbox
+      - [FinBERT_Encoder.md](https://ib-hussain.github.io/fin-glassbox/code/encoders/FinBERT_Encoder.md) - HTTP 200
+      - [README.md](https://ib-hussain.github.io/fin-glassbox/code/encoders/README.md) - HTTP 200
+      - [TemporalEncoder.html](https://ib-hussain.github.io/fin-glassbox/code/encoders/TemporalEncoder.html) - HTTP 200 - Shared Temporal Attention Encoder | fin-glassbox
+      - [TemporalEncoder.md](https://ib-hussain.github.io/fin-glassbox/code/encoders/TemporalEncoder.md) - HTTP 200
+      - [TextEncoder.html](https://ib-hussain.github.io/fin-glassbox/code/encoders/TextEncoder.html) - HTTP 200 - FinBERT Text Encoder | fin-glassbox
+      - [TextEncoder.md](https://ib-hussain.github.io/fin-glassbox/code/encoders/TextEncoder.md) - HTTP 200
+    - **fusion/**
+      - [index](https://ib-hussain.github.io/fin-glassbox/code/fusion/) - HTTP 200 - code/fusion/ — Hybrid Fusion Engine | fin-glassbox
+      - [README.md](https://ib-hussain.github.io/fin-glassbox/code/fusion/README.md) - HTTP 200
+    - **gnn/**
+      - [index](https://ib-hussain.github.io/fin-glassbox/code/gnn/) - HTTP 200 - code/gnn/ Folder Documentation | fin-glassbox
+      - [CrossAssetRelationData.html](https://ib-hussain.github.io/fin-glassbox/code/gnn/CrossAssetRelationData.html) - HTTP 200 - Cross-Asset Relation Data Builder | fin-glassbox
+      - [CrossAssetRelationData.md](https://ib-hussain.github.io/fin-glassbox/code/gnn/CrossAssetRelationData.md) - HTTP 200
+      - [MTGNN.html](https://ib-hussain.github.io/fin-glassbox/code/gnn/MTGNN.html) - HTTP 200 - MTGNN Regime Detection Module | fin-glassbox
+      - [MTGNN.md](https://ib-hussain.github.io/fin-glassbox/code/gnn/MTGNN.md) - HTTP 200
+      - [mtgnn_regime.py](https://ib-hussain.github.io/fin-glassbox/code/gnn/mtgnn_regime.py) - repository entry; not fetched
+      - [README.md](https://ib-hussain.github.io/fin-glassbox/code/gnn/README.md) - HTTP 200
+      - [StemGNN.html](https://ib-hussain.github.io/fin-glassbox/code/gnn/StemGNN.html) - HTTP 200 - StemGNN Contagion Risk Module | fin-glassbox
+      - [StemGNN.md](https://ib-hussain.github.io/fin-glassbox/code/gnn/StemGNN.md) - HTTP 200
+      - [stemgnn_base_model.py](https://ib-hussain.github.io/fin-glassbox/code/gnn/stemgnn_base_model.py) - repository entry; not fetched
+      - [StemGNN_Contagion.html](https://ib-hussain.github.io/fin-glassbox/code/gnn/StemGNN_Contagion.html) - HTTP 200 - StemGNN Contagion Risk Module | fin-glassbox
+      - [StemGNN_Contagion.md](https://ib-hussain.github.io/fin-glassbox/code/gnn/StemGNN_Contagion.md) - HTTP 200
+      - [stemgnn_contagion.py](https://ib-hussain.github.io/fin-glassbox/code/gnn/stemgnn_contagion.py) - repository entry; not fetched
+    - **libs/**
+      - **hpo_config/**
+        - [volatility.py](https://ib-hussain.github.io/fin-glassbox/code/libs/hpo_config/volatility.py) - repository entry; not fetched
+      - **yfinance_ib/**
+    - **riskEngine/**
+      - [index](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/) - HTTP 200 - code/riskEngine/ Folder Documentation | fin-glassbox
+      - [Drawdown_Risk_Module.html](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Drawdown_Risk_Module.html) - HTTP 200 - Drawdown Risk Module | fin-glassbox
+      - [Drawdown_Risk_Module.md](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Drawdown_Risk_Module.md) - HTTP 200
+      - [Position_Sizing_Engine.html](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Position_Sizing_Engine.html) - HTTP 200 - Position Sizing Engine | fin-glassbox
+      - [Position_Sizing_Engine.md](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Position_Sizing_Engine.md) - HTTP 200
+      - [README.md](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/README.md) - HTTP 200
+      - [Regime_Detection_Module.html](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Regime_Detection_Module.html) - HTTP 200 - Regime Detection Module | fin-glassbox
+      - [Regime_Detection_Module.md](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Regime_Detection_Module.md) - HTTP 200
+      - [VaR_CVaR_Liquidity.html](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/VaR_CVaR_Liquidity.html) - HTTP 200 - Historical VaR Module, CVaR Tail Risk Module, & Liquidity Risk Module | fin-glassbox
+      - [VaR_CVaR_Liquidity.md](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/VaR_CVaR_Liquidity.md) - HTTP 200
+      - [Volatility_Risk_Module.html](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Volatility_Risk_Module.html) - HTTP 200 - Volatility Risk Module | fin-glassbox
+      - [Volatility_Risk_Module.md](https://ib-hussain.github.io/fin-glassbox/code/riskEngine/Volatility_Risk_Module.md) - HTTP 200
+  - **data/**
+    - **FRED_data/**
+      - [index](https://ib-hussain.github.io/fin-glassbox/data/FRED_data/) - HTTP 200 - FRED Data | fin-glassbox
+      - [README.md](https://ib-hussain.github.io/fin-glassbox/data/FRED_data/README.md) - HTTP 200
+    - **libs/**
+      - **yfinance_ib/**
+        - [README.md](https://ib-hussain.github.io/fin-glassbox/data/libs/yfinance_ib/README.md) - HTTP 200
+    - **sec_edgar/**
+      - **processed/**
+        - [DataProcessing.html](https://ib-hussain.github.io/fin-glassbox/data/sec_edgar/processed/DataProcessing.html) - HTTP 200 - EXECUTIVE SUMMARY | fin-glassbox
+        - [DataProcessing.md](https://ib-hussain.github.io/fin-glassbox/data/sec_edgar/processed/DataProcessing.md) - HTTP 200
+    - **yFinance/**
+      - [yFinance.html](https://ib-hussain.github.io/fin-glassbox/data/yFinance/yFinance.html) - HTTP 200 - Market Data Pipeline | fin-glassbox
+      - [yFinance.md](https://ib-hussain.github.io/fin-glassbox/data/yFinance/yFinance.md) - HTTP 200
+    - [index](https://ib-hussain.github.io/fin-glassbox/data/) - HTTP 200 - Data Collection, Processing, Cleaning, and Engineering Methodology | fin-glassbox
+    - [README.md](https://ib-hussain.github.io/fin-glassbox/data/README.md) - HTTP 200
+  - **researchPapers/**
+    - [1.%20TradingAgents%20Multi-Agents%20LLM%20Financial%20Trading%20Framework.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/1.%20TradingAgents%20Multi-Agents%20LLM%20Financial%20Trading%20Framework.pdf) - repository entry; not fetched
+    - [10.%20Explainable%20Artificial%20Intelligence%20Credit%20Risk%20Assessment%20using%20Machine%20Learning.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/10.%20Explainable%20Artificial%20Intelligence%20Credit%20Risk%20Assessment%20using%20Machine%20Learning.pdf) - repository entry; not fetched
+    - [11.%20An%20Explainable%20AI%20for%20Stock%20Market%20Prediction%20A%20Machine%20Learning%20Approach%20with%20XAI%20and%20Deep%20Neural%20Networks.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/11.%20An%20Explainable%20AI%20for%20Stock%20Market%20Prediction%20A%20Machine%20Learning%20Approach%20with%20XAI%20and%20Deep%20Neural%20Networks.pdf) - repository entry; not fetched
+    - [12.%20A%20Survey%20of%20Explainable%20Artificial%20Intelligence%20%28XAI%29%20in%20Financial%20Time%20Series%20Forecasting.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/12.%20A%20Survey%20of%20Explainable%20Artificial%20Intelligence%20%28XAI%29%20in%20Financial%20Time%20Series%20Forecasting.pdf) - repository entry; not fetched
+    - [13.%20Financial%20asset%20price%20prediction%20with%20graph%20neural%20network-based%20temporal%20deep%20learning%20models.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/13.%20Financial%20asset%20price%20prediction%20with%20graph%20neural%20network-based%20temporal%20deep%20learning%20models.pdf) - repository entry; not fetched
+    - [2.%20A%20Multi-Agent%20Decision%20Support%20System%20for%20Stock%20Trading.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/2.%20A%20Multi-Agent%20Decision%20Support%20System%20for%20Stock%20Trading.pdf) - repository entry; not fetched
+    - [3.%20Model-agnostic%20explainable%20artificial%20intelligence%20methods%20in%20finance%20a%20systematic%20review%2C%20recent%20developments%2C%20limitations%2C%20challenges%20and%20future%20directions.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/3.%20Model-agnostic%20explainable%20artificial%20intelligence%20methods%20in%20finance%20a%20systematic%20review%2C%20recent%20developments%2C%20limitations%2C%20challenges%20and%20future%20directions.pdf) - repository entry; not fetched
+    - [4.%20Explainable%20artificial%20intelligence%20%28XAI%29%20in%20finance%20a%20systematic%20literature%20review.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/4.%20Explainable%20artificial%20intelligence%20%28XAI%29%20in%20finance%20a%20systematic%20literature%20review.pdf) - repository entry; not fetched
+    - [5.%20GNNExplainer%20Generating%20Explanations%20for%20Graph%20Neural%20Networks.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/5.%20GNNExplainer%20Generating%20Explanations%20for%20Graph%20Neural%20Networks.pdf) - repository entry; not fetched
+    - [6.%20A%20Comprehensive%20Review%20on%20Financial%20Explainable%20AI.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/6.%20A%20Comprehensive%20Review%20on%20Financial%20Explainable%20AI.pdf) - repository entry; not fetched
+    - [7.%20Big%20Data%20and%20Machine%20Learning%20Methods%20in%20Financial%20Risk%20Prediction.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/7.%20Big%20Data%20and%20Machine%20Learning%20Methods%20in%20Financial%20Risk%20Prediction.pdf) - repository entry; not fetched
+    - [8.%20Fraud%20Detection%20using%20Machine%20Learning%20and%20Deep%20Learning.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/8.%20Fraud%20Detection%20using%20Machine%20Learning%20and%20Deep%20Learning.pdf) - repository entry; not fetched
+    - [9.%20StemGNN.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/9.%20StemGNN.pdf) - repository entry; not fetched
+    - [FinalPaper_v1.0.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/FinalPaper_v1.0.pdf) - repository entry; not fetched
+    - [FinalPaper_v1.2.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/FinalPaper_v1.2.pdf) - repository entry; not fetched
+    - [FinalPaper_v1.3.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/FinalPaper_v1.3.pdf) - repository entry; not fetched
+    - [FinalPaper_v1.4.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/FinalPaper_v1.4.pdf) - repository entry; not fetched
+    - [FinalPaper_v1.5.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/FinalPaper_v1.5.pdf) - repository entry; not fetched
+    - [FinalPaper_v2.0.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/FinalPaper_v2.0.pdf) - repository entry; not fetched
+    - [Hyperparameter_Config.html](https://ib-hussain.github.io/fin-glassbox/researchPapers/Hyperparameter_Config.html) - HTTP 200 - Hyperparameter Configuration | fin-glassbox
+    - [Hyperparameter_Config.md](https://ib-hussain.github.io/fin-glassbox/researchPapers/Hyperparameter_Config.md) - HTTP 200
+    - [i232649_i232591_i232626_DL_Assignment2.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/i232649_i232591_i232626_DL_Assignment2.pdf) - repository entry; not fetched
+    - [MASTER_PROMPT.html](https://ib-hussain.github.io/fin-glassbox/researchPapers/MASTER_PROMPT.html) - HTTP 200 - MASTER PROMPT | fin-glassbox
+    - [MASTER_PROMPT.md](https://ib-hussain.github.io/fin-glassbox/researchPapers/MASTER_PROMPT.md) - HTTP 200
+    - [MASTER_PROMPT2.html](https://ib-hussain.github.io/fin-glassbox/researchPapers/MASTER_PROMPT2.html) - HTTP 200 - Complete Session Summary — 26-27 April 2026 | fin-glassbox
+    - [MASTER_PROMPT2.md](https://ib-hussain.github.io/fin-glassbox/researchPapers/MASTER_PROMPT2.md) - HTTP 200
+    - [ProjectProposal.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/ProjectProposal.pdf) - repository entry; not fetched
+    - [sabeels%20generated%20pipeline.pdf](https://ib-hussain.github.io/fin-glassbox/researchPapers/sabeels%20generated%20pipeline.pdf) - repository entry; not fetched
+    - [WORKFLOW_v1.html](https://ib-hussain.github.io/fin-glassbox/researchPapers/WORKFLOW_v1.html) - HTTP 200 - Clean Architecture Blueprint | fin-glassbox
+    - [WORKFLOW_v1.md](https://ib-hussain.github.io/fin-glassbox/researchPapers/WORKFLOW_v1.md) - HTTP 200
+    - [WORKFLOW_v2.html](https://ib-hussain.github.io/fin-glassbox/researchPapers/WORKFLOW_v2.html) - HTTP 200 - Explainable Multimodal Neural Framework for Financial Risk Management | fin-glassbox
+    - [WORKFLOW_v2.md](https://ib-hussain.github.io/fin-glassbox/researchPapers/WORKFLOW_v2.md) - HTTP 200
+    - [XAI_Specifications.html](https://ib-hussain.github.io/fin-glassbox/researchPapers/XAI_Specifications.html) - HTTP 200 - xAI Specifications | fin-glassbox
+    - [XAI_Specifications.md](https://ib-hussain.github.io/fin-glassbox/researchPapers/XAI_Specifications.md) - HTTP 200
+  - [index](https://ib-hussain.github.io/fin-glassbox/) - HTTP 200 - fin-glassbox | Explainable multimodal neural framework for financial risk management with temporal, textual, graph-based, risk-engine, XAI, and hybrid fusion components.
+  - [LICENSE](https://ib-hussain.github.io/fin-glassbox/LICENSE) - HTTP 200
+  - [README.md](https://ib-hussain.github.io/fin-glassbox/README.md) - HTTP 200
+  - [SETUP.md](https://ib-hussain.github.io/fin-glassbox/SETUP.md) - HTTP 200
+  - [WORKFLOW.html](https://ib-hussain.github.io/fin-glassbox/WORKFLOW.html) - HTTP 200 - Workflow Architecture Blueprint | fin-glassbox
+  - [WORKFLOW.md](https://ib-hussain.github.io/fin-glassbox/WORKFLOW.md) - HTTP 200
+  - [xAI.html](https://ib-hussain.github.io/fin-glassbox/xAI.html) - HTTP 200 - xAI.md | fin-glassbox
+  - [xAI.md](https://ib-hussain.github.io/fin-glassbox/xAI.md) - HTTP 200
+- **fin-glassbox_demo/**
+  - [streamlit_page_redirect.html](https://ib-hussain.github.io/fin-glassbox_demo/streamlit_page_redirect.html) - HTTP 200
+- **pictures/**
+  - **3movieCollectors/**
+    - [Admin%20Side.md](https://ib-hussain.github.io/pictures/3movieCollectors/Admin%20Side.md) - HTTP 200
+    - [Database%20Schema.md](https://ib-hussain.github.io/pictures/3movieCollectors/Database%20Schema.md) - HTTP 200
+    - [README.md](https://ib-hussain.github.io/pictures/3movieCollectors/README.md) - HTTP 200
+    - [User%20Side.md](https://ib-hussain.github.io/pictures/3movieCollectors/User%20Side.md) - HTTP 200
+  - **Cinemago/**
+    - [README.md](https://ib-hussain.github.io/pictures/Cinemago/README.md) - HTTP 200
+  - **disaster-recovery-analysis/**
+    - [DATA_PROCESSING.md](https://ib-hussain.github.io/pictures/disaster-recovery-analysis/DATA_PROCESSING.md) - HTTP 200
+    - [README.md](https://ib-hussain.github.io/pictures/disaster-recovery-analysis/README.md) - HTTP 200
+    - [Report.pdf](https://ib-hussain.github.io/pictures/disaster-recovery-analysis/Report.pdf) - repository entry; not fetched
+  - **fin-glassbox/**
+    - [README.md](https://ib-hussain.github.io/pictures/fin-glassbox/README.md) - HTTP 200
+  - **Game-Of-Life/**
+    - [README.md](https://ib-hussain.github.io/pictures/Game-Of-Life/README.md) - HTTP 200
+  - **GameBoy/**
+    - [README.md](https://ib-hussain.github.io/pictures/GameBoy/README.md) - HTTP 200
+  - **Movie-Genre-Detection-Model/**
+    - [README.md](https://ib-hussain.github.io/pictures/Movie-Genre-Detection-Model/README.md) - HTTP 200
+  - **Multi-Agentic_Health_Assistant/**
+    - [README.md](https://ib-hussain.github.io/pictures/Multi-Agentic_Health_Assistant/README.md) - HTTP 200
+  - **Network-Emulator/**
+    - [README.md](https://ib-hussain.github.io/pictures/Network-Emulator/README.md) - HTTP 200
+  - **Projects.py/**
+    - [README.md](https://ib-hussain.github.io/pictures/Projects.py/README.md) - HTTP 200
+  - **secret_to_happiness/**
+    - [DATA.md](https://ib-hussain.github.io/pictures/secret_to_happiness/DATA.md) - HTTP 200
+    - [README.md](https://ib-hussain.github.io/pictures/secret_to_happiness/README.md) - HTTP 200
+  - **Statistical%20Analysis/**
+    - [Inflation%20Dynamics%20in%20Pakistan.pdf](https://ib-hussain.github.io/pictures/Statistical%20Analysis/Inflation%20Dynamics%20in%20Pakistan.pdf) - repository entry; not fetched
+    - [README.md](https://ib-hussain.github.io/pictures/Statistical%20Analysis/README.md) - HTTP 200
+  - **writers-block/**
+    - [README.md](https://ib-hussain.github.io/pictures/writers-block/README.md) - HTTP 200
+    - [SPECIFICATIONS.md](https://ib-hussain.github.io/pictures/writers-block/SPECIFICATIONS.md) - HTTP 200
+    - [WritersBlock.png](https://ib-hussain.github.io/pictures/writers-block/WritersBlock.png) - repository entry; not fetched
+- **Projects.py/**
+  - [README.md](https://ib-hussain.github.io/Projects.py/README.md) - HTTP 200
+- **PTCL/**
+  - [spin.html](https://ib-hussain.github.io/PTCL/spin.html) - HTTP 200 - PTCL Spin to Win — Free Play
+  - [SpinTheWheel.html](https://ib-hussain.github.io/PTCL/SpinTheWheel.html) - HTTP 200 - PTCL Spin to Win
+- **secret_to_happiness/**
+  - **docs/**
+    - [Case%20Study.pdf](https://ib-hussain.github.io/secret_to_happiness/docs/Case%20Study.pdf) - repository entry; not fetched
+    - [MainReport.pdf](https://ib-hussain.github.io/secret_to_happiness/docs/MainReport.pdf) - repository entry; not fetched
+    - [OldReport.tex](https://ib-hussain.github.io/secret_to_happiness/docs/OldReport.tex) - repository entry; not fetched
+    - [ProjectPresentation.pptx](https://ib-hussain.github.io/secret_to_happiness/docs/ProjectPresentation.pptx) - repository entry; not fetched
+    - [ProjectReport.docx](https://ib-hussain.github.io/secret_to_happiness/docs/ProjectReport.docx) - repository entry; not fetched
+  - **pictures/**
+    - [2018%20Parallel%20Coordinates%20Plot%20Economic%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg](https://ib-hussain.github.io/secret_to_happiness/pictures/2018%20Parallel%20Coordinates%20Plot%20Economic%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg) - HTTP 200
+    - [2018%20Parallel%20Coordinates%20Plot%20Social%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg](https://ib-hussain.github.io/secret_to_happiness/pictures/2018%20Parallel%20Coordinates%20Plot%20Social%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg) - HTTP 200
+    - [2022%20Parallel%20Coordinates%20Plot%20Economic%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg](https://ib-hussain.github.io/secret_to_happiness/pictures/2022%20Parallel%20Coordinates%20Plot%20Economic%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg) - HTTP 200
+    - [2022%20Parallel%20Coordinates%20Plot%20Social%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg](https://ib-hussain.github.io/secret_to_happiness/pictures/2022%20Parallel%20Coordinates%20Plot%20Social%20Indicators%20and%20Their%20Relationship%20to%20Happiness.svg) - HTTP 200
+    - [Average%20Happiness%20vs%20Average%20Life%20Expectancy%20by%20Country.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Average%20Happiness%20vs%20Average%20Life%20Expectancy%20by%20Country.png) - repository entry; not fetched
+    - [Choropleth%20Map%20Global%20Happiness%20Score%20Distribution.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Choropleth%20Map%20Global%20Happiness%20Score%20Distribution.png) - HTTP 200
+    - [Economic%20Development%20vs%20Outcomes.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Economic%20Development%20vs%20Outcomes.png) - repository entry; not fetched
+    - [economic%20factors%202018.png](https://ib-hussain.github.io/secret_to_happiness/pictures/economic%20factors%202018.png) - repository entry; not fetched
+    - [economic%20factors%202022.png](https://ib-hussain.github.io/secret_to_happiness/pictures/economic%20factors%202022.png) - repository entry; not fetched
+    - [Global%20Wealth-Health-Happiness%20Relationship.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Global%20Wealth-Health-Happiness%20Relationship.png) - repository entry; not fetched
+    - [GlobalHappiness.html](https://ib-hussain.github.io/secret_to_happiness/pictures/GlobalHappiness.html) - HTTP 200
+    - [Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202018.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202018.png) - HTTP 200
+    - [Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202019.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202019.png) - repository entry; not fetched
+    - [Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202021.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202021.png) - repository entry; not fetched
+    - [Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202022.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Heatmap-Bubble%20Plot%20Wealth%20versus%20Corruption%202022.png) - repository entry; not fetched
+    - [Life%20Expectancy%20vs%20Happiness.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Life%20Expectancy%20vs%20Happiness.png) - repository entry; not fetched
+    - [Maslow%E2%80%99s%20Hierarchy%20of%20Needs%20High%20versus%20Low-Income%20Pathways%20over%20Time.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Maslow%E2%80%99s%20Hierarchy%20of%20Needs%20High%20versus%20Low-Income%20Pathways%20over%20Time.png) - HTTP 200
+    - [maslow.png](https://ib-hussain.github.io/secret_to_happiness/pictures/maslow.png) - repository entry; not fetched
+    - [Multi-Variable%20Bubble%20Plot%20Relationships%20Between%20Overweight%20Prevalence%2C%20Fertility%2C%20Alcohol%20Consumption%2C%20and%20Happiness.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Multi-Variable%20Bubble%20Plot%20Relationships%20Between%20Overweight%20Prevalence%2C%20Fertility%2C%20Alcohol%20Consumption%2C%20and%20Happiness.png) - repository entry; not fetched
+    - [Multi-Variable%20Bubble%20Plot%20Relationships%20Between%20Overweight%20Prevalence,%20Fertility,%20Alcohol%20Consumption,%20and%20Happiness.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Multi-Variable%20Bubble%20Plot%20Relationships%20Between%20Overweight%20Prevalence,%20Fertility,%20Alcohol%20Consumption,%20and%20Happiness.png) - HTTP 200
+    - [Pair%20Plot.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Pair%20Plot.png) - repository entry; not fetched
+    - [Scatter%20Plot%20with%20Density%20Contours%20GDP%20per%20Capita%20versus.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Scatter%20Plot%20with%20Density%20Contours%20GDP%20per%20Capita%20versus.png) - HTTP 200
+    - [social%20factors%202018.png](https://ib-hussain.github.io/secret_to_happiness/pictures/social%20factors%202018.png) - repository entry; not fetched
+    - [social%20factors%202022.png](https://ib-hussain.github.io/secret_to_happiness/pictures/social%20factors%202022.png) - repository entry; not fetched
+    - [The%20Pursuit%20of%20Happiness%282011-2023%29%20Wealth%2C%20Corruption%2C%20and%20Happiness.mp4](https://ib-hussain.github.io/secret_to_happiness/pictures/The%20Pursuit%20of%20Happiness%282011-2023%29%20Wealth%2C%20Corruption%2C%20and%20Happiness.mp4) - repository entry; not fetched
+    - [Uni-variate%20Analysis%20Distribution%20of%20Key%20Features.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Uni-variate%20Analysis%20Distribution%20of%20Key%20Features.png) - repository entry; not fetched
+    - [Uni-variate.png](https://ib-hussain.github.io/secret_to_happiness/pictures/Uni-variate.png) - HTTP 200
+    - [World%20Happiness%20Hierarchy.png](https://ib-hussain.github.io/secret_to_happiness/pictures/World%20Happiness%20Hierarchy.png) - repository entry; not fetched
+    - [World_Happiness_Distribution.png](https://ib-hussain.github.io/secret_to_happiness/pictures/World_Happiness_Distribution.png) - repository entry; not fetched
+  - **RawData/**
+    - **Datasets/**
+      - **Alcohol%20Consumption/**
+        - [Source.txt](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Alcohol%20Consumption/Source.txt) - HTTP 200
+      - **Corruption%20Index/**
+        - [cpi2024_raw.txt](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Corruption%20Index/cpi2024_raw.txt) - HTTP 200
+        - [CPI2024_Results%20and%20trends%20-%20Use%20the%20time-series%20worksheet%20from%20this%20workbook%20-%20Copy.xlsx](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Corruption%20Index/CPI2024_Results%20and%20trends%20-%20Use%20the%20time-series%20worksheet%20from%20this%20workbook%20-%20Copy.xlsx) - repository entry; not fetched
+        - [CPI2024_Results%20and%20trends%20-%20Use%20the%20time-series%20worksheet%20from%20this%20workbook.xlsx](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Corruption%20Index/CPI2024_Results%20and%20trends%20-%20Use%20the%20time-series%20worksheet%20from%20this%20workbook.xlsx) - repository entry; not fetched
+      - **GDP%20Per%20Capita%20%26%20Happiness/**
+        - [R_Average%20years%20of%20schooling%20of%20adults%20%28male%20and%20female%29.xlsx](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/GDP%20Per%20Capita%20%26%20Happiness/R_Average%20years%20of%20schooling%20of%20adults%20%28male%20and%20female%29.xlsx) - repository entry; not fetched
+        - [WHR25_Data_Figure_2.1v3.xlsx](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/GDP%20Per%20Capita%20%26%20Happiness/WHR25_Data_Figure_2.1v3.xlsx) - repository entry; not fetched
+      - **Get%20GDP%20per%20Capita%20from%20this%20dataset/**
+        - [gdp-vs-happiness.metadata.json](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Get%20GDP%20per%20Capita%20from%20this%20dataset/gdp-vs-happiness.metadata.json) - HTTP 200
+        - [readme.md](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Get%20GDP%20per%20Capita%20from%20this%20dataset/readme.md) - HTTP 200
+      - **inflation-of-consumer-prices/**
+        - [inflation-of-consumer-prices.metadata.json](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/inflation-of-consumer-prices/inflation-of-consumer-prices.metadata.json) - HTTP 200
+        - [readme.md](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/inflation-of-consumer-prices/readme.md) - HTTP 200
+      - **Internet%20Users/**
+        - [Internet%20Users%20as%20Percentage%20of%20Total%20Population.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Internet%20Users/Internet%20Users%20as%20Percentage%20of%20Total%20Population.csv) - repository entry; not fetched
+        - [Metadata_Country_API_IT.NET.USER.ZS_DS2_en_csv_v2_129784.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Internet%20Users/Metadata_Country_API_IT.NET.USER.ZS_DS2_en_csv_v2_129784.csv) - repository entry; not fetched
+        - [Metadata_Indicator_API_IT.NET.USER.ZS_DS2_en_csv_v2_129784.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Internet%20Users/Metadata_Indicator_API_IT.NET.USER.ZS_DS2_en_csv_v2_129784.csv) - repository entry; not fetched
+      - **Life%20Expectancy%20at%20Birth/**
+        - [life-expectancy.metadata.json](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Life%20Expectancy%20at%20Birth/life-expectancy.metadata.json) - HTTP 200
+        - [readme.md](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Life%20Expectancy%20at%20Birth/readme.md) - HTTP 200
+      - **Main%20Dataset%20%28Contains%20the%20Happiness%20Target%20Variable%29/**
+        - [happiness-cantril-ladder.metadata.json](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Main%20Dataset%20%28Contains%20the%20Happiness%20Target%20Variable%29/happiness-cantril-ladder.metadata.json) - HTTP 200
+        - [readme.md](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Main%20Dataset%20%28Contains%20the%20Happiness%20Target%20Variable%29/readme.md) - HTTP 200
+      - **Mean%20Years%20of%20Schooling/**
+        - [Source.txt](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Mean%20Years%20of%20Schooling/Source.txt) - HTTP 200
+      - **Obesity/**
+        - [readme.md](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Obesity/readme.md) - HTTP 200
+        - [share-of-adults-who-are-overweight.metadata.json](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Obesity/share-of-adults-who-are-overweight.metadata.json) - HTTP 200
+      - **Poverty/**
+        - [source.txt](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Poverty/source.txt) - HTTP 200
+      - **Suicide%20rates%20Per%20100K/**
+        - **part%202%20-%20%282011-2021%29/**
+          - [death-rate-from-suicides-ghe.metadata.json](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Suicide%20rates%20Per%20100K/part%202%20-%20%282011-2021%29/death-rate-from-suicides-ghe.metadata.json) - HTTP 200
+          - [readme.md](https://ib-hussain.github.io/secret_to_happiness/RawData/Datasets/Suicide%20rates%20Per%20100K/part%202%20-%20%282011-2021%29/readme.md) - HTTP 200
+    - [index](https://ib-hussain.github.io/secret_to_happiness/RawData/) - HTTP 200 - Data Processing Methodology | secret_to_happiness
+    - [Alcohol%20Consumption.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Alcohol%20Consumption.csv) - repository entry; not fetched
+    - [Corruption%20Index.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Corruption%20Index.csv) - repository entry; not fetched
+    - [DataProcessing.ipynb](https://ib-hussain.github.io/secret_to_happiness/RawData/DataProcessing.ipynb) - HTTP 200
+    - [Education%20Expenditure.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Education%20Expenditure.csv) - repository entry; not fetched
+    - [Fertility_Rate_Merged.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Fertility_Rate_Merged.csv) - repository entry; not fetched
+    - [Final_Consumption_Per_Capita_Merged.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Final_Consumption_Per_Capita_Merged.csv) - repository entry; not fetched
+    - [GDP_Happiness_Panel.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/GDP_Happiness_Panel.csv) - repository entry; not fetched
+    - [Health_Expenditure_Per_Capita_Merged.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Health_Expenditure_Per_Capita_Merged.csv) - repository entry; not fetched
+    - [Homicide_Rate_Merged.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/Homicide_Rate_Merged.csv) - repository entry; not fetched
+    - [README.md](https://ib-hussain.github.io/secret_to_happiness/RawData/README.md) - HTTP 200
+    - [World_Happiness_Data.csv](https://ib-hussain.github.io/secret_to_happiness/RawData/World_Happiness_Data.csv) - repository entry; not fetched
+  - [index](https://ib-hussain.github.io/secret_to_happiness/) - HTTP 200 - secret_to_happiness | Structural analysis of global happiness determinants (2011-2023). Tests “Glass Floor” (wealth threshold), “Governance Multiplier” (corruption effects), and “Maslow Reversal” (shifting needs) hypotheses using high-dimensional visual analytics across 150 countries.
+  - [df_30_countries.csv](https://ib-hussain.github.io/secret_to_happiness/df_30_countries.csv) - HTTP 200
+  - [HappinesssGlobalData_v6.csv](https://ib-hussain.github.io/secret_to_happiness/HappinesssGlobalData_v6.csv) - HTTP 200
+  - [happy.csv](https://ib-hussain.github.io/secret_to_happiness/happy.csv) - repository entry; not fetched
+  - [LICENSE](https://ib-hussain.github.io/secret_to_happiness/LICENSE) - HTTP 200
+  - [MainVisualisations.ipynb](https://ib-hussain.github.io/secret_to_happiness/MainVisualisations.ipynb) - repository entry; not fetched
+  - [README.md](https://ib-hussain.github.io/secret_to_happiness/README.md) - HTTP 200
+  - [Visualisations.ipynb](https://ib-hussain.github.io/secret_to_happiness/Visualisations.ipynb) - repository entry; not fetched
+- **TCGA-Integrative-Analysis/**
+  - **assets/**
+    - **css/**
+      - [style.css?v=cc4f00a54057b3e2c08414799e62343327157750](https://ib-hussain.github.io/TCGA-Integrative-Analysis/assets/css/style.css?v=cc4f00a54057b3e2c08414799e62343327157750) - HTTP 200
+  - **checkpoints/**
+    - **dl/**
+      - [state.json](https://ib-hussain.github.io/TCGA-Integrative-Analysis/checkpoints/dl/state.json) - HTTP 200
+    - **traditional/**
+      - [state.json](https://ib-hussain.github.io/TCGA-Integrative-Analysis/checkpoints/traditional/state.json) - HTTP 200
+  - **code/**
+    - [DataWrangling.ipynb](https://ib-hussain.github.io/TCGA-Integrative-Analysis/code/DataWrangling.ipynb) - repository entry; not fetched
+    - [Imageproces.txt](https://ib-hussain.github.io/TCGA-Integrative-Analysis/code/Imageproces.txt) - HTTP 200
+    - [ImageProcessing.py](https://ib-hussain.github.io/TCGA-Integrative-Analysis/code/ImageProcessing.py) - repository entry; not fetched
+    - [MLEngineering.ipynb](https://ib-hussain.github.io/TCGA-Integrative-Analysis/code/MLEngineering.ipynb) - repository entry; not fetched
+    - [MultiModalMerge.ipynb](https://ib-hussain.github.io/TCGA-Integrative-Analysis/code/MultiModalMerge.ipynb) - repository entry; not fetched
+  - **csv/**
+    - [index](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/) - HTTP 200 - TCGA Textual & Omics Data | TCGA-Integrative-Analysis
+    - [clinical_v1.0.0.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/clinical_v1.0.0.csv) - repository entry; not fetched
+    - [common_82_samples.txt](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/common_82_samples.txt) - HTTP 200
+    - [exposure_v1.0.0.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/exposure_v1.0.0.csv) - repository entry; not fetched
+    - [follow_up_v1.0.0.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/follow_up_v1.0.0.csv) - repository entry; not fetched
+    - [methylation_v1.0.0.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/methylation_v1.0.0.csv) - repository entry; not fetched
+    - [mutations_v1.0.0.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/mutations_v1.0.0.csv) - repository entry; not fetched
+    - [Pathology_Cohorts.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/Pathology_Cohorts.csv) - repository entry; not fetched
+    - [pathology_detail_v1.0.0.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/pathology_detail_v1.0.0.csv) - repository entry; not fetched
+    - [README.md](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/README.md) - HTTP 200
+    - [transcriptomics_v1.0.0.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/csv/transcriptomics_v1.0.0.csv) - repository entry; not fetched
+  - **images/**
+    - [index](https://ib-hussain.github.io/TCGA-Integrative-Analysis/images/) - HTTP 200 - TCGA Histopathology Images | TCGA-Integrative-Analysis
+    - [histopathology.png](https://ib-hussain.github.io/TCGA-Integrative-Analysis/images/histopathology.png) - repository entry; not fetched
+    - [README.md](https://ib-hussain.github.io/TCGA-Integrative-Analysis/images/README.md) - HTTP 200
+  - **output_features/**
+    - [integrated_multimodal_features.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/output_features/integrated_multimodal_features.csv) - repository entry; not fetched
+    - [patient_image_features_pca.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/output_features/patient_image_features_pca.csv) - repository entry; not fetched
+    - [pca_2d_projection.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/output_features/pca_2d_projection.csv) - repository entry; not fetched
+  - [index](https://ib-hussain.github.io/TCGA-Integrative-Analysis/) - HTTP 200 - TCGA-Integrative-Analysis | Integrative analysis of Head and Neck Cancer (HNC) using TCGA data. This project combines DNA methylation, somatic mutations, RNA-seq expression, and whole-slide histopathology images (SVS) to build a multi-modal machine learning pipeline. Leveraging CatBoost and advanced feature engineering, the model classifies cancer stages and predicts cancer.
+  - [combined_epigenetic_score_matrix.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/combined_epigenetic_score_matrix.csv) - repository entry; not fetched
+  - [LICENSE](https://ib-hussain.github.io/TCGA-Integrative-Analysis/LICENSE) - HTTP 200
+  - [mutation_epigenetic_interaction_matrix.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/mutation_epigenetic_interaction_matrix.csv) - repository entry; not fetched
+  - [mutations_plus_epigenetics.csv](https://ib-hussain.github.io/TCGA-Integrative-Analysis/mutations_plus_epigenetics.csv) - repository entry; not fetched
+  - [README.md](https://ib-hussain.github.io/TCGA-Integrative-Analysis/README.md) - HTTP 200
+  - [requirements.txt](https://ib-hussain.github.io/TCGA-Integrative-Analysis/requirements.txt) - HTTP 200
+- [index](https://ib-hussain.github.io/) - HTTP 200 - Portfolio | Ibrahim Hussain
+- [contact.html](https://ib-hussain.github.io/contact.html) - HTTP 200 - Contact | Ibrahim Hussain
+- [footer.html](https://ib-hussain.github.io/footer.html) - HTTP 200
+- [index.html](https://ib-hussain.github.io/index.html) - HTTP 200 - Portfolio | Ibrahim Hussain
+- [linkedinBanner.html](https://ib-hussain.github.io/linkedinBanner.html) - HTTP 200 - LinkedIn Banner • Ibrahim Hussain
+- [navbar.html](https://ib-hussain.github.io/navbar.html) - HTTP 200
+- [projects.html](https://ib-hussain.github.io/projects.html) - HTTP 200 - Projects | Ibrahim Hussain
+- [projects.html?filter=finance](https://ib-hussain.github.io/projects.html?filter=finance) - HTTP 200 - Projects | Ibrahim Hussain
+- [projects.html?filter=health](https://ib-hussain.github.io/projects.html?filter=health) - HTTP 200 - Projects | Ibrahim Hussain
+- [projects.html?filter=risk](https://ib-hussain.github.io/projects.html?filter=risk) - HTTP 200 - Projects | Ibrahim Hussain
+- [projects.html?filter=tech](https://ib-hussain.github.io/projects.html?filter=tech) - HTTP 200 - Projects | Ibrahim Hussain
+- [resume.html](https://ib-hussain.github.io/resume.html) - HTTP 200 - Resume | Ibrahim Hussain
+
+## Crawl notes
+
+- Omitted 14 candidate URL(s) that returned HTTP 404.
+- Skipped invalid link from https://ib-hussain.github.io/pictures/writers-block/README.md: Invalid IPv6 URL

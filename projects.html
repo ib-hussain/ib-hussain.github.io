@@ -1,176 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-      content="Portfolio projects by Ibrahim Hussain - Machine Learning, AI systems, statistical modeling, and data science applications." />
-
-    <title>Projects | Ibrahim Hussain</title>
-    <link rel="icon" type="image/png" href="pictures/favicon.png" />
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/tokens.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/projects.css" />
-  </head>
-
-  <body data-page="projects">
-    <!-- Fixed Navigation Header -->
-    <header class="site-header">
-      <div class="container">
-        <nav class="nav" aria-label="Primary navigation">
-          <a class="brand" href="index.html">Ibrahim Hussain</a>
-
-          <div class="nav-links" id="navLinks">
-            <a href="index.html" data-page="index">Home</a>
-            <a href="projects.html" data-page="projects">Projects</a>
-            <a href="resume.html" data-page="resume">Resume</a>
-            <a href="contact.html" data-page="contact">Contact</a>
-          </div>
-
-          <div class="nav-ctrl">
-            <button class="icon-btn" id="themeBtn" type="button"
-              aria-label="Toggle theme" title="Toggle theme">
-              <span id="themeIcon" aria-hidden="true"></span>
-            </button>
-
-            <button class="icon-btn nav-toggle" id="navToggle" type="button"
-              aria-label="Toggle menu" aria-expanded="false">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            </button>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="page">
-      <section class="container">
-        <!-- Project Header -->
-        <div class="proj-head card no-hover" id="featured">
-          <div class="proj-title">
-            <h1>Projects</h1>
-            <p class="muted">
-              Filter by domain. Click any card to view details.
-            </p>
-          </div>
-
-          <div class="proj-controls">
-            <!-- SEARCH BAR REMOVED - Only filters remain -->
-            <div class="filters" id="filterRow" role="group"
-              aria-label="Filter projects by domain"></div>
-          </div>
-        </div>
-
-        <!-- Projects Grid -->
-        <div
-          class="projects-grid"
-          id="projectsGrid"
-          role="region"
-          aria-label="Projects list"
-          aria-live="polite">
-        </div>
-      </section>
-
-      <!-- Project Detail Modal -->
-      <div class="modal" id="projectModal" role="dialog" aria-modal="true"
-        aria-hidden="true">
-        <div class="modal-backdrop" data-close="true"></div>
-
-        <div class="modal-panel card no-hover">
-          <button class="icon-btn modal-close" type="button"
-            aria-label="Close modal"
-            data-close="true">
-            ✕
-          </button>
-
-          <div class="modal-body">
-            <img id="modalImg" class="modal-img" alt />
-
-            <div class="modal-content">
-              <h2 id="modalTitle"></h2>
-              <p id="modalSubtitle" class="muted"></p>
-              <p id="modalDesc" class="modal-desc"></p>
-
-              <div class="tag-wrap" id="modalTags"
-                aria-label="Project technologies"></div>
-
-              <div class="modal-links">
-                <a id="modalLive" class="btn primary" href="#" target="_blank"
-                  rel="noopener noreferrer" style="display: none;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                  Live Demo
-                </a>
-                <a id="modalRepo" class="btn outline" href="#" target="_blank"
-                  rel="noopener noreferrer">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-inner">
-          <div class="footer-left">
-            <h3>About</h3>
-            <p>
-              Quantitative Data Science student focused on statistical modelling
-              of complex systems, high-dimensional analytics, and
-              production-ready
-              AI pipelines for decision-making under uncertainty.
-            </p>
-            <p>
-              Quantitative Data Scientist | Systems Modelling | Risk & Decision
-              Analytics
-            </p>
-          </div>
-
-          <div class="footer-right">
-            <h3>Links</h3>
-            <ul class="footer-links">
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="https://github.com/ib-hussain" target="_blank"
-                  rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://linkedin.com/in/ib-hussain"
-                  target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="credits">
-          Developed by <a href="https://github.com/ib-hussain" target="_blank"
-            rel="noopener noreferrer">Ibrahim Hussain</a>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/theme.js"></script>
-    <script src="js/layout.js"></script>
-    <script src="js/projects-data.js"></script>
-    <script src="js/projects.js"></script>
-  </body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f8f4"><title>Projects | Ibrahim Hussain</title><meta name="description" content="Explore Ibrahim Hussain’s machine learning, systems and data engineering projects."><link rel="canonical" href="https://ib-hussain.github.io/projects.html"><meta property="og:type" content="website"><meta property="og:title" content="Projects | Ibrahim Hussain"><meta property="og:description" content="Explore Ibrahim Hussain’s machine learning, systems and data engineering projects."><meta property="og:image" content="https://ib-hussain.github.io/assets/my-display-pic.jpg"><link rel="icon" type="image/jpeg" href="assets/my-logo.jpg"><link rel="preload" as="image" href="assets/my-logo.jpg"><script>(function(){try{if(localStorage.getItem('ib-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}})();</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ibrahim Hussain","jobTitle":"Data Science undergraduate and Applied AI Engineer","url":"https://ib-hussain.github.io/","sameAs":["https://github.com/ib-hussain","https://www.linkedin.com/in/ib-hussain/"],"alumniOf":{"@type":"CollegeOrUniversity","name":"FAST National University of Computer and Emerging Sciences"}}</script><link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/halftone-component.css"><link rel="stylesheet" href="css/lamp-component.css"><link rel="stylesheet" href="css/ridgeline-component.css"></head><body data-page="projects">
+<a href="#main" class="skip-link" style="position:absolute;left:-10000px;z-index:300">Skip to content</a>
+<a class="brand-orb top-control" href="index.html" aria-label="Ibrahim Hussain — homepage"><img src="assets/my-logo.jpg" alt="Ibrahim Hussain logo"></a><a class="top-wordmark" href="index.html">I. HUSSAIN <span class="mono">/ PROJECTS</span></a>
+<div class="theme-control top-control" role="button" tabindex="0" id="theme-control" aria-label="Switch between light and dark colour themes" aria-pressed="false" title="Pull to change theme"><div id="lamp"></div></div>
+<nav class="dock" aria-label="Primary navigation" id="dock"><div class="dock-tray"><a class="dock-item" href="index.html" data-current="false" aria-label="Home"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span class="dock-tip">Home</span></a><a class="dock-item" href="projects.html" data-current="false" aria-label="Projects"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg><span class="dock-tip">Projects</span></a><a class="dock-item" href="experience.html" data-current="false" aria-label="Experience"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14M9 21v-8h6v8M4 10h16"/></svg><span class="dock-tip">Experience</span></a><a class="dock-item" href="index.html#skills" data-current="false" aria-label="Skills"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6m6-15-4 18"/></svg><span class="dock-tip">Skills</span></a><a class="dock-item" href="about.html" data-current="false" aria-label="About"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-8 8-8s8 3 8 8"/></svg><span class="dock-tip">About</span></a><a class="dock-item" href="contact.html" data-current="false" aria-label="Contact"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><span class="dock-tip">Contact</span></a><span class="dock-separator" aria-hidden="true"></span><a class="dock-item" href="components.html" data-current="false" aria-label="Component Lab"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h10M7 16h6"/></svg><span class="dock-tip">Component Lab</span></a></div></nav><noscript><nav aria-label="Basic navigation"><a href="index.html">Home</a> · <a href="projects.html">Projects</a> · <a href="experience.html">Experience</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a></nav></noscript>
+<main id="main"><header class="page-hero shell"><span class="eyebrow">INDEX / ENGINEERED SYSTEMS</span><h1>Selected<br>projects<span style="color:var(--accent)">.</span></h1><p>Machine learning experiments, explainable models, data engineering systems and the occasional deep dive into Linux. Project descriptions are grounded in the repository or recorded work; not every experiment is deployed.</p><div class="path">~/ibrahim/projects · filter by discipline ↓</div></header><section class="shell"><div class="filter-row" role="group" aria-label="Filter projects"><button class="filter active" data-project-filter="all" aria-pressed="true">All systems</button><button class="filter" data-project-filter="ml-ai" aria-pressed="false">AI / ML</button><button class="filter" data-project-filter="engineering" aria-pressed="false">Engineering</button><button class="filter" data-project-filter="analytics" aria-pressed="false">Analytics</button><button class="filter" data-project-filter="quant" aria-pressed="false">Quant</button></div><div class="project-grid"><article class="project-card" data-track="quant" id="fin-glassbox" data-title="Fin-Glassbox" data-desc="A multi-module, explainable financial decision system combining market and news representations, risk modelling and fusion constraints." data-stack="PyTorch, FinBERT, GNN, Financial ML" data-link="https://github.com/ib-hussain/fin-glassbox">
+ <div class="mac-bar"><span class="mac-name">~/projects/fin-glassbox</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close Fin-Glassbox card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise Fin-Glassbox card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand Fin-Glassbox details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><img src="assets/fin-glassbox1.png" alt="Screenshot or visual from Fin-Glassbox" loading="lazy"><span class="corner-number">QUANT</span></div>
+ <div class="project-copy"><span class="tag">PyTorch / FinBERT / GNN</span><h3>Fin-Glassbox</h3><p>A multi-module, explainable financial decision system combining market and news representations, risk modelling and fusion constraints.</p><div><span class="tech-pill">PyTorch</span><span class="tech-pill">FinBERT</span><span class="tech-pill">GNN</span><span class="tech-pill">Financial ML</span></div><div class="card-actions"><a href="https://github.com/ib-hussain/fin-glassbox" target="_blank" rel="noopener noreferrer">Repository ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="ml-ai" id="deepdocforgery" data-title="DeepDocForgery" data-desc="Multimodal document forgery detection combining JPEG-domain evidence, spatial representations and degradation-aware fusion." data-stack="PyTorch, Vision Transformer, DCT, Computer vision" data-link="https://github.com/ib-hussain/DeepDocForgery">
+ <div class="mac-bar"><span class="mac-name">~/projects/deepdocforgery</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close DeepDocForgery card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise DeepDocForgery card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand DeepDocForgery details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><div class="placeholder-art"><span>DeepDocForgery</span><div class="art-grid"></div></div><span class="corner-number">ML-AI</span></div>
+ <div class="project-copy"><span class="tag">PyTorch / Vision Transformer / DCT</span><h3>DeepDocForgery</h3><p>Multimodal document forgery detection combining JPEG-domain evidence, spatial representations and degradation-aware fusion.</p><div><span class="tech-pill">PyTorch</span><span class="tech-pill">Vision Transformer</span><span class="tech-pill">DCT</span><span class="tech-pill">Computer vision</span></div><div class="card-actions"><a href="https://github.com/ib-hussain/DeepDocForgery" target="_blank" rel="noopener noreferrer">Repository ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="ml-ai" id="writers-block" data-title="Writer’s Block" data-desc="A multi-agent content pipeline with orchestration, structured generation, retries and a Flask/PostgreSQL backend." data-stack="Multi-agent systems, Flask, PostgreSQL" data-link="https://github.com/ib-hussain/writers-block">
+ <div class="mac-bar"><span class="mac-name">~/projects/writers-block</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close Writer’s Block card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise Writer’s Block card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand Writer’s Block details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><img src="assets/WritersBlock.png" alt="Screenshot or visual from Writer’s Block" loading="lazy"><span class="corner-number">ML-AI</span></div>
+ <div class="project-copy"><span class="tag">Multi-agent systems / Flask / PostgreSQL</span><h3>Writer’s Block</h3><p>A multi-agent content pipeline with orchestration, structured generation, retries and a Flask/PostgreSQL backend.</p><div><span class="tech-pill">Multi-agent systems</span><span class="tech-pill">Flask</span><span class="tech-pill">PostgreSQL</span></div><div class="card-actions"><a href="https://github.com/ib-hussain/writers-block" target="_blank" rel="noopener noreferrer">Repository ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="engineering" id="mobile-info" data-title="MobileInfoAnalytics" data-desc="A relational data platform developed during my PTCL internship: 4,303 smartphone records across 28 tables from six data sources." data-stack="PostgreSQL, ETL, Flask, Supabase" data-link="https://github.com/ib-hussain">
+ <div class="mac-bar"><span class="mac-name">~/projects/mobile-info</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close MobileInfoAnalytics card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise MobileInfoAnalytics card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand MobileInfoAnalytics details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><div class="placeholder-art"><span>MobileInfoAnalytics</span><div class="art-grid"></div></div><span class="corner-number">ENGINEERING</span></div>
+ <div class="project-copy"><span class="tag">PostgreSQL / ETL / Flask</span><h3>MobileInfoAnalytics</h3><p>A relational data platform developed during my PTCL internship: 4,303 smartphone records across 28 tables from six data sources.</p><div><span class="tech-pill">PostgreSQL</span><span class="tech-pill">ETL</span><span class="tech-pill">Flask</span><span class="tech-pill">Supabase</span></div><div class="card-actions"><a href="https://github.com/ib-hussain" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="engineering" id="warm-prospect" data-title="Warm Prospect Radar" data-desc="A configurable data collection and prospect-analysis workflow spanning web crawling, structured records and backend automation." data-stack="Python, Web crawling, Data pipelines" data-link="https://github.com/ib-hussain/warm-prospect-radar">
+ <div class="mac-bar"><span class="mac-name">~/projects/warm-prospect</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close Warm Prospect Radar card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise Warm Prospect Radar card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand Warm Prospect Radar details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><div class="placeholder-art"><span>Warm Prospect Radar</span><div class="art-grid"></div></div><span class="corner-number">ENGINEERING</span></div>
+ <div class="project-copy"><span class="tag">Python / Web crawling / Data pipelines</span><h3>Warm Prospect Radar</h3><p>A configurable data collection and prospect-analysis workflow spanning web crawling, structured records and backend automation.</p><div><span class="tech-pill">Python</span><span class="tech-pill">Web crawling</span><span class="tech-pill">Data pipelines</span></div><div class="card-actions"><a href="https://github.com/ib-hussain/warm-prospect-radar" target="_blank" rel="noopener noreferrer">Repository ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="analytics" id="macroeconomic" data-title="Macroeconomic Forecasting" data-desc="Econometric exploration and predictive modelling of macroeconomic indicators, including model evaluation and forecast comparison." data-stack="Forecasting, Statistical modelling, Python" data-link="https://github.com/ib-hussain">
+ <div class="mac-bar"><span class="mac-name">~/projects/macroeconomic</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close Macroeconomic Forecasting card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise Macroeconomic Forecasting card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand Macroeconomic Forecasting details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><img src="assets/Statistical Analysis.png" alt="Screenshot or visual from Macroeconomic Forecasting" loading="lazy"><span class="corner-number">ANALYTICS</span></div>
+ <div class="project-copy"><span class="tag">Forecasting / Statistical modelling / Python</span><h3>Macroeconomic Forecasting</h3><p>Econometric exploration and predictive modelling of macroeconomic indicators, including model evaluation and forecast comparison.</p><div><span class="tech-pill">Forecasting</span><span class="tech-pill">Statistical modelling</span><span class="tech-pill">Python</span></div><div class="card-actions"><a href="https://github.com/ib-hussain" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="analytics" id="disaster-analysis" data-title="Disaster Resilience Analytics" data-desc="Data analysis and interactive reporting for disaster recovery and resilience insights." data-stack="Data visualisation, Analytics, Dashboarding" data-link="https://github.com/ib-hussain">
+ <div class="mac-bar"><span class="mac-name">~/projects/disaster-analysis</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close Disaster Resilience Analytics card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise Disaster Resilience Analytics card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand Disaster Resilience Analytics details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><img src="assets/dashboard4.png" alt="Screenshot or visual from Disaster Resilience Analytics" loading="lazy"><span class="corner-number">ANALYTICS</span></div>
+ <div class="project-copy"><span class="tag">Data visualisation / Analytics / Dashboarding</span><h3>Disaster Resilience Analytics</h3><p>Data analysis and interactive reporting for disaster recovery and resilience insights.</p><div><span class="tech-pill">Data visualisation</span><span class="tech-pill">Analytics</span><span class="tech-pill">Dashboarding</span></div><div class="card-actions"><a href="https://github.com/ib-hussain" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="engineering" id="arch-rice" data-title="Arch Linux Desktop Systems" data-desc="Custom Linux desktop configuration, packaging and GNOME dock behaviour across physical machines and virtual environments." data-stack="Linux, GNOME, Automation" data-link="https://github.com/ib-hussain/archRicePack">
+ <div class="mac-bar"><span class="mac-name">~/projects/arch-rice</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close Arch Linux Desktop Systems card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise Arch Linux Desktop Systems card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand Arch Linux Desktop Systems details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><div class="placeholder-art"><span>Arch Linux Desktop Systems</span><div class="art-grid"></div></div><span class="corner-number">ENGINEERING</span></div>
+ <div class="project-copy"><span class="tag">Linux / GNOME / Automation</span><h3>Arch Linux Desktop Systems</h3><p>Custom Linux desktop configuration, packaging and GNOME dock behaviour across physical machines and virtual environments.</p><div><span class="tech-pill">Linux</span><span class="tech-pill">GNOME</span><span class="tech-pill">Automation</span></div><div class="card-actions"><a href="https://github.com/ib-hussain/archRicePack" target="_blank" rel="noopener noreferrer">Repository ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article>
+<article class="project-card" data-track="ml-ai" id="health-ai" data-title="Healthcare AI Experiments" data-desc="Experimental work in medical-image analysis and AI-assisted healthcare workflows." data-stack="Computer vision, Healthcare AI, Python" data-link="https://github.com/ib-hussain">
+ <div class="mac-bar"><span class="mac-name">~/projects/health-ai</span><div class="mac-controls"><button class="mac-dot red" data-action="close" aria-label="Close Healthcare AI Experiments card" title="Close card"></button><button class="mac-dot yellow" data-action="minimise" aria-label="Minimise Healthcare AI Experiments card" title="Minimise card"></button><button class="mac-dot green" data-action="expand" aria-label="Expand Healthcare AI Experiments details" title="Expand details"></button></div></div>
+ <div class="project-body"><div class="project-visual"><img src="assets/virtualhealth.png" alt="Screenshot or visual from Healthcare AI Experiments" loading="lazy"><span class="corner-number">ML-AI</span></div>
+ <div class="project-copy"><span class="tag">Computer vision / Healthcare AI / Python</span><h3>Healthcare AI Experiments</h3><p>Experimental work in medical-image analysis and AI-assisted healthcare workflows.</p><div><span class="tech-pill">Computer vision</span><span class="tech-pill">Healthcare AI</span><span class="tech-pill">Python</span></div><div class="card-actions"><a href="https://github.com/ib-hussain" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a href="#" class="open-detail">Technical overview ↗</a></div></div></div></article></div></section></main><div id="footer-host"><button type="button" class="back-top" id="back-top" aria-label="Back to top" title="Back to top"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m6 13 6-6 6 6M12 7v13"/></svg><span class="tip">Back to top</span></button></div><dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title"><div class="mac-bar"><span class="mac-name">~/projects/overview</span><div class="mac-controls"><button class="mac-dot red dialog-close-dot" aria-label="Close project details" title="Close"></button><span class="mac-dot yellow" aria-hidden="true"></span><span class="mac-dot green" aria-hidden="true"></span></div></div><div class="dialog-body"><button class="dialog-close" type="button">Close ×</button><span class="eyebrow">PROJECT / DETAILS</span><h2 id="project-dialog-title"></h2><p id="project-dialog-desc"></p><p class="mono" id="project-dialog-stack"></p><a class="pill-button primary" id="project-dialog-link" href="#" target="_blank" rel="noopener noreferrer">Open GitHub repository ↗</a></div></dialog><div id="peter-cursor" aria-hidden="true"><img src="assets/peter-cursor.svg" alt=""></div>
+<script defer src="js/halftone-component.js"></script><script defer src="js/lamp-component.js"></script><script defer src="js/ridgeline-component.js"></script><script defer src="js/site.js"></script></body></html>

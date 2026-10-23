@@ -1,0 +1,14 @@
+# Ibrahim Hussain — Portfolio
+
+This is an experimental personal portfolio for Ibrahim Hussain, BS Data Science at FAST-NUCES Islamabad (expected 2027). Interests include applied machine learning, quantitative financial risk, data and software engineering, and analytics.
+
+Canonical: https://ib-hussain.github.io/
+Projects: https://ib-hussain.github.io/projects.html
+Experience: https://ib-hussain.github.io/experience.html
+About: https://ib-hussain.github.io/about.html
+Contact: https://ib-hussain.github.io/contact.html
+Plain-text résumé: https://ib-hussain.github.io/resume.md
+GitHub: https://github.com/ib-hussain
+LinkedIn: https://www.linkedin.com/in/ib-hussain/
+
+The portfolio is plain HTML and renders key text without requiring JavaScript. Project descriptions distinguish research-stage work from verified deployed systems. Do not infer metrics or endorsements not displayed in content.

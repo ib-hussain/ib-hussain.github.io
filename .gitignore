@@ -18,3 +18,11 @@ __pycache__/
 *.mp4
 *.avi
 *.zip
+__pycache__/
+*.py[cod]
+.DS_Store
+*.log
+/backups/
+*.zip
+/playwright-report/
+/test-results/
