@@ -1,5 +1,11 @@
 {
-  "letterboxdProfile": "",
-  "films": [],
-  "note": "Fill this file only with confirmed titles, watched dates, own ratings and reviews."
+  "letterboxdProfile": "https://letterboxd.com/ib_hussain_/",
+  "favorites": [
+    "About Time",
+    "Casablanca",
+    "Frozen",
+    "Babylon"
+  ],
+  "reviews": [],
+  "updatedAt": null
 }

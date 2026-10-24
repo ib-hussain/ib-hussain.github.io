@@ -1,8 +1,13 @@
 /* Source-integrated from assets/tom-and-jerry-cursor.html. Presets retained:
    Tom chase speed 5.5/frame; hitbox 36px; fight 2200ms.
-   Disabled for touch input / reduced motion / Bin / low battery-saver settings. */
-(()=>{'use strict';if(!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches||document.body.dataset.page==='bin')return;
-const root=document.createElement('div');root.id='tj-cursor-container';root.setAttribute('aria-hidden','true');root.innerHTML=`<img id="tj-jerry" class="tj-sprite" src="assets/jerry.png" alt=""><img id="tj-tom" class="tj-sprite" src="assets/tom.png" alt=""><img id="tj-fight" class="tj-sprite" alt="">`;document.body.append(root);document.body.classList.add('cursor-none');
+   Disabled for touch input and Bin. Reduced motion keeps Jerry static. */
+(()=>{'use strict';if(!matchMedia('(pointer:fine)').matches||document.body.dataset.page==='bin')return;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const assetRoot=location.pathname.includes('/tracks/')?'../assets/':'assets/';
+const root=document.createElement('div');root.id='tj-cursor-container';root.setAttribute('aria-hidden','true');root.innerHTML=`<img id="tj-jerry" class="tj-sprite" src="${assetRoot}jerry.png" alt=""><img id="tj-tom" class="tj-sprite" src="${assetRoot}tom.png" alt=""><img id="tj-fight" class="tj-sprite" alt="">`;document.body.append(root);document.body.classList.add('cursor-none');
+const sync=()=>root.classList.toggle('cursor--loading',document.body.classList.contains('is-loading'));
+new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});sync();
+if(reduce){root.classList.add('static-cursor');window.addEventListener('mousemove',e=>{root.querySelector('#tj-jerry').style.transform=`translate(${e.clientX-25}px,${e.clientY-25}px)`},{passive:true});return;}
     class TomJerryCursor {
       constructor(options = {}) {
         // DOM Elements
@@ -41,9 +46,9 @@ const root=document.createElement('div');root.id='tj-cursor-container';root.setA
 
       setupFallbackAssets() {
         const fallbacks = {
-          'tj-jerry': 'assets/jerry.png',
-          'tj-tom': 'assets/tom.png',
-          'tj-fight': 'assets/fight.gif'
+          'tj-jerry': assetRoot+'jerry.png',
+          'tj-tom': assetRoot+'tom.png',
+          'tj-fight': assetRoot+'fight.gif'
         };
 
         Object.keys(fallbacks).forEach(id => {
@@ -92,7 +97,7 @@ const root=document.createElement('div');root.id='tj-cursor-container';root.setA
         if (this.isFighting) return;
         this.isFighting = true;
         // Defer the 4 MB source sprite until a chase actually triggers a fight.
-        if (!this.fight.getAttribute('src')) this.fight.src = 'assets/fight.gif';
+        if (!this.fight.getAttribute('src')) this.fight.src = assetRoot+'fight.gif';
 
         // Hide Tom and Jerry
         this.jerry.style.opacity = '0';

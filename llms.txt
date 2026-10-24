@@ -1,25 +1,25 @@
 # Ibrahim Hussain — Portfolio
 
-Ibrahim Hussain is a BS Data Science undergraduate at FAST-NUCES, Islamabad, expected to graduate in 2027.
-His interests are applied ML/AI, data/software engineering, financial modelling and risk/BI analytics.
+Quantitative Data Scientist | Systems Modelling | Risk & Decision Analytics
+Data Science undergraduate, FAST-NU, graduating 2027, seeking Summer 2027 internships; open to relocation in Europe and the UK
 
-Primary pages:
+Based in Islamabad, Pakistan. Technical work spans financial risk modelling, multi-agent AI systems, document forensics, telecom BI, data engineering and analytical research.
+
+Canonical pages:
 - Home: https://ib-hussain.github.io/
 - Projects: https://ib-hussain.github.io/projects.html
 - Résumé: https://ib-hussain.github.io/resume.html
 - Contact: https://ib-hussain.github.io/contact.html
-- Terminal demo: https://ib-hussain.github.io/terminal.html
-- Other personal interests: photos.html, movies.html, music.html
+- Photos: https://ib-hussain.github.io/photos.html
+- Music: https://ib-hussain.github.io/music.html
+- Movies and Letterboxd diary: https://ib-hussain.github.io/movies.html
+- Terminal: https://ib-hussain.github.io/terminal.html
 
-Highlighted work:
-- Fin-Glassbox — explainable multi-module financial risk/decision framework; in development.
-- DeepDocForgery — multimodal document forgery detection research; in development.
-- Writer's Block — multi-agent LLM content generation workflow.
-- MobileInfoAnalytics — smartphone ETL and relational database, built collaboratively with Malaika Khan.
-- PTCL — retention modelling, BI and automation internship in 2026.
+Career tracks:
+- Quantitative modelling: https://ib-hussain.github.io/tracks/quant.html
+- ML and AI systems: https://ib-hussain.github.io/tracks/ml-ai.html
+- Engineering: https://ib-hussain.github.io/tracks/engineering.html
+- Analytics: https://ib-hussain.github.io/tracks/analytics.html
 
-Verified public accounts:
-- GitHub: https://github.com/ib-hussain
-- LinkedIn: https://www.linkedin.com/in/ib-hussain/
-
-Metrics in project writeups are historical, context-dependent and should not be reinterpreted as production performance claims.
+Public accounts: https://github.com/ib-hussain and https://www.linkedin.com/in/ib-hussain/
+The canonical downloadable CV is /assets/Ibrahim's Resume.pdf. Project metrics describe particular historical evaluations and should not be read as production guarantees.
