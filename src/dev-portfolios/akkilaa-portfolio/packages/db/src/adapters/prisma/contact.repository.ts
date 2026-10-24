@@ -1,0 +1,43 @@
+import type { PrismaClient } from '../../../prisma/src/generated/prisma'
+import type {
+  ContactSubmission,
+  CreateContactInput,
+  Paginated,
+  PaginationOpts,
+} from '@portfolio/shared'
+import { BadRequestError } from '@portfolio/shared'
+import { isPrismaError } from '../../utils'
+
+export class PrismaContactRepository {
+  constructor(private readonly db: PrismaClient) {}
+
+  create(data: CreateContactInput): Promise<ContactSubmission> {
+    return this.db.contactSubmission.create({ data })
+  }
+
+  async findAll({ limit = 20, cursor }: PaginationOpts): Promise<Paginated<ContactSubmission>> {
+    try {
+      const rows = await this.db.contactSubmission.findMany({
+        orderBy: { createdAt: 'desc' },
+        take: limit + 1,
+        cursor: cursor ? { id: cursor } : undefined,
+        skip: cursor ? 1 : 0,
+      })
+
+      const hasMore = rows.length > limit
+      const items = hasMore ? rows.slice(0, limit) : rows
+      return { items, nextCursor: hasMore ? items[items.length - 1].id : null }
+    } catch (err) {
+      if (isPrismaError(err, 'P2007')) throw new BadRequestError('Invalid cursor')
+      throw err
+    }
+  }
+
+  findById(id: string): Promise<ContactSubmission | null> {
+    return this.db.contactSubmission.findUnique({ where: { id } })
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.db.contactSubmission.delete({ where: { id } })
+  }
+}

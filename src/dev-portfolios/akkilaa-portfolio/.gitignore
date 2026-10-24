@@ -1,0 +1,12 @@
+node_modules
+.turbo
+dist
+.env
+.env.local
+.env.*.local
+packages/db/prisma/src/generated
+
+# Locally stored media (local-disk storage adapter)
+var/
+apps/api/var/
+out/
