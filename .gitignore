@@ -7,7 +7,7 @@ __pycache__/
 
 # Ignore IDE settings
 .vscode/
-
+*.tsx
 # Ignore OS files
 .DS_Store
 
