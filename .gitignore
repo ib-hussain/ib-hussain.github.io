@@ -10,7 +10,7 @@ __pycache__/
 *.tsx
 # Ignore OS files
 .DS_Store
-
+prompt_to_gemini_for_screening_job_postings.md
 # Ignore compiled files
 *.pyc
 *.pyo
@@ -20,9 +20,11 @@ __pycache__/
 *.zip
 __pycache__/
 *.py[cod]
+**.prompt.md
 .DS_Store
 *.log
 /backups/
 *.zip
 /playwright-report/
 /test-results/
+linkedinBanner.html
