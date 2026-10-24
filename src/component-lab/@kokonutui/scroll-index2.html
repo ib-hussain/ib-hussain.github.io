@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fafafa">
+<link rel="icon" href="data:,">
+<title>Scroll Index</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #fafafa; color: #18181b;
+  transition: background-color .3s ease, color .3s ease;
+}
+html.dark body { background: #09090b; color: #f4f4f5; }
+
+/* ---- Demo chrome (not part of the component) ---- */
+.demo-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  height: 52px; padding: 0 20px; font-size: 13px;
+}
+.demo-bar button {
+  font: inherit; font-size: 13px; padding: 7px 12px; border-radius: 8px; cursor: pointer;
+  border: 1px solid currentColor; background: transparent; color: inherit; opacity: .8;
+}
+.demo-bar button:hover { opacity: 1; }
+.demo-bar button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.demo-wrap { max-width: 960px; margin: 0 auto; padding: 16px; }
+.demo-wrap.window { padding-bottom: 80px; }
+
+/* ---- Component styles, mapped from its Tailwind classes ---- */
+.si-root.self {
+  position: relative; width: 100%; height: 520px; overflow: hidden; border-radius: 1rem;
+  border: 1px solid #e4e4e7; background: #ffffff;
+}
+html.dark .si-root.self { border-color: #27272a; background: #09090b; }
+.si-root.window { position: relative; width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 3rem; gap: 1.5rem; }
+.si-root.self .si-box { height: 100%; overflow-y: auto; overscroll-behavior: contain; }
+.si-root.self .si-content { padding: 2rem 4rem 2rem 1.5rem; }
+@media (min-width: 640px) { .si-root.self .si-content { padding-left: 2.5rem; } }
+
+.si-nav { z-index: 10; display: flex; width: 3rem; justify-content: flex-end; }
+.si-root.self .si-nav { position: absolute; top: 50%; right: .75rem; transform: translateY(-50%); }
+.si-root.window .si-nav { position: sticky; top: calc(50vh - 140px); height: fit-content; align-self: start; }
+
+.si-rail { position: relative; width: 100%; cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; }
+.si-rail[data-dragging] { cursor: grabbing; }
+
+.si-tick {
+  position: absolute; right: 0; height: 1rem; transform: translateY(-50%);
+  border: 0; padding: 0; border-radius: .125rem; background: transparent; outline: none; cursor: pointer;
+}
+.si-tick.wide { width: .875rem; }
+.si-tick.narrow { width: .5rem; }
+.si-tick:focus-visible { box-shadow: 0 0 0 2px #a1a1aa; }
+.si-bar {
+  position: absolute; top: 50%; right: 0; width: 100%; height: 1.5px;
+  transform-origin: right center; transform: translateY(-50%) scaleX(var(--swell, 1));
+  border-radius: 9999px; background: #d4d4d8; transition: background-color .2s ease-out;
+}
+html.dark .si-bar { background: #3f3f46; }
+.si-tick[data-state="current"] .si-bar { background: #3b82f6; }
+.si-tick[data-state="passed"] .si-bar { background: #18181b; }
+html.dark .si-tick[data-state="current"] .si-bar { background: #60a5fa; }
+html.dark .si-tick[data-state="passed"] .si-bar { background: #f4f4f5; }
+
+.si-head {
+  position: absolute; top: 0; right: 0; height: 2px; width: 1.5rem; transform: translateY(-50%);
+  border-radius: 9999px; background: #18181b; pointer-events: none; will-change: transform;
+}
+html.dark .si-head { background: #f4f4f5; }
+.si-label {
+  position: absolute; top: 0; right: 2.25rem; white-space: nowrap; pointer-events: none;
+  border-radius: .375rem; border: 1px solid #e4e4e7; background: #ffffff; color: #3f3f46;
+  padding: .25rem .5rem; font-size: .75rem; line-height: 1rem; font-weight: 500;
+  box-shadow: 0 1px 2px rgb(0 0 0 / .06); opacity: 0; transition: opacity .15s ease-out, transform .15s ease-out;
+}
+html.dark .si-label { border-color: #27272a; background: #18181b; color: #e4e4e7; }
+
+/* The sample article, from SampleArticle. */
+.si-article { max-width: 36rem; margin: 0 auto; }
+.si-kicker { margin: 0; font-size: .75rem; line-height: 1rem; font-weight: 500; color: #a1a1aa; }
+html.dark .si-kicker { color: #71717a; }
+.si-article h2 { margin: 3rem 0 0; font-size: 1.25rem; line-height: 1.75rem; font-weight: 600; letter-spacing: -.025em; color: #18181b; }
+.si-article h2:first-child { margin-top: 0; }
+.si-article h2.lead { margin-top: .5rem; font-size: 1.5rem; line-height: 2rem; }
+.si-article h3 { margin: 2rem 0 0; font-size: 1rem; line-height: 1.5rem; font-weight: 500; color: #18181b; }
+.si-article p.body { margin: .75rem 0 0; font-size: 15px; line-height: 1.625; color: #52525b; }
+.si-article p.end { padding-bottom: 10rem; }
+html.dark .si-article h2, html.dark .si-article h3 { color: #f4f4f5; }
+html.dark .si-article p.body { color: #a1a1aa; }
+
+.demo-note { margin: 0 0 12px; font-size: 12px; opacity: .6; }
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span>Scroll index</span>
+  <button type="button" id="toggle-dark" aria-pressed="false">Dark mode</button>
+</div>
+<div class="demo-wrap" id="demo"></div>
+
+<script>
+(() => {
+"use strict";
+
+/* ---- Helpers and constants, transpiled from the component source ---- */
+/** Marks each tick ahead, current or passed, and keeps one tab stop. */
+function markTicks(ticks, active) {
+    ticks.forEach((tick, i) => {
+        if (!tick) {
+            return;
+        }
+        // The section being read is marked apart from the ones passed.
+        let state = "ahead";
+        if (i === active) {
+            state = "current";
+        }
+        else if (i < active) {
+            state = "passed";
+        }
+        tick.dataset.state = state;
+        // One tab stop for the whole rail, on the section being read; the arrow
+        // keys move between the rest.
+        tick.tabIndex = i === Math.max(active, 0) ? 0 : -1;
+        if (i === active) {
+            tick.setAttribute("aria-current", "location");
+        }
+        else {
+            tick.removeAttribute("aria-current");
+        }
+    });
+}
+// The rail is this tall at most, in px; ticks sit at the scroll position of
+// their heading, so long sections leave long gaps.
+const RAIL = 280;
+// Headings land this far below the top edge when jumped to.
+const OFFSET = 16;
+// Ticks swell near the pointer like a dock: peak width and reach, in px.
+const SWELL = 1.6;
+const REACH = 26;
+// A drag let go this close to a tick (after its momentum) settles on it.
+const SNAP = 18;
+// How long the flashed section name stays up after scrolling into it.
+const FLASH = 900;
+function easeInOut(t) {
+    return t < 0.5 ? 8 * t ** 4 : 1 - (-2 * t + 2) ** 4 / 2;
+}
+
+
+const ARTICLE = `
+<article class="si-article">
+  <p class="si-kicker">Field notes · 8 min read</p>
+  <h2 class="lead">Building a component library</h2>
+  <p class="body">A component library is a promise: that the next screen will be faster to build than the last, and that it will feel like the same product. These notes cover what we learned keeping that promise for two years.</p>
+  <p class="body">Most of it is about saying no. Every prop is a decision someone else has to make, and every variant is a screen that drifts.</p>
+  <h2>Principles</h2>
+  <p class="body">Three rules settled most arguments before they started. Write them down early, and point to them often.</p>
+  <h3>Restraint</h3>
+  <p class="body">Ship the smallest component that solves the problem in front of you. A button with four sizes is easier to live with than one with nine, and nobody has ever asked for the fifth.</p>
+  <h3>Motion with a purpose</h3>
+  <p class="body">Animation explains where something came from and where it went. Anything else is decoration, and decoration ages quickly. Keep interface motion under 300 ms and let people interrupt it.</p>
+  <h2>Tokens</h2>
+  <p class="body">Tokens are the vocabulary. Color, type, spacing and radius live in one place, so a rebrand is a pull request rather than a quarter.</p>
+  <h3>Color</h3>
+  <p class="body">Name colors by job, not by hue. A surface, a border and a muted label survive a palette change; a zinc-150 never does.</p>
+  <h3>Type</h3>
+  <p class="body">Two families and five sizes cover nearly everything. Line height is part of the size, never a separate choice.</p>
+  <h2>Components</h2>
+  <p class="body">Build from the inside out: primitives first, then the pieces that compose them. A dialog is a portal, a focus trap and a surface before it is ever a confirmation box.</p>
+  <p class="body">Keep the API close to the platform. If it behaves like a button, it is a button element, with every attribute a button takes.</p>
+  <h2>Accessibility</h2>
+  <p class="body">Keyboard first. If a component can't be used without a mouse, it is not finished. Test with a screen reader before review, not after launch, and treat reduced motion as a real setting.</p>
+  <h2>Shipping</h2>
+  <p class="body">Release small and often. A changelog people actually read is worth more than a migration guide nobody finds.</p>
+  <p class="body">Every release gets a short note: what changed, why, and what to do about it, in that order.</p>
+  <h2>What's next</h2>
+  <p class="body">Theming per product, a token pipeline that feeds design and code from the same file, and fewer components, not more.</p>
+  <p class="body end">Thanks for reading. Drag the rail on the right to move through these notes, or hover it to see where each section starts.</p>
+</article>`;
+
+/* Keyboard on a tick: arrows move between ticks. */
+function tickKey(index, count, event, tickRefs) {
+  if (event.key !== "ArrowDown" && event.key !== "ArrowUp") {
+    return;
+  }
+  event.preventDefault();
+  const next = Math.min(Math.max(index + (event.key === "ArrowDown" ? 1 : -1), 0), count - 1);
+  tickRefs.current[next]?.focus();
+}
+
+/* Mounts the scroll index into `host`. Options (or window.ScrollIndexConfig):
+   selector ("h2, h3"), scroller ("self" | "window"), content (HTML string; default sample article). */
+function mountScrollIndex(host, options) {
+  const P = Object.assign(
+    { selector: "h2, h3", scroller: "self", content: undefined },
+    window.ScrollIndexConfig || {},
+    options || {}
+  );
+  const self = P.scroller !== "window";
+  host.innerHTML =
+    `<div class="si-root ${self ? "self" : "window"}">` +
+    `<div class="si-box"><div class="si-content">${P.content ?? ARTICLE}</div></div>` +
+    '<nav class="si-nav" aria-label="Sections"><div class="si-rail" style="height:280px">' +
+    '<span class="si-head" aria-hidden="true"></span><span class="si-label" aria-hidden="true"></span>' +
+    "</div></nav></div>";
+
+  const root = host.querySelector(".si-root");
+  const box = root.querySelector(".si-box");
+  const content = root.querySelector(".si-content");
+  const rail = root.querySelector(".si-rail");
+  const head = rail.querySelector(".si-head");
+  const label = rail.querySelector(".si-label");
+
+  const api = { current: { jump: () => undefined, show: () => undefined } };
+  const tickRefs = { current: [] };
+  const flags = { needMark: false };
+  let sectionCount = 0;
+
+  /* The ticks React rendered from state; rebuilt when the headings change. */
+  const renderSections = (list) => {
+    rail.querySelectorAll("button.si-tick").forEach((n) => n.remove());
+    tickRefs.current = list.map((section, index) => {
+      const tick = document.createElement("button");
+      tick.type = "button";
+      tick.className = "si-tick " + (section.level <= 2 ? "wide" : "narrow");
+      tick.setAttribute("aria-label", section.text);
+      tick.dataset.state = "ahead";
+      tick.style.top = `${(section.pos * 100).toFixed(3)}%`;
+      tick.tabIndex = index === 0 ? 0 : -1;
+      tick.innerHTML = '<span class="si-bar"></span>';
+      tick.addEventListener("blur", () => label.style.setProperty("opacity", "0"));
+      tick.addEventListener("click", (event) => {
+        // Pointer clicks are handled by the rail; this is the keyboard.
+        if (event.detail === 0) {
+          api.current.jump(index);
+        }
+      });
+      tick.addEventListener("focus", () => api.current.show(index));
+      tick.addEventListener("keydown", (event) => tickKey(index, sectionCount, event, tickRefs));
+      rail.insertBefore(tick, head);
+      return tick;
+    });
+    sectionCount = list.length;
+    flags.needMark = true;
+  };
+
+  const cleanup = scrollIndexEffect(
+    box, content, rail, head, label, P.selector, P.scroller, api, tickRefs, renderSections, flags
+  );
+
+  return {
+    element: root,
+    jump: (index) => api.current.jump(index),
+    destroy() {
+      if (typeof cleanup === "function") cleanup();
+      root.remove();
+    },
+  };
+}
+
+/* The effect, transpiled from the component source. */
+function scrollIndexEffect(box, content, rail, head, label, selector, scroller, api, tickRefs, renderSections, flags) {
+    const usesWindow = scroller === "window";
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let list = [];
+    let start = 0;
+    let end = 1;
+    let active = -1;
+    let height = RAIL;
+    let raf = 0;
+    let tween = 0;
+    let flashTimer = 0;
+    let painted = false;
+    let hover = null;
+    let drag = null;
+    const swell = [];
+    const getScroll = () => (usesWindow ? window.scrollY : box.scrollTop);
+    const setScroll = (value) => {
+        if (usesWindow) {
+            window.scrollTo(0, value);
+        }
+        else {
+            box.scrollTop = value;
+        }
+    };
+    const measure = () => {
+        const scroll = getScroll();
+        if (usesWindow) {
+            const top = content.getBoundingClientRect().top + scroll;
+            start = Math.max(top - OFFSET, 0);
+            end = Math.max(top + content.offsetHeight - window.innerHeight, start + 1);
+        }
+        else {
+            start = 0;
+            end = Math.max(box.scrollHeight - box.clientHeight, 1);
+        }
+        const origin = usesWindow ? 0 : box.getBoundingClientRect().top - scroll;
+        list = Array.from(content.querySelectorAll(selector)).map((el) => {
+            const at = Math.min(Math.max(el.getBoundingClientRect().top + scroll - origin - OFFSET, start), end);
+            return {
+                el,
+                text: el.textContent?.trim() ?? "",
+                level: Number(el.tagName.slice(1)) || 2,
+                at,
+                pos: (at - start) / (end - start),
+            };
+        });
+        height = rail.clientHeight || RAIL;
+        renderSections(list);
+    };
+    const fraction = () => Math.min(Math.max((getScroll() - start) / (end - start), 0), 1);
+    const nearest = (y) => {
+        let best = -1;
+        let distance = Number.POSITIVE_INFINITY;
+        list.forEach((s, i) => {
+            const d = Math.abs(s.pos * height - y);
+            if (d < distance) {
+                distance = d;
+                best = i;
+            }
+        });
+        return { index: best, distance };
+    };
+    const placeLabel = (index, visible) => {
+        const section = list[index];
+        if (!section) {
+            label.style.opacity = "0";
+            return;
+        }
+        if (label.textContent !== section.text) {
+            label.textContent = section.text;
+        }
+        label.style.transform = `translate3d(0, ${(section.pos * height).toFixed(1)}px, 0) translateY(-50%)`;
+        label.style.opacity = visible ? "1" : "0";
+    };
+    /** Section the reader is in: the last heading at or above the top. */
+    const current = () => {
+        const scroll = getScroll() + 1;
+        let index = -1;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].at <= scroll) {
+                index = i;
+            }
+        }
+        return index;
+    };
+    const paint = () => {
+        raf = 0;
+        head.style.transform = `translate3d(0, ${(fraction() * height).toFixed(1)}px, 0)`;
+        const now = current();
+        if (now !== active || flags.needMark) {
+            const changed = now !== active;
+            flags.needMark = false;
+            active = now;
+            markTicks(tickRefs.current, active);
+            // Scrolling into a new section names it briefly.
+            if (changed && painted && hover === null && !drag && active >= 0) {
+                placeLabel(active, true);
+                window.clearTimeout(flashTimer);
+                flashTimer = window.setTimeout(() => {
+                    if (hover === null && !drag) {
+                        label.style.opacity = "0";
+                    }
+                }, FLASH);
+            }
+        }
+        // Ticks ease toward their swell, so the magnification follows the
+        // pointer smoothly instead of jumping.
+        let moving = false;
+        tickRefs.current.forEach((tick, i) => {
+            if (!tick) {
+                return;
+            }
+            const y = (list[i]?.pos ?? 0) * height;
+            const target = hover === null || reduceMotion
+                ? 1
+                : 1 + SWELL * Math.exp(-((hover - y) ** 2) / (2 * REACH * REACH));
+            const value = (swell[i] ?? 1) + (target - (swell[i] ?? 1)) * 0.35;
+            swell[i] = Math.abs(value - target) < 0.005 ? target : value;
+            moving || (moving = swell[i] !== target);
+            tick.style.setProperty("--swell", swell[i].toFixed(3));
+        });
+        painted = true;
+        if (moving) {
+            schedule();
+        }
+    };
+    function schedule() {
+        if (!raf) {
+            raf = requestAnimationFrame(paint);
+        }
+    }
+    const stopTween = () => {
+        cancelAnimationFrame(tween);
+        tween = 0;
+    };
+    const scrollTo = (target) => {
+        stopTween();
+        const from = getScroll();
+        const to = Math.min(Math.max(target, 0), usesWindow ? 1e9 : end);
+        if (reduceMotion || Math.abs(to - from) < 2) {
+            setScroll(to);
+            return;
+        }
+        const duration = Math.min(Math.max(260 + Math.abs(to - from) * 0.12, 300), 650);
+        const begin = performance.now();
+        const step = (now) => {
+            const t = Math.min((now - begin) / duration, 1);
+            setScroll(from + (to - from) * easeInOut(t));
+            tween = t < 1 ? requestAnimationFrame(step) : 0;
+        };
+        tween = requestAnimationFrame(step);
+    };
+    api.current = {
+        jump: (index) => {
+            const section = list[index];
+            if (section) {
+                scrollTo(section.at);
+            }
+        },
+        show: (index) => {
+            hover = (list[index]?.pos ?? 0) * height;
+            placeLabel(index, true);
+            schedule();
+        },
+    };
+    const railY = (event) => Math.min(Math.max(event.clientY - rail.getBoundingClientRect().top, 0), height);
+    const scrub = (y) => setScroll(start + (y / height) * (end - start));
+    const onDown = (event) => {
+        if (drag || event.button !== 0) {
+            return;
+        }
+        event.preventDefault();
+        rail.setPointerCapture(event.pointerId);
+        stopTween();
+        const y = railY(event);
+        drag = { id: event.pointerId, moved: false, y, t: event.timeStamp, v: 0 };
+        hover = y;
+        rail.dataset.dragging = "";
+        placeLabel(nearest(y).index, true);
+        schedule();
+    };
+    const onMove = (event) => {
+        const y = railY(event);
+        if (drag && event.pointerId === drag.id) {
+            const dt = Math.max(event.timeStamp - drag.t, 1);
+            drag.v = drag.v * 0.4 + ((y - drag.y) / dt) * 0.6;
+            drag.moved || (drag.moved = Math.abs(y - drag.y) > 3);
+            drag.y = y;
+            drag.t = event.timeStamp;
+            if (drag.moved) {
+                // Dragging the rail scrubs the page under it.
+                scrub(y);
+            }
+        }
+        else if (event.pointerType !== "mouse") {
+            return;
+        }
+        hover = y;
+        placeLabel(nearest(y).index, true);
+        schedule();
+    };
+    const onUp = (event) => {
+        if (!drag || event.pointerId !== drag.id) {
+            return;
+        }
+        const { moved, y, v } = drag;
+        drag = null;
+        delete rail.dataset.dragging;
+        if (event.pointerType !== "mouse") {
+            hover = null;
+            placeLabel(-1, false);
+        }
+        // Where the flick was heading, then the tick nearest that.
+        const projected = moved ? y + v * 120 : y;
+        const hit = nearest(projected);
+        if (hit.index >= 0 && (!moved || hit.distance < SNAP)) {
+            api.current.jump(hit.index);
+        }
+        schedule();
+    };
+    const onLeave = () => {
+        if (drag) {
+            return;
+        }
+        hover = null;
+        placeLabel(-1, false);
+        schedule();
+    };
+    const scrollTarget = usesWindow ? window : box;
+    const onScroll = () => schedule();
+    // Any scroll input of the reader's own cancels a jump in progress.
+    const onInput = () => stopTween();
+    measure();
+    paint();
+    const resize = new ResizeObserver(() => {
+        measure();
+        schedule();
+    });
+    resize.observe(content);
+    resize.observe(box);
+    scrollTarget.addEventListener("scroll", onScroll, { passive: true });
+    scrollTarget.addEventListener("wheel", onInput, { passive: true });
+    scrollTarget.addEventListener("touchstart", onInput, { passive: true });
+    rail.addEventListener("pointerdown", onDown);
+    rail.addEventListener("pointermove", onMove);
+    rail.addEventListener("pointerup", onUp);
+    rail.addEventListener("pointercancel", onUp);
+    rail.addEventListener("pointerleave", onLeave);
+    return () => {
+        cancelAnimationFrame(raf);
+        stopTween();
+        window.clearTimeout(flashTimer);
+        resize.disconnect();
+        scrollTarget.removeEventListener("scroll", onScroll);
+        scrollTarget.removeEventListener("wheel", onInput);
+        scrollTarget.removeEventListener("touchstart", onInput);
+        rail.removeEventListener("pointerdown", onDown);
+        rail.removeEventListener("pointermove", onMove);
+        rail.removeEventListener("pointerup", onUp);
+        rail.removeEventListener("pointercancel", onUp);
+        rail.removeEventListener("pointerleave", onLeave);
+    };
+}
+
+
+window.ScrollIndex = { mount: mountScrollIndex };
+
+/* Demo: ?scroller=window puts the rail beside the page instead of inside a box. */
+const windowMode = new URLSearchParams(location.search).get("scroller") === "window";
+const demo = document.getElementById("demo");
+demo.className = "demo-wrap" + (windowMode ? " window" : "");
+const note = document.createElement("p");
+note.className = "demo-note";
+note.textContent = windowMode ? "Window mode: the page scrolls and the rail sticks beside the text." : "Self mode: the box scrolls. Add ?scroller=window to the URL for window mode.";
+demo.appendChild(note);
+const host = document.createElement("div");
+demo.appendChild(host);
+window.scrollIndex = mountScrollIndex(host, { scroller: windowMode ? "window" : "self" });
+
+const darkToggle = document.getElementById("toggle-dark");
+darkToggle.addEventListener("click", () => {
+  const on = document.documentElement.classList.toggle("dark");
+  darkToggle.setAttribute("aria-pressed", String(on));
+});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Lightbox Grid</title>
+<style>
+:root{--bg:#fafafa;--fg:#18181b;--muted:#71717a;--thumb:#f4f4f5;--ring:#18181b;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#09090b;--fg:#fafafa;--muted:#a1a1aa;--thumb:#27272a;--ring:#fff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#09090b;--fg:#fafafa;--muted:#a1a1aa;--thumb:#27272a;--ring:#fff;color-scheme:dark}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px}
+.page{width:100%;max-width:36rem}
+h1{font-size:16px;font-weight:600;margin:0 0 4px}
+.hint{margin:0 0 16px;color:var(--muted);font-size:13px}
+.lb{width:100%}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.grid li.feature{grid-column:span 2;grid-row:span 2}
+.thumb{position:relative;display:block;width:100%;aspect-ratio:1/1;overflow:hidden;border:0;padding:0;border-radius:12px;background:var(--thumb);cursor:pointer;outline-offset:2px}
+.thumb:focus-visible{outline:2px solid var(--ring)}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:filter .2s;pointer-events:none}
+.thumb:hover img{filter:brightness(.95)}
+
+/* Viewer (always dark) */
+.viewer{position:fixed;inset:0;z-index:100;color:#fff}
+.backdrop{position:absolute;inset:0;background:#09090b}
+.stage{position:absolute;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden;will-change:transform,clip-path;transform-origin:50% 50%}
+.stage:active{cursor:grabbing}
+.stage img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
+.chrome{position:absolute;inset:0;pointer-events:none}
+.bar{position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:12px;pointer-events:auto}
+@media (min-width:640px){.bar{top:16px;right:16px}}
+.count{font-size:14px;color:rgba(255,255,255,.6);font-variant-numeric:tabular-nums}
+.ibtn{width:40px;height:40px;border-radius:9999px;border:0;padding:0;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .15s,opacity .15s}
+.ibtn:hover{background:rgba(255,255,255,.2)}
+.ibtn:focus-visible{outline:2px solid rgba(255,255,255,.7);outline-offset:2px}
+.ibtn[aria-disabled="true"]{cursor:default;opacity:.3}
+.ibtn[aria-disabled="true"]:hover{background:rgba(255,255,255,.1)}
+.ibtn svg{width:16px;height:16px}
+.nav{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:none}
+.nav.prev{left:16px}
+.nav.next{right:16px}
+@media (min-width:640px){.nav{display:flex}}
+.chev.flip{transform:rotate(180deg)}
+.caption{position:absolute;left:16px;right:16px;margin:0;text-align:center;font-size:14px;color:rgba(255,255,255,.8)}
+</style>
+</head>
+<body>
+<main class="page">
+  <h1>Lightbox grid</h1>
+  <p class="hint">Tap a photo. Arrow keys step, Esc closes, drag to dismiss.</p>
+  <div class="lb">
+    <ul class="grid" id="grid"></ul>
+  </div>
+</main>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" hidden>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="stage"><img alt="" draggable="false"></div>
+  <div class="chrome">
+    <div class="bar">
+      <span class="count"></span>
+      <button class="ibtn close" type="button" aria-label="Close">
+        <svg aria-hidden="true" fill="none" viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"/></svg>
+      </button>
+    </div>
+    <button class="ibtn nav prev" type="button" aria-label="Previous photo">
+      <svg class="chev flip" aria-hidden="true" fill="none" viewBox="0 0 16 16"><path d="m6 3.5 4.5 4.5L6 12.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>
+    </button>
+    <button class="ibtn nav next" type="button" aria-label="Next photo">
+      <svg class="chev" aria-hidden="true" fill="none" viewBox="0 0 16 16"><path d="m6 3.5 4.5 4.5L6 12.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>
+    </button>
+    <p class="caption"></p>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+const unsplash = (id, w, h) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&h=${h}&fit=crop&auto=format&q=80`;
+
+const IMAGES = [
+  { src: unsplash("1501785888041-af3ef285b470", 1600, 1067), alt: "A lake below mountains", width: 1600, height: 1067, caption: "Lake shore, early morning" },
+  { src: unsplash("1506905925346-21bda4d32df4", 1200, 1600), alt: "Peaks above the clouds", width: 1200, height: 1600, caption: "Above the cloud line" },
+  { src: unsplash("1470071459604-3b5ec3a7fe05", 1600, 1067), alt: "Misty hills", width: 1600, height: 1067, caption: "Fog over the hills" },
+  { src: unsplash("1441974231531-c6227db76b6e", 1200, 1600), alt: "Light through a forest", width: 1200, height: 1600, caption: "Forest, late afternoon" },
+  { src: unsplash("1469474968028-56623f02e42e", 1600, 1067), alt: "Sun setting over a valley", width: 1600, height: 1067, caption: "Valley at sunset" },
+  { src: unsplash("1433086966358-54859d0ed716", 1200, 1600), alt: "A waterfall", width: 1200, height: 1600, caption: "Waterfall after rain" },
+];
+
+const EASE = [0.23, 1, 0.32, 1];
+const OPEN = { type: "spring", duration: 0.5, bounce: 0.12 };
+const CLOSE = { type: "spring", duration: 0.42, bounce: 0.08 };
+const SETTLE = { type: "spring", duration: 0.35, bounce: 0.2 };
+const MARGIN = 48;
+const MARGIN_SMALL = 12;
+const CAPTION_ROOM = 56;
+const OPEN_RADIUS = 10;
+const DISMISS_DISTANCE = 110;
+const DISMISS_SPEED = 0.55;   // px/ms
+const SWIPE_SPEED = 0.45;     // px/ms
+const AXIS_LOCK = 6;
+
+/* ---------- Minimal motion engine: values, springs, tweens, one rAF loop ---------- */
+
+const frames = new Set();
+let rafId = 0;
+let lastT = 0;
+
+function loop(t) {
+  const dt = Math.min(0.25, lastT ? (t - lastT) / 1000 : 1 / 60);
+  lastT = t;
+  for (const a of [...frames]) {
+    if (a.step(dt)) frames.delete(a);
+  }
+  if (frames.size) {
+    rafId = requestAnimationFrame(loop);
+  } else {
+    rafId = 0;
+    lastT = 0;
+  }
+}
+
+function schedule(anim) {
+  frames.add(anim);
+  if (!rafId) rafId = requestAnimationFrame(loop);
+}
+
+class MV {
+  constructor(v) {
+    this.v = v;
+    this.subs = new Set();
+    this.anim = null;
+  }
+  on(fn) {
+    this.subs.add(fn);
+    fn(this.v);
+  }
+  emit() {
+    for (const fn of this.subs) fn(this.v);
+  }
+  stop() {
+    if (this.anim) {
+      frames.delete(this.anim);
+      this.anim = null;
+    }
+  }
+  set(v) {
+    this.stop();
+    this.v = v;
+    this.emit();
+  }
+}
+
+function bezier(x1, y1, x2, y2) {
+  const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+  const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+  const sx = (s) => ((ax * s + bx) * s + cx) * s;
+  const sy = (s) => ((ay * s + by) * s + cy) * s;
+  return (t) => {
+    let lo = 0, hi = 1, s = t;
+    for (let i = 0; i < 30; i++) {
+      s = (lo + hi) / 2;
+      if (sx(s) < t) lo = s; else hi = s;
+    }
+    return sy(s);
+  };
+}
+const EASE_FN = bezier(...EASE);
+const DEFAULT_FN = bezier(0.25, 0.1, 0.25, 1);
+
+// Springs are integrated in 1/240 s substeps so they stay stable at low frame rates.
+// Velocity is in units per second. Resolves only when the animation completes.
+function animate(mv, to, opts = {}) {
+  mv.stop();
+  let resolve;
+  const done = new Promise((r) => (resolve = r));
+  const from = mv.v;
+  let step;
+  if (opts.type === "spring") {
+    const omega = (2 * Math.PI) / (opts.duration ?? 0.5);
+    const zeta = 1 - (opts.bounce ?? 0.25);
+    const k = omega * omega;
+    const c = 2 * zeta * omega;
+    let pos = from;
+    let vel = opts.velocity ?? 0;
+    step = (dt) => {
+      const n = Math.max(1, Math.ceil(dt * 240));
+      const h = dt / n;
+      for (let i = 0; i < n; i++) {
+        vel += (-k * (pos - to) - c * vel) * h;
+        pos += vel * h;
+      }
+      if (Math.abs(pos - to) < 0.01 && Math.abs(vel) < 0.01) {
+        mv.v = to;
+        mv.emit();
+        resolve();
+        return true;
+      }
+      mv.v = pos;
+      mv.emit();
+      return false;
+    };
+  } else {
+    const dur = opts.duration ?? 0.3;
+    const ease = opts.ease ? bezier(...opts.ease) : DEFAULT_FN;
+    let t = 0;
+    step = (dt) => {
+      t += dt;
+      const p = Math.min(1, t / dur);
+      if (p >= 1) {
+        mv.v = to;
+        mv.emit();
+        resolve();
+        return true;
+      }
+      mv.v = from + (to - from) * ease(p);
+      mv.emit();
+      return false;
+    };
+  }
+  const anim = {
+    step(dt) {
+      const finished = step(dt);
+      if (finished && mv.anim === anim) mv.anim = null;
+      return finished;
+    },
+  };
+  mv.anim = anim;
+  schedule(anim);
+  return done;
+}
+
+const reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const reduced = () => reduceQuery.matches;
+
+/* ---------- Geometry ---------- */
+
+function fitRect(image) {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const margin = vw < 640 ? MARGIN_SMALL : MARGIN;
+  const maxW = vw - margin * 2;
+  const maxH = vh - margin * 2 - CAPTION_ROOM;
+  const scale = Math.min(maxW / image.width, maxH / image.height);
+  const width = image.width * scale;
+  const height = image.height * scale;
+  return {
+    left: (vw - width) / 2,
+    top: (vh - CAPTION_ROOM - height) / 2,
+    width,
+    height,
+  };
+}
+
+const openClip = () => ({ t: 0, r: 0, b: 0, l: 0, rad: OPEN_RADIUS });
+
+// The transform and crop that make the open image look like its thumbnail.
+function thumbFrame(open, thumb, image, radius) {
+  const imageRatio = image.width / image.height;
+  const thumbRatio = thumb.width / thumb.height;
+  const coverWidth = imageRatio > thumbRatio ? thumb.height * imageRatio : thumb.width;
+  const scale = coverWidth / open.width;
+  const insetX = (open.width - thumb.width / scale) / 2;
+  const insetY = (open.height - thumb.height / scale) / 2;
+  return {
+    x: thumb.left + thumb.width / 2 - (open.left + open.width / 2),
+    y: thumb.top + thumb.height / 2 - (open.top + open.height / 2),
+    scale,
+    clip: { t: insetY, r: insetX, b: insetY, l: insetX, rad: radius / scale },
+  };
+}
+
+function isVisible(rect) {
+  return rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+}
+
+/* ---------- Grid ---------- */
+
+const list = document.getElementById("grid");
+const thumbs = [];
+
+IMAGES.forEach((image, index) => {
+  const li = document.createElement("li");
+  if (index === 0) li.className = "feature";
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "thumb";
+  button.setAttribute("aria-label", `Open ${image.alt}`);
+  const img = document.createElement("img");
+  img.alt = "";
+  img.src = image.src;
+  img.draggable = false;
+  img.loading = "lazy";
+  img.decoding = "async";
+  button.append(img);
+  li.append(button);
+  list.append(li);
+  thumbs[index] = button;
+  button.addEventListener("click", () => open(index));
+});
+
+/* ---------- Viewer ---------- */
+
+const $ = (sel) => document.querySelector(sel);
+const root = document.documentElement;
+const viewer = $("#viewer");
+const stage = viewer.querySelector(".stage");
+const stageImg = stage.querySelector("img");
+const backdrop = viewer.querySelector(".backdrop");
+const chrome = viewer.querySelector(".chrome");
+const counter = viewer.querySelector(".count");
+const caption = viewer.querySelector(".caption");
+const closeBtn = viewer.querySelector(".close");
+const prevBtn = viewer.querySelector(".prev");
+const nextBtn = viewer.querySelector(".next");
+
+// Motion values. The clip is five numbers so each one can be animated on its own.
+const x = new MV(0);
+const y = new MV(0);
+const scale = new MV(1);
+const cT = new MV(0);
+const cR = new MV(0);
+const cB = new MV(0);
+const cL = new MV(0);
+const cRad = new MV(OPEN_RADIUS);
+const alpha = new MV(1);
+const fade = new MV(0);
+
+function setClip(c) {
+  cT.set(c.t);
+  cR.set(c.r);
+  cB.set(c.b);
+  cL.set(c.l);
+  cRad.set(c.rad);
+}
+
+function animateClip(c, opts) {
+  animate(cT, c.t, opts);
+  animate(cR, c.r, opts);
+  animate(cB, c.b, opts);
+  animate(cL, c.l, opts);
+  return animate(cRad, c.rad, opts);
+}
+
+function paintMotion() {
+  stage.style.transform = `translate(${x.v}px, ${y.v}px) scale(${scale.v})`;
+  stage.style.clipPath = `inset(${cT.v}px ${cR.v}px ${cB.v}px ${cL.v}px round ${cRad.v}px)`;
+  stage.style.opacity = alpha.v;
+  backdrop.style.opacity = fade.v * 0.92;
+  chrome.style.opacity = fade.v;
+}
+[x, y, scale, cT, cR, cB, cL, cRad, alpha, fade].forEach((mv) => mv.on(paintMotion));
+
+const S = { active: null, rect: null, settled: false, closing: false, timer: 0, drag: null, prevOverflow: "" };
+
+function paintRect() {
+  const r = S.rect;
+  if (!r) return;
+  stage.style.left = `${r.left}px`;
+  stage.style.top = `${r.top}px`;
+  stage.style.width = `${r.width}px`;
+  stage.style.height = `${r.height}px`;
+  caption.style.top = `${r.top + r.height + 18}px`;
+}
+
+function showIndex(index) {
+  const image = IMAGES[index];
+  stageImg.src = image.src;
+  stageImg.alt = image.alt;
+  counter.textContent = `${index + 1} / ${IMAGES.length}`;
+  caption.textContent = image.caption ?? "";
+  caption.hidden = !image.caption;
+  viewer.setAttribute("aria-label", image.caption ?? image.alt);
+  if (index > 0) prevBtn.removeAttribute("aria-disabled");
+  else prevBtn.setAttribute("aria-disabled", "true");
+  if (index < IMAGES.length - 1) nextBtn.removeAttribute("aria-disabled");
+  else nextBtn.setAttribute("aria-disabled", "true");
+}
+
+const hasPrev = () => S.active > 0;
+const hasNext = () => S.active < IMAGES.length - 1;
+
+// The open photo has left its slot, so the slot stays empty until it returns.
+function markSlots() {
+  thumbs.forEach((t, i) => {
+    t.style.opacity = S.active === i ? "0" : "1";
+  });
+}
+
+function frameFor(index, open) {
+  const thumb = thumbs[index];
+  const box = thumb.getBoundingClientRect();
+  if (!isVisible(box)) return null;
+  const radius = parseFloat(getComputedStyle(thumb).borderTopLeftRadius) || 0;
+  return thumbFrame(open, box, IMAGES[index], radius);
+}
+
+function lockPage(on) {
+  if (on) {
+    S.prevOverflow = root.style.overflow;
+    root.style.overflow = "hidden";
+  } else {
+    root.style.overflow = S.prevOverflow;
+  }
+}
+
+function open(index) {
+  const target = fitRect(IMAGES[index]);
+  const from = frameFor(index, target);
+  clearTimeout(S.timer);
+  S.active = index;
+  S.rect = target;
+  S.closing = false;
+  S.settled = false;
+  alpha.set(1);
+  showIndex(index);
+  paintRect();
+  markSlots();
+  lockPage(true);
+  viewer.hidden = false;
+  closeBtn.focus({ preventScroll: true });
+
+  if (!from || reduced()) {
+    x.set(0);
+    y.set(0);
+    scale.set(1);
+    setClip(openClip());
+    fade.set(0);
+    alpha.set(0);
+    animate(alpha, 1, { duration: 0.18 });
+    animate(fade, 1, { duration: 0.18 }).then(() => (S.settled = true));
+    return;
+  }
+  x.set(from.x);
+  y.set(from.y);
+  scale.set(from.scale);
+  setClip(from.clip);
+  fade.set(0);
+  animate(x, 0, OPEN);
+  animate(y, 0, OPEN);
+  animate(scale, 1, OPEN);
+  animateClip(openClip(), OPEN);
+  animate(fade, 1, { duration: 0.3, ease: EASE }).then(() => (S.settled = true));
+}
+
+function close(velocity) {
+  if (S.active === null || !S.rect || S.closing) return;
+  S.closing = true;
+  const index = S.active;
+  // Instant, so the slot is measured where it will be (pages often scroll smoothly).
+  thumbs[index].scrollIntoView({ behavior: "instant", block: "nearest", inline: "nearest" });
+  const to = frameFor(index, S.rect);
+  const finish = () => {
+    clearTimeout(S.timer);
+    S.active = null;
+    S.rect = null;
+    S.closing = false;
+    S.settled = false;
+    viewer.hidden = true;
+    lockPage(false);
+    markSlots();
+    thumbs[index].focus({ preventScroll: true });
+  };
+  if (!to || reduced()) {
+    animate(alpha, 0, { duration: 0.16 });
+    animate(fade, 0, { duration: 0.16 }).then(finish);
+    return;
+  }
+  // A flick carries its speed into the flight home (px/ms to px/s).
+  const vx = (velocity?.x ?? 0) * 1000;
+  const vy = (velocity?.y ?? 0) * 1000;
+  animate(x, to.x, { ...CLOSE, velocity: vx });
+  animate(y, to.y, { ...CLOSE, velocity: vy });
+  animate(scale, to.scale, CLOSE);
+  animateClip(to.clip, CLOSE);
+  animate(fade, 0, { duration: 0.28, ease: EASE });
+  // The clip spring settles last; reveal the thumbnail when it lands.
+  S.timer = window.setTimeout(finish, 420);
+}
+
+function step(direction) {
+  if (S.active === null || S.closing) return;
+  const next = S.active + direction;
+  if (next < 0 || next >= IMAGES.length) return;
+  S.active = next;
+  S.rect = fitRect(IMAGES[next]);
+  markSlots();
+  showIndex(next);
+  paintRect();
+  y.set(0);
+  scale.set(1);
+  setClip(openClip());
+  fade.set(1);
+  if (reduced()) {
+    x.set(0);
+    alpha.set(1);
+    return;
+  }
+  // The next photo slides in from the side it was swiped from.
+  x.set(direction * 72);
+  alpha.set(0);
+  animate(x, 0, { duration: 0.32, ease: EASE });
+  animate(alpha, 1, { duration: 0.22, ease: EASE });
+}
+
+/* ---------- Drag: vertical to dismiss, horizontal to step ---------- */
+
+function followVertical(dx, dy) {
+  const pull = Math.min(Math.abs(dy) / window.innerHeight, 1);
+  x.set(dx);
+  y.set(dy);
+  scale.set(1 - pull * 0.45);
+  fade.set(1 - Math.min(Math.abs(dy) / 360, 1) * 0.85);
+}
+
+function followHorizontal(dx) {
+  const blocked = (dx > 0 && !hasPrev()) || (dx < 0 && !hasNext());
+  x.set(blocked ? dx * 0.25 : dx);
+}
+
+function releaseVertical(dy, velocity) {
+  if (Math.abs(dy) > DISMISS_DISTANCE || Math.abs(velocity.y) > DISMISS_SPEED) {
+    close(velocity);
+    return;
+  }
+  animate(x, 0, SETTLE);
+  animate(y, 0, SETTLE);
+  animate(scale, 1, SETTLE);
+  animate(fade, 1, { duration: 0.2, ease: EASE });
+}
+
+function releaseHorizontal(dx, vx) {
+  const far = Math.abs(dx) > S.rect.width * 0.22 || Math.abs(vx) > SWIPE_SPEED;
+  if (far && dx < 0 && hasNext()) step(1);
+  else if (far && dx > 0 && hasPrev()) step(-1);
+  else animate(x, 0, SETTLE);
+}
+
+stage.addEventListener("pointerdown", (e) => {
+  if (!S.settled || S.closing || e.button !== 0) return;
+  stage.setPointerCapture(e.pointerId);
+  S.drag = {
+    id: e.pointerId,
+    startX: e.clientX,
+    startY: e.clientY,
+    axis: null,
+    samples: [{ x: e.clientX, y: e.clientY, t: e.timeStamp }],
+  };
+});
+
+stage.addEventListener("pointermove", (e) => {
+  const d = S.drag;
+  if (!d || d.id !== e.pointerId) return;
+  const dx = e.clientX - d.startX;
+  const dy = e.clientY - d.startY;
+  if (!d.axis) {
+    if (Math.hypot(dx, dy) < AXIS_LOCK) return;
+    d.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+  }
+  d.samples.push({ x: e.clientX, y: e.clientY, t: e.timeStamp });
+  if (d.samples.length > 5) d.samples.shift();
+  if (d.axis === "y") followVertical(dx, dy);
+  else followHorizontal(dx);
+});
+
+function endDrag(e) {
+  const d = S.drag;
+  if (!d || d.id !== e.pointerId) return;
+  S.drag = null;
+  const first = d.samples[0];
+  const last = d.samples[d.samples.length - 1];
+  const dt = Math.max(1, last.t - first.t);
+  const velocity = { x: (last.x - first.x) / dt, y: (last.y - first.y) / dt };
+  if (d.axis === "y") releaseVertical(e.clientY - d.startY, velocity);
+  else if (d.axis === "x") releaseHorizontal(e.clientX - d.startX, velocity.x);
+}
+stage.addEventListener("pointerup", endDrag);
+stage.addEventListener("pointercancel", endDrag);
+stage.addEventListener("lostpointercapture", endDrag);
+
+/* ---------- Buttons, keys, resize ---------- */
+
+closeBtn.addEventListener("click", () => close());
+prevBtn.addEventListener("click", () => hasPrev() && step(-1));
+nextBtn.addEventListener("click", () => hasNext() && step(1));
+viewer.querySelector(".backdrop").addEventListener("click", () => close());
+
+viewer.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    e.preventDefault();
+    close();
+  } else if (e.key === "ArrowRight") {
+    if (hasNext()) step(1);
+  } else if (e.key === "ArrowLeft") {
+    if (hasPrev()) step(-1);
+  } else if (e.key === "Tab") {
+    // Keep focus inside the viewer.
+    const focusable = [...viewer.querySelectorAll("button:not(:disabled)")].filter(
+      (b) => b.getClientRects().length > 0
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last?.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first?.focus();
+    }
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (S.active === null) return;
+  S.rect = fitRect(IMAGES[S.active]);
+  paintRect();
+});
+</script>
+</body>
+</html>
