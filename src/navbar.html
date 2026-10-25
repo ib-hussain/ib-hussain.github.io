@@ -7,35 +7,18 @@
   <link rel="icon" href="media/favicon.png">
   <link rel="stylesheet" href="css/dock.css">
   <style>
-    @font-face {
-  font-family: "San Francisco";
-  font-weight: 400;
-  src: url("../assets/sanfranciscodisplay-regular-webfont.woff");
-}
     body {
       margin: 0;
       min-height: 100vh;
       background: #14191e;
       color: white;
-      font-family: "San Francisco";
+      font-family: system-ui;
     }
     .site-dock { top: 20px; }
   </style>
   <script defer src="js/dock.js"></script>
 </head>
 <body>
-  <!--
-    Shared macOS-style top dock.
-
-    • Add `aria-current="page"` to the link for whichever page is currently
-      open — a small dot will appear under that icon (same idea as the
-      `li-1::after` "running app" dot in the codepen version). If you don't
-      set it manually, `dock.js` will try to set it for you based on
-      `location.pathname`.
-    • `data-bin` on the last link draws the divider + extra spacing.
-    • The markup is unchanged from the previous version, so any page that
-      already includes this fragment keeps working.
-  -->
   <nav class="site-dock" aria-label="Portfolio navigation">
     <a href="contact.html" aria-label="Contact me"><img src="media/icon-contactme.png" alt=""><span class="dock-name">Contact me</span></a>
     <a href="resume/resume.html" aria-label="Résumé"><img src="media/icon-resume.png" alt=""><span class="dock-name">Résumé</span></a>
