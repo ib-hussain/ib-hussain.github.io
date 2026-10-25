@@ -1,0 +1,178 @@
+/* Shared top dock, adapted from the original src/navbar.html and blended
+   with the "flipped vertical" codepen styling:
+     • hangs from the top (as before)
+     • tooltip drops *below* the icon, arrow points up
+     • icons magnify downward (transform-origin: top)
+     • hovered icon spreads its neighbours slightly (macOS feel)
+     • small dot under the link that has aria-current="page"
+   The magnification amounts themselves live in js/dock.js so the JS and
+   CSS stay in sync — this file only lays out the box and animates the
+   transitions. */
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("../assets/sanfranciscodisplay-regular-webfont.woff");
+}
+.site-dock {
+  position: absolute;
+  z-index: 60;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 62px;
+  max-width: calc(100% - 24px);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid rgba(255, 255, 255, .19);
+  border-radius: 17px;
+  background: rgba(34, 42, 49, .47);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .27);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Each link is the 50x50 hit area. Origin at the top so magnified icons
+   grow downward (matches the codepen). */
+.site-dock a {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 11px;
+  outline-offset: 5px;
+  transform-origin: 50% 0;
+  transition:
+    background .18s ease,
+    margin .28s cubic-bezier(.4, 0, .2, 1);
+}
+
+.site-dock a:hover,
+.site-dock a:focus-visible,
+.site-dock a[aria-current="page"] {
+  background: rgba(255, 255, 255, .11);
+}
+
+/* Hovered icon spreads its neighbours a little (macOS dock "spread").
+   The Bin is excluded so the separator stays anchored. */
+.site-dock a:hover:not([data-bin]),
+.site-dock a:focus-visible:not([data-bin]) {
+  margin-inline: 4px;
+}
+
+.site-dock img {
+  display: block;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform .18s ease;
+  transform-origin: center top;
+}
+
+/* Running-app dot for the current page (like li-1::after in the codepen). */
+.site-dock a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .75);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bin slot: divider + extra spacing, unchanged behaviour. */
+.site-dock a[data-bin] {
+  margin-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 0 10px 10px 0;
+  padding-left: 7px;
+  flex-basis: 58px;
+}
+
+/* Tooltip below the icon, arrow pointing up. */
+.site-dock .dock-name {
+  position: absolute;
+  top: calc(100% + 19px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 9px;
+  background: rgba(10, 14, 18, .88);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 5px;
+  color: #f3f4f4;
+  font: 12px/1.2 "San Francisco", "San Francisco";
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .16s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.site-dock .dock-name::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 5px);
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: rgba(10, 14, 18, .88);
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  border-left: 1px solid rgba(255, 255, 255, .14);
+}
+
+.site-dock a:hover .dock-name,
+.site-dock a:focus-visible .dock-name {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 560px) {
+  .site-dock {
+    top: 9px;
+    height: 50px;
+    gap: 0;
+    padding: 2px;
+    max-width: calc(100% - 10px);
+  }
+  .site-dock a {
+    flex-basis: clamp(34px, 11.1vw, 44px);
+    width: clamp(34px, 11.1vw, 44px);
+    height: 44px;
+  }
+  .site-dock img {
+    width: 100%;
+    height: 100%;
+  }
+  .site-dock a[data-bin] {
+    margin-left: 2px;
+    padding-left: 3px;
+    flex-basis: clamp(37px, 11.9vw, 47px);
+  }
+  .site-dock .dock-name {
+    top: calc(100% + 11px);
+  }
+  .site-dock a:hover:not([data-bin]),
+  .site-dock a:focus-visible:not([data-bin]) {
+    margin-inline: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-dock a,
+  .site-dock img,
+  .site-dock .dock-name {
+    transition: none !important;
+  }
+}

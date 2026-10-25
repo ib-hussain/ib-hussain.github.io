@@ -2,51 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#14181c">
-  <meta name="description" content="Ibrahim Hussain's film journal: favourite films, recent reviews and a diary synced from Letterboxd.">
-  <meta property="og:type" content="profile">
+  <meta name="description" content="Ibrahim Hussain’s personal film journal, favourite films and recent reviews.">
   <meta property="og:title" content="Ibrahim Hussain · Film Journal">
-  <meta property="og:description" content="Favourite films and recent reviews from Ibrahim's Letterboxd diary.">
-  <meta property="og:image" content="https://ib-hussain.github.io/src/movies/data/about-time.jpg">
+  <meta property="og:image" content="data/about-time.jpg">
   <title>Ibrahim Hussain · Film Journal</title>
-  <link rel="icon" type="image/png" href="../media/favicon.png">
+  <link rel="icon" href="../media/favicon.png">
+  <link rel="stylesheet" href="../css/dock.css">
   <link rel="stylesheet" href="movies.css">
+  <link rel="stylesheet" href="../css/footer.css">
   <script defer src="tv-shader.js"></script>
   <script defer src="movies.js"></script>
+  <script defer src="../js/dock.js"></script>
+  <script defer src="../js/footer.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to films</a>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="wordmark" href="../../index.html" aria-label="Ibrahim Hussain, home">
-        <span class="mark-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>IBRAHIM <b>/</b> CINEMA</span>
-      </a>
-      <nav class="top-links" aria-label="External and site links">
-        <a href="../../index.html">Portfolio</a>
-        <a href="https://letterboxd.com/ib_hussain_/" target="_blank" rel="noopener noreferrer">Letterboxd <span aria-hidden="true">↗</span></a>
-      </nav>
-    </div>
-  </header>
-
+  <div class="page-shader" aria-hidden="true"><canvas id="tv-canvas"></canvas><div class="shader-grain"></div></div>
+  <nav class="site-dock" aria-label="Portfolio navigation">
+    <a href="../contact.html" aria-label="Contact me"><img src="../media/icon-contactme.png" alt=""><span class="dock-name">Contact me</span></a>
+    <a href="../resume/resume.html" aria-label="Résumé"><img src="../media/icon-resume.png" alt=""><span class="dock-name">Résumé</span></a>
+    <a href="../photos/photos.html" aria-label="Photos"><img src="../media/icon-photos.png" alt=""><span class="dock-name">Photos</span></a>
+    <a href="../bash/bash.html" aria-label="Terminal"><img src="../media/icon-terminal.png" alt=""><span class="dock-name">Terminal</span></a>
+    <a href="../music/music.html" aria-label="Music"><img src="../media/icon-music.png" alt=""><span class="dock-name">Music</span></a>
+    <a href="movies.html" aria-current="page" aria-label="Movies"><img src="../media/icon-movies.png" alt=""><span class="dock-name">Movies</span></a>
+    <a href="../projects/projects.html" aria-label="Projects"><img src="../media/icon-projects.png" alt=""><span class="dock-name">Projects</span></a>
+    <a href="../bin.html" data-bin aria-label="Bin"><img src="../media/icon-bin.png" alt=""><span class="dock-name">Bin</span></a>
+  </nav>
   <main id="main">
     <section class="profile-hero" id="profile" aria-labelledby="profile-title">
-      <div class="shader-layer" aria-hidden="true"><canvas id="tv-canvas"></canvas><div class="shader-grain"></div></div>
       <div class="hero-tint" aria-hidden="true"></div>
       <div class="wrap hero-inner">
         <p class="overline hero-overline"><span class="live-point" aria-hidden="true"></span> FILM JOURNAL <span class="overline-rule"></span> ISLAMABAD, PAKISTAN</p>
         <div class="hero-content">
           <div class="identity">
-            <img class="avatar" src="../media/ib.jpg" width="112" height="112" alt="Ibrahim Hussain" decoding="async">
+            <img class="avatar" src="../media/ib.jpg" width="112" height="112" alt="Ibrahim Hussain">
             <div>
               <p class="eyebrow">A PERSONAL FILM DIARY</p>
               <h1 id="profile-title">Ibrahim Hussain<span class="title-period">.</span></h1>
               <p class="bio" id="profile-bio">ruins of a utopia🥀</p>
-              <p class="location">Islamabad, Pakistan <span aria-hidden="true">·</span> <a href="https://letterboxd.com/ib_hussain_/" target="_blank" rel="noopener noreferrer">@ib_hussain_ ↗</a></p>
+              <p class="location">Islamabad, Pakistan <span aria-hidden="true">·</span> <a href="https://letterboxd.com/ib_hussain_/" target="_blank" rel="noopener noreferrer" aria-label="Ibrahim Hussain’s Letterboxd profile">@ib_hussain_ ↗</a></p>
             </div>
           </div>
-          <dl class="profile-stats" aria-label="Letterboxd profile statistics">
+          <dl class="profile-stats" aria-label="Film profile statistics">
             <div><dt>Films</dt><dd id="stat-films">145</dd></div>
             <div><dt>This year</dt><dd id="stat-this-year">114</dd></div>
             <div><dt>Following</dt><dd id="stat-following">29</dd></div>
@@ -56,38 +55,30 @@
         <div class="hero-bottom"><span>01 / PROFILE</span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
       </div>
     </section>
-
     <nav class="film-nav wrap" aria-label="Film journal sections">
       <a href="#profile" aria-current="page">Profile</a>
       <a href="#favorites">Favourites</a>
       <a href="#reviews">Reviews</a>
-      <a href="https://letterboxd.com/ib_hussain_/films/diary/" target="_blank" rel="noopener noreferrer">Diary ↗</a>
-      <a href="https://letterboxd.com/ib_hussain_/films/" target="_blank" rel="noopener noreferrer">All films ↗</a>
     </nav>
-
     <div class="wrap page-layout">
       <div class="primary-column">
         <section id="favorites" class="content-section" aria-labelledby="favorites-heading">
           <div class="section-heading"><div><p class="eyebrow">THE FOUR ON THE SHELF</p><h2 id="favorites-heading">Favourite films<span class="heading-dot">.</span></h2></div><span class="section-number">01 / 02</span></div>
           <div id="favorites-grid" class="favorites-grid" aria-live="polite"><p class="loading-note">Loading the favourites…</p></div>
         </section>
-
         <section id="reviews" class="content-section reviews-section" aria-labelledby="reviews-heading">
           <div class="section-heading"><div><p class="eyebrow">NOTES FROM THE DARK</p><h2 id="reviews-heading">Recent reviews<span class="heading-dot">.</span></h2></div><span class="section-number">02 / 02</span></div>
           <div id="review-list" class="review-list" aria-live="polite"><p class="loading-note">Loading the diary…</p></div>
-          <a class="all-reviews" href="https://letterboxd.com/ib_hussain_/reviews/" target="_blank" rel="noopener noreferrer">Read every review on Letterboxd <span aria-hidden="true">↗</span></a>
         </section>
       </div>
-
-      <aside class="side-column" aria-label="More about the film diary">
+      <aside class="side-column" aria-label="About this film diary">
         <section class="side-panel"><p class="side-kicker">THE SHELF</p><p class="side-quote">Films I keep returning to, and notes from the ones that stayed with me.</p></section>
-        <section class="side-panel sync-panel"><p class="side-kicker">THE DIARY</p><div class="side-divider"></div><p>Ratings and reviews come from my public Letterboxd activity.</p><a href="https://letterboxd.com/ib_hussain_/films/diary/" target="_blank" rel="noopener noreferrer">Browse the full diary <span aria-hidden="true">↗</span></a><span id="sync-status" class="sync-status" role="status">Snapshot from 26 Oct 2026</span></section>
+        <section class="side-panel sync-panel"><p class="side-kicker">THE DIARY</p><div class="side-divider"></div><p>My ratings and reviews appear here as a local snapshot.</p><span id="sync-status" class="sync-status" role="status">Snapshot from 26 Oct 2026</span></section>
         <div class="side-index" aria-hidden="true"><span>WATCH / FEEL / REMEMBER</span><span>IH — 2026</span></div>
       </aside>
     </div>
   </main>
-
-  <footer class="site-footer"><div class="wrap footer-inner"><span><span class="mark-dots" aria-hidden="true"><i></i><i></i><i></i></span> IBRAHIM / CINEMA</span><a href="../../index.html">Back to portfolio ↑</a></div></footer>
-  <noscript><div class="noscript-note">Enable JavaScript to load the local film data, or <a href="https://letterboxd.com/ib_hussain_/">view the diary on Letterboxd</a>.</div></noscript>
+  <div data-ridgeline-footer data-root="../../"></div>
+  <noscript><p class="noscript-note">Enable JavaScript to load the local film data.</p></noscript>
 </body>
 </html>

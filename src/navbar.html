@@ -1,30 +1,50 @@
-<!-- navbar.html - Updated -->
-<header class="site-header">
-  <div class="container">
-    <nav class="nav">
-      <a class="brand" href="index.html">Ibrahim Hussain</a>
-      
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" data-page="index">Home</a>
-        <a href="projects.html" data-page="projects">Projects</a>
-        <a href="resume.html" data-page="resume">Resume</a>
-        <a href="contact.html" data-page="contact">Contact</a>
-      </div>
-      
-      <div class="nav-ctrl">
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle theme">
-          <span id="themeIcon" aria-hidden="true"></span>
-        </button>
-        
-        <button class="icon-btn nav-toggle" id="navToggle" type="button" 
-                aria-label="Menu" aria-expanded="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
-        </button>
-      </div>
-    </nav>
-  </div>
-</header>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio dock</title>
+  <link rel="icon" href="media/favicon.png">
+  <link rel="stylesheet" href="css/dock.css">
+  <style>
+    @font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("../assets/sanfranciscodisplay-regular-webfont.woff");
+}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #14191e;
+      color: white;
+      font-family: "San Francisco";
+    }
+    .site-dock { top: 20px; }
+  </style>
+  <script defer src="js/dock.js"></script>
+</head>
+<body>
+  <!--
+    Shared macOS-style top dock.
+
+    • Add `aria-current="page"` to the link for whichever page is currently
+      open — a small dot will appear under that icon (same idea as the
+      `li-1::after` "running app" dot in the codepen version). If you don't
+      set it manually, `dock.js` will try to set it for you based on
+      `location.pathname`.
+    • `data-bin` on the last link draws the divider + extra spacing.
+    • The markup is unchanged from the previous version, so any page that
+      already includes this fragment keeps working.
+  -->
+  <nav class="site-dock" aria-label="Portfolio navigation">
+    <a href="contact.html" aria-label="Contact me"><img src="media/icon-contactme.png" alt=""><span class="dock-name">Contact me</span></a>
+    <a href="resume/resume.html" aria-label="Résumé"><img src="media/icon-resume.png" alt=""><span class="dock-name">Résumé</span></a>
+    <a href="photos/photos.html" aria-label="Photos"><img src="media/icon-photos.png" alt=""><span class="dock-name">Photos</span></a>
+    <a href="bash/bash.html" aria-label="Terminal"><img src="media/icon-terminal.png" alt=""><span class="dock-name">Terminal</span></a>
+    <a href="music/music.html" aria-label="Music"><img src="media/icon-music.png" alt=""><span class="dock-name">Music</span></a>
+    <a href="movies/movies.html" aria-label="Movies"><img src="media/icon-movies.png" alt=""><span class="dock-name">Movies</span></a>
+    <a href="projects/projects.html" aria-label="Projects"><img src="media/icon-projects.png" alt=""><span class="dock-name">Projects</span></a>
+    <a href="bin.html" data-bin aria-label="Bin"><img src="media/icon-bin.png" alt=""><span class="dock-name">Bin</span></a>
+  </nav>
+</body>
+</html>

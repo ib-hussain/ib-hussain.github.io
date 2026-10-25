@@ -3,29 +3,24 @@
   'use strict';
   const grid = document.getElementById('favorites-grid');
   const list = document.getElementById('review-list');
-  const profileURL = 'https://letterboxd.com/ib_hussain_/';
+  const filmPages = Object.freeze({
+    'about-time': 'data/about-time.html',
+    'casablanca': 'data/casablanca.html',
+    'frozen-2013': 'data/frozen.html',
+    'babylon-2022': 'data/babylon.html'
+  });
   const make = (tag, className, text) => {
     const node = document.createElement(tag);
     if (className) node.className = className;
     if (text !== undefined && text !== null) node.textContent = String(text);
     return node;
   };
-  const safeURL = value => {
-    if (typeof value !== 'string') return profileURL;
-    if (value.startsWith(profileURL) || /^https:\/\/letterboxd\.com\/film\/[a-z0-9-]+\/$/i.test(value)) return value;
-    if (/^data\/[a-z0-9/_-]+\.html$/i.test(value)) return value; // local film pages, when added later
-    return profileURL;
-  };
   const safePoster = value => typeof value === 'string' &&
-    (/^data\/[a-z0-9/_-]+\.(?:jpe?g|webp|png)$/i.test(value) ||
-     /^https:\/\/(?:[a-z0-9-]+\.)*ltrbxd\.com\//i.test(value) ||
-     /^https:\/\/image\.tmdb\.org\/t\/p\//i.test(value)) ? value : '';
+    /^data\/[a-z0-9/_-]+\.(?:jpe?g|webp|png)$/i.test(value) ? value : '';
   function linkFor(film, className) {
-    const link = make('a', className);
-    link.href = safeURL(film.page || film.url);
-    if (link.href.startsWith('https://')) {
-      link.target = '_blank'; link.rel = 'noopener noreferrer';
-    }
+    const page = filmPages[film.slug];
+    const link = make(page ? 'a' : 'div', className);
+    if (page) link.href = page;
     return link;
   }
   function poster(film, className) {
@@ -102,10 +97,12 @@
       meta.append(time);
     }
     content.append(meta);
-    content.append(make('p', 'review-body', film.review || 'Review available on Letterboxd.'));
-    const read = linkFor(film, 'review-link');
-    read.textContent = 'Read on Letterboxd ↗';
-    content.append(read);
+    content.append(make('p', 'review-body', film.review || 'Notes to follow.'));
+    if (filmPages[film.slug]) {
+      const read = linkFor(film, 'review-link');
+      read.textContent = 'Open film page →';
+      content.append(read);
+    }
     article.append(coverLink, content);
     return article;
   }
@@ -119,12 +116,12 @@
     if (profile.name) document.getElementById('profile-title').firstChild.textContent = profile.name;
     if (profile.bio) document.getElementById('profile-bio').textContent = profile.bio;
     grid.replaceChildren(); list.replaceChildren();
-    const favorites = Array.isArray(data.favorites) ? data.favorites.slice(0,4) : [];
+    const favorites = Array.isArray(data.favorites) ? data.favorites.filter(film => filmPages[film.slug]).slice(0,4) : [];
     const reviews = Array.isArray(data.reviews) ? data.reviews.slice(0,12) : [];
     if (favorites.length) favorites.forEach(film => grid.append(favoriteCard(film)));
-    else { const note = make('p','empty-note','No favourite films are available yet. '); const a=make('a','','Open the Letterboxd profile ↗');a.href=profileURL;note.append(a);grid.append(note); }
+    else grid.append(make('p','empty-note','No favourite films are available yet.'));
     if (reviews.length) reviews.forEach(film => list.append(reviewCard(film)));
-    else { const note=make('p','empty-note','The recent diary is temporarily empty. ');const a=make('a','','View reviews on Letterboxd ↗');a.href=profileURL+'reviews/';note.append(a);list.append(note); }
+    else list.append(make('p','empty-note','The recent diary is temporarily empty.'));
     const refreshed = typeof (data.reviewsUpdatedAt || data.updatedAt) === 'string' ? new Date(data.reviewsUpdatedAt || data.updatedAt) : null;
     const sync = document.getElementById('sync-status');
     if (refreshed && !Number.isNaN(refreshed.getTime())) sync.textContent = 'Updated ' + new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(refreshed);
@@ -135,9 +132,8 @@
     .then(render)
     .catch(() => {
       grid.replaceChildren(); list.replaceChildren();
-      const message = make('p','empty-note','Film data could not load. Open this page through a local HTTP server or GitHub Pages. ');
-      const link = make('a','','View the Letterboxd profile ↗');link.href=profileURL;message.append(link);grid.append(message);
-      list.append(make('p','empty-note','Reviews are available on Letterboxd.'));
+      grid.append(make('p','empty-note','Film data could not load. Open this page through a local HTTP server or GitHub Pages.'));
+      list.append(make('p','empty-note','Reviews will appear when local film data is available.'));
       document.getElementById('sync-status').textContent='Film data unavailable';
     });
   const nav=[...document.querySelectorAll('.film-nav a[href^="#"]')];

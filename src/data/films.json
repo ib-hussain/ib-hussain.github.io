@@ -1,11 +1,184 @@
 {
-  "letterboxdProfile": "https://letterboxd.com/ib_hussain_/",
+  "schemaVersion": 1,
+  "profile": {
+    "name": "Ibrahim Hussain",
+    "handle": "ib_hussain_",
+    "bio": "ruins of a utopia🥀",
+    "location": "Islamabad, Pakistan",
+    "stats": {
+      "films": 145,
+      "thisYear": 115,
+      "following": 29,
+      "followers": 18
+    }
+  },
   "favorites": [
-    "About Time",
-    "Casablanca",
-    "Frozen",
-    "Babylon"
+    {
+      "title": "About Time",
+      "year": 2013,
+      "slug": "about-time",
+      "poster": "data/about-time.jpg",
+      "rating": 5,
+      "liked": true,
+      "snippet": "life, time, events, accidents, love, choices… everything is there. the absolute sweetheart of a movie.",
+      "page": "data/about-time.html"
+    },
+    {
+      "title": "Casablanca",
+      "year": 1942,
+      "slug": "casablanca",
+      "poster": "data/casablanca.jpg",
+      "rating": 5,
+      "liked": true,
+      "snippet": "this da real cinema. this da real movie. Perhaps the most perfect a movie can be. In every aspect it has continued to be perfect.",
+      "page": "data/casablanca.html"
+    },
+    {
+      "title": "Frozen",
+      "year": 2013,
+      "slug": "frozen-2013",
+      "poster": "data/frozen.jpg",
+      "rating": 5,
+      "liked": true,
+      "snippet": "my childhood sweetheart🥺 🖤",
+      "page": "data/frozen.html"
+    },
+    {
+      "title": "Babylon",
+      "year": 2022,
+      "slug": "babylon-2022",
+      "poster": "data/babylon.jpg",
+      "rating": 5,
+      "liked": true,
+      "snippet": "I have not seen perhaps a movie this good ever, like sure it's like an oscar bait but... WHAT A MOVIE. WHAT AN EXPERIENCE.",
+      "page": "data/babylon.html"
+    }
   ],
-  "reviews": [],
-  "updatedAt": null
+  "reviews": [
+    {
+      "title": "About Time",
+      "year": 2013,
+      "slug": "about-time",
+      "poster": "data/about-time.jpg",
+      "rating": 5.0,
+      "liked": true,
+      "watchedDate": "2026-10-26",
+      "review": "life, time, events, accidents, love, choices.... everything is there. the absolute sweetheart of a movie. the absolute most comfortable a movie can be. hopecore if anything, love if anything and life if everything. this is where british might have peaked. the most perfect pacing and runtime. for life doesn't get better than this movie..... i love LOVE LOVE LOVEEE LOVEEE THIS MOVIE\nI ABSOLUTELY ADORE THIS. THIS IS HOPE IN THE MOST ASSURING FORM. THIS IS MY MANUAL OF LIFE AND THIS IS MY TREASURE\nI SHALL LOVEYOU FOREVER",
+      "page": "data/about-time.html"
+    },
+    {
+      "title": "The Edge of Seventeen",
+      "year": 2016,
+      "slug": "the-edge-of-seventeen",
+      "poster": "data/posters/the-edge-of-seventeen.jpg",
+      "rating": 4.0,
+      "liked": true,
+      "watchedDate": "2026-09-15",
+      "review": "loved it omg"
+    },
+    {
+      "title": "Spider-Man: Brand New Day",
+      "year": 2026,
+      "slug": "spider-man-brand-new-day",
+      "poster": "data/posters/spider-man-brand-new-day.jpg",
+      "rating": 4.5,
+      "liked": true,
+      "watchedDate": "2026-08-19",
+      "review": "OH. MY. GOD.\nPLEASE DO NOT WATCH THIS IF YOUR STOMACH TWISTS AND YOUR HEART BREAKS EVERYTIME YOU THINK OF LOVE IN A FRAGILE THOUGHT.\nsave your heart from this❤️\nmore will come when i watch this mobie again with subtitles and cry to it"
+    },
+    {
+      "title": "Paper Towns",
+      "year": 2015,
+      "slug": "paper-towns",
+      "poster": "data/posters/paper-towns.jpg",
+      "rating": 4.0,
+      "liked": true,
+      "watchedDate": "2026-08-06",
+      "review": "loved it"
+    },
+    {
+      "title": "The Irishman",
+      "year": 2019,
+      "slug": "the-irishman-2019",
+      "poster": "data/posters/the-irishman-2019.jpg",
+      "rating": 4.0,
+      "liked": true,
+      "watchedDate": "2026-08-04",
+      "review": "even though it's very long, it does make up for it through the plot and story"
+    },
+    {
+      "title": "The Untouchables",
+      "year": 1987,
+      "slug": "the-untouchables",
+      "poster": "data/posters/the-untouchables.jpg",
+      "rating": 4.0,
+      "liked": true,
+      "watchedDate": "2026-08-04",
+      "review": "what an absolute banger of a movie. top tier spot it deserves."
+    },
+    {
+      "title": "Once Upon a Time in America",
+      "year": 1984,
+      "slug": "once-upon-a-time-in-america",
+      "poster": "data/posters/once-upon-a-time-in-america.jpg",
+      "rating": 2.0,
+      "liked": false,
+      "watchedDate": "2026-08-04",
+      "review": "no one should under any circumstances watch whatever this is. giving this 2 stars is a crime i have committed against myself.\n\"lust for power\" this the label they've given this shit WHEN ITS FULL OF LUST AND ABSOLUTE DEPRAVITY. there should be a trigger warning for something this disturbing and deranged."
+    },
+    {
+      "title": "Casino",
+      "year": 1995,
+      "slug": "casino",
+      "poster": "data/posters/casino.jpg",
+      "rating": 4.0,
+      "liked": true,
+      "watchedDate": "2026-08-04",
+      "review": "good movie"
+    },
+    {
+      "title": "Inception",
+      "year": 2010,
+      "slug": "inception",
+      "poster": "data/posters/inception.jpg",
+      "rating": 4.5,
+      "liked": true,
+      "watchedDate": "2026-08-04",
+      "review": "absolute top tier movie that checks all boxes"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "slug": "the-lord-of-the-rings-the-return-of-the-king",
+      "poster": "data/posters/the-lord-of-the-rings-the-return-of-the-king.jpg",
+      "rating": 5.0,
+      "liked": true,
+      "watchedDate": "2026-08-04",
+      "review": "PERHAPS THE BEST MOVIE OF ALL. TIME. I FEEL. VERY STRONGLY ABOUT THIS FILM. IT COULD HAVE BEEN LONGER AND EVEN BETTER BUT I GUESS WE MUST LIVE WITH THE (sweet) LEMONS WE ARE GIVEN"
+    },
+    {
+      "title": "Citizen Kane",
+      "year": 1941,
+      "slug": "citizen-kane",
+      "poster": "data/posters/citizen-kane.jpg",
+      "rating": 4.5,
+      "liked": true,
+      "watchedDate": "2026-08-04",
+      "review": "great movie, great plot, great flow and pace and editing, i just think maybe the ending could have been better but except that fantastic"
+    },
+    {
+      "title": "Humsafar",
+      "year": 2011,
+      "slug": "humsafar",
+      "poster": "data/posters/humsafar.jpg",
+      "rating": 4.0,
+      "liked": true,
+      "watchedDate": "2026-08-01",
+      "review": "naveen waqar so cute"
+    }
+  ],
+  "updatedAt": "2026-10-25T23:15:37+00:00",
+  "snapshotAt": "2026-10-26",
+  "source": "Public Letterboxd profile and RSS feed",
+  "reviewsUpdatedAt": "2026-10-25T23:14:10+00:00"
 }

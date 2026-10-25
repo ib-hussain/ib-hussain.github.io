@@ -57,9 +57,8 @@ void main() {
   float wave2 = sin(st.y * 6.0 + uTime * 1.5) * 0.1;
   float wave3 = sin((st.x + st.y) * 4.0 + uTime * 3.0) * 0.05;
 
-  // Mouse interaction
-  vec2 mouseInfluence = (uMouse - 0.5) * 0.3;
-  st += mouseInfluence;
+  // The input is held at the centre; the shader moves with time alone.
+  st += (uMouse - 0.5) * 0.3;
 
   float waves = wave1 + wave2 + wave3;
 
@@ -89,8 +88,7 @@ void main() {
 
 
 
-/* The shader code above is the supplied old-television-shader2.html WebGL1 source.
-   The quad fills the hero; colour uniforms blend it into the portfolio palette. */
+/* The supplied old-television-shader2.html source, held behind the entire page. */
 (() => {
   'use strict';
   const canvas=document.getElementById('tv-canvas');
@@ -98,7 +96,7 @@ void main() {
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let gl;
   try { gl=canvas.getContext('webgl',{alpha:false,antialias:false,powerPreference:'low-power'}); } catch { return; }
-  if (!gl) return; // The CSS hero remains a complete fallback.
+  if (!gl) return; // The CSS background remains a complete fallback.
   function compile(type,source) {
     const shader=gl.createShader(type);gl.shaderSource(shader,source);gl.compileShader(shader);
     if (!gl.getShaderParameter(shader,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(shader));
@@ -121,25 +119,20 @@ void main() {
   const uScale=uniform('uScale'),uTime=uniform('uTime'),uMouse=uniform('uMouse'),uResolution=uniform('uResolution');
   gl.uniform3f(uniform('uColorA'),.18,.31,.29);
   gl.uniform3f(uniform('uColorB'),.015,.035,.047);
-  // aPos runs from -2 to 2: scale by .5 so the shader covers the entire hero.
+  // aPos runs from -2 to 2: scale by .5 to cover the fixed viewport.
   gl.uniform2f(uScale,.5,.5);
-  let width=1,height=1,active=true,raf=0;
-  const target={x:.5,y:.5},smooth={x:.5,y:.5};
-  function resize(){const dpr=Math.min(devicePixelRatio||1,2);width=canvas.clientWidth||1;height=canvas.clientHeight||1;canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);gl.viewport(0,0,canvas.width,canvas.height);if(reduced)draw(performance.now())}
-  const resizeObserver=new ResizeObserver(resize);resizeObserver.observe(canvas);resize();
-  canvas.closest('.profile-hero').addEventListener('pointermove',event=>{const rect=canvas.getBoundingClientRect();target.x=(event.clientX-rect.left)/rect.width;target.y=1-(event.clientY-rect.top)/rect.height},{passive:true});
   const started=performance.now();
+  let raf=0;
+  function resize(){const dpr=Math.min(devicePixelRatio||1,2);const width=canvas.clientWidth||1,height=canvas.clientHeight||1;canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);gl.viewport(0,0,canvas.width,canvas.height);draw(performance.now())}
   function draw(now){
     if (gl.isContextLost()) return;
-    smooth.x+=(target.x-smooth.x)*.05;smooth.y+=(target.y-smooth.y)*.05;
     gl.uniform1f(uTime,reduced?0:(now-started)/1000);
-    gl.uniform2f(uMouse,smooth.x,smooth.y);gl.uniform2f(uResolution,canvas.width,canvas.height);
+    gl.uniform2f(uMouse,.5,.5);gl.uniform2f(uResolution,canvas.width,canvas.height);
     gl.drawArrays(gl.TRIANGLES,0,6);
   }
-  function frame(now){raf=0;if(!active||document.hidden)return;draw(now);raf=requestAnimationFrame(frame)}
-  function resume(){if(!reduced&&active&&!document.hidden&&!raf)raf=requestAnimationFrame(frame)}
-  if(reduced)draw(started);else resume();
-  document.addEventListener('visibilitychange',resume);
-  if('IntersectionObserver' in window)new IntersectionObserver(entries=>{active=entries[0].isIntersecting;if(active)resume();else if(raf){cancelAnimationFrame(raf);raf=0}},{threshold:0}).observe(canvas);
+  function frame(now){raf=0;if(document.hidden)return;draw(now);raf=requestAnimationFrame(frame)}
+  function visibility(){if(document.hidden){cancelAnimationFrame(raf);raf=0}else if(!reduced&&!raf)raf=requestAnimationFrame(frame)}
+  new ResizeObserver(resize).observe(canvas);resize();
+  visibility();document.addEventListener('visibilitychange',visibility);
   canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();if(raf)cancelAnimationFrame(raf);raf=0;canvas.hidden=true});
 })();
