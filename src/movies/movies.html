@@ -1,1 +1,93 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080d17"><meta name="color-scheme" content="dark"><title>Movies &amp; Reviews | Ibrahim Hussain</title><meta name="description" content="Film interests, Letterboxd integration and personal reviews by Ibrahim Hussain."><meta property="og:type" content="website"><meta property="og:title" content="Movies &amp; Reviews | Ibrahim Hussain"><meta property="og:description" content="Film interests, Letterboxd integration and personal reviews by Ibrahim Hussain."><meta property="og:image" content="https://ib-hussain.github.io/assets/my-display-pic.jpg"><link rel="canonical" href="https://ib-hussain.github.io/movies.html"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/iteration2.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Movies & Reviews", "description": "Film interests, Letterboxd integration and personal reviews by Ibrahim Hussain.", "url": "https://ib-hussain.github.io/movies.html", "author": {"@type": "Person", "name": "Ibrahim Hussain", "url": "https://ib-hussain.github.io"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ibrahim Hussain","url":"https://ib-hussain.github.io/","sameAs":["https://github.com/ib-hussain","https://www.linkedin.com/in/ib-hussain/"],"affiliation":{"@type":"CollegeOrUniversity","name":"FAST National University of Computer and Emerging Sciences"},"knowsAbout":["Applied machine learning","Data engineering","Financial risk modelling","Linux systems engineering"],"jobTitle":"Quantitative Data Scientist | Systems Modelling | Risk & Decision Analytics","description":"Data Science undergraduate, FAST-NU, graduating 2027, seeking Summer 2027 internships; open to relocation in Europe and the UK","alumniOf":{"@type":"CollegeOrUniversity","name":"FAST National University of Computer and Emerging Sciences"}}</script><script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("booting")</script></head><body data-page="movies" class="movies-page"><a class="skip-link" href="#main">Skip to content</a><div id="chrome-root"></div><div id="transition-root" aria-live="polite" aria-atomic="true"></div><noscript><nav class="noscript-nav" aria-label="Site pages"><a href="index.html">Home</a> <a href="projects.html">Projects</a> <a href="contact.html">Contact</a> <a href="resume.html">Resume</a> <a href="photos.html">Photos</a> <a href="terminal.html">Terminal</a> <a href="music.html">Music</a> <a href="movies.html">Movies</a></nav></noscript><main id="main"><section class="cinema-hero"><div class="tv-shader" aria-hidden="true"><div class="tv-grain"></div><canvas id="tv-gl" class="tv-gl"></canvas><p id="tv-fallback" class="tv-fallback">Film grain.</p></div><div class="wrap cinema-intro"><span class="micro">~/cinema / letterboxd</span><h1>Frames that linger.</h1><p>Favourites and diary notes from a life in film.</p><a class="btn btn-ghost" href="https://letterboxd.com/ib_hussain_/" target="_blank" rel="noopener noreferrer">My Letterboxd ↗</a></div></section><section class="section wrap"><div class="section-lead"><div><span class="micro">01 / Profile favourites</span><h2>The front row.</h2></div><p>Four films pinned to my Letterboxd profile.</p></div><div class="movie-favorites" id="movie-favorites"><article><span class="micro">01 / Favourite</span><h3>About Time</h3></article><article><span class="micro">02 / Favourite</span><h3>Casablanca</h3></article><article><span class="micro">03 / Favourite</span><h3>Frozen</h3></article><article><span class="micro">04 / Favourite</span><h3>Babylon</h3></article></div></section><section class="section wrap"><div class="section-lead"><div><span class="micro">02 / Diary feed</span><h2>Recent reviews.</h2></div><p>Drawn from my public Letterboxd RSS feed. No posters or invented ratings.</p></div><div id="movie-list" class="movie-grid" aria-live="polite"><p>Diary entries will appear after the next scheduled data update. <a href="https://letterboxd.com/ib_hussain_/films/diary/" target="_blank" rel="noopener noreferrer">Read the diary ↗</a></p></div></section></main><div id="footer-host"></div><div id="modal-host"></div><script defer src="js/site.js"></script><script defer src="js/tv-shader.js"></script><script defer src="js/movies-page.js"></script><script defer src="js/pakistan-ridgeline.js"></script><script defer src="js/tom-jerry-cursor.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14181c">
+  <meta name="description" content="Ibrahim Hussain's film journal: favourite films, recent reviews and a diary synced from Letterboxd.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Ibrahim Hussain · Film Journal">
+  <meta property="og:description" content="Favourite films and recent reviews from Ibrahim's Letterboxd diary.">
+  <meta property="og:image" content="https://ib-hussain.github.io/src/movies/data/about-time.jpg">
+  <title>Ibrahim Hussain · Film Journal</title>
+  <link rel="icon" type="image/png" href="../media/favicon.png">
+  <link rel="stylesheet" href="movies.css">
+  <script defer src="tv-shader.js"></script>
+  <script defer src="movies.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to films</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="../../index.html" aria-label="Ibrahim Hussain, home">
+        <span class="mark-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>IBRAHIM <b>/</b> CINEMA</span>
+      </a>
+      <nav class="top-links" aria-label="External and site links">
+        <a href="../../index.html">Portfolio</a>
+        <a href="https://letterboxd.com/ib_hussain_/" target="_blank" rel="noopener noreferrer">Letterboxd <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="profile-hero" id="profile" aria-labelledby="profile-title">
+      <div class="shader-layer" aria-hidden="true"><canvas id="tv-canvas"></canvas><div class="shader-grain"></div></div>
+      <div class="hero-tint" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <p class="overline hero-overline"><span class="live-point" aria-hidden="true"></span> FILM JOURNAL <span class="overline-rule"></span> ISLAMABAD, PAKISTAN</p>
+        <div class="hero-content">
+          <div class="identity">
+            <img class="avatar" src="../media/ib.jpg" width="112" height="112" alt="Ibrahim Hussain" decoding="async">
+            <div>
+              <p class="eyebrow">A PERSONAL FILM DIARY</p>
+              <h1 id="profile-title">Ibrahim Hussain<span class="title-period">.</span></h1>
+              <p class="bio" id="profile-bio">ruins of a utopia🥀</p>
+              <p class="location">Islamabad, Pakistan <span aria-hidden="true">·</span> <a href="https://letterboxd.com/ib_hussain_/" target="_blank" rel="noopener noreferrer">@ib_hussain_ ↗</a></p>
+            </div>
+          </div>
+          <dl class="profile-stats" aria-label="Letterboxd profile statistics">
+            <div><dt>Films</dt><dd id="stat-films">145</dd></div>
+            <div><dt>This year</dt><dd id="stat-this-year">114</dd></div>
+            <div><dt>Following</dt><dd id="stat-following">29</dd></div>
+            <div><dt>Followers</dt><dd id="stat-followers">18</dd></div>
+          </dl>
+        </div>
+        <div class="hero-bottom"><span>01 / PROFILE</span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
+      </div>
+    </section>
+
+    <nav class="film-nav wrap" aria-label="Film journal sections">
+      <a href="#profile" aria-current="page">Profile</a>
+      <a href="#favorites">Favourites</a>
+      <a href="#reviews">Reviews</a>
+      <a href="https://letterboxd.com/ib_hussain_/films/diary/" target="_blank" rel="noopener noreferrer">Diary ↗</a>
+      <a href="https://letterboxd.com/ib_hussain_/films/" target="_blank" rel="noopener noreferrer">All films ↗</a>
+    </nav>
+
+    <div class="wrap page-layout">
+      <div class="primary-column">
+        <section id="favorites" class="content-section" aria-labelledby="favorites-heading">
+          <div class="section-heading"><div><p class="eyebrow">THE FOUR ON THE SHELF</p><h2 id="favorites-heading">Favourite films<span class="heading-dot">.</span></h2></div><span class="section-number">01 / 02</span></div>
+          <div id="favorites-grid" class="favorites-grid" aria-live="polite"><p class="loading-note">Loading the favourites…</p></div>
+        </section>
+
+        <section id="reviews" class="content-section reviews-section" aria-labelledby="reviews-heading">
+          <div class="section-heading"><div><p class="eyebrow">NOTES FROM THE DARK</p><h2 id="reviews-heading">Recent reviews<span class="heading-dot">.</span></h2></div><span class="section-number">02 / 02</span></div>
+          <div id="review-list" class="review-list" aria-live="polite"><p class="loading-note">Loading the diary…</p></div>
+          <a class="all-reviews" href="https://letterboxd.com/ib_hussain_/reviews/" target="_blank" rel="noopener noreferrer">Read every review on Letterboxd <span aria-hidden="true">↗</span></a>
+        </section>
+      </div>
+
+      <aside class="side-column" aria-label="More about the film diary">
+        <section class="side-panel"><p class="side-kicker">THE SHELF</p><p class="side-quote">Films I keep returning to, and notes from the ones that stayed with me.</p></section>
+        <section class="side-panel sync-panel"><p class="side-kicker">THE DIARY</p><div class="side-divider"></div><p>Ratings and reviews come from my public Letterboxd activity.</p><a href="https://letterboxd.com/ib_hussain_/films/diary/" target="_blank" rel="noopener noreferrer">Browse the full diary <span aria-hidden="true">↗</span></a><span id="sync-status" class="sync-status" role="status">Snapshot from 26 Oct 2026</span></section>
+        <div class="side-index" aria-hidden="true"><span>WATCH / FEEL / REMEMBER</span><span>IH — 2026</span></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-inner"><span><span class="mark-dots" aria-hidden="true"><i></i><i></i><i></i></span> IBRAHIM / CINEMA</span><a href="../../index.html">Back to portfolio ↑</a></div></footer>
+  <noscript><div class="noscript-note">Enable JavaScript to load the local film data, or <a href="https://letterboxd.com/ib_hussain_/">view the diary on Letterboxd</a>.</div></noscript>
+</body>
+</html>
