@@ -60,7 +60,7 @@ const createNoise2D = (function () {
   const G2 = (3.0 - Math.sqrt(3.0)) / 6.0;
   const grad3 = new Float32Array([
     1, 1, 0, -1, 1, 0, 1, -1, 0, -1, -1, 0,
-    1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1,
+    1, 0, 1, -1, 0, 1, 1, 0, 0, -1, 0, -1,
     0, 1, 1, 0, -1, 1, 0, 1, -1, 0, -1, -1,
   ]);
 
@@ -294,7 +294,7 @@ function Waves(host, props) {
       points.forEach((p) => {
         // Wave movement
         const move =
-          noise((p.x + time * 0.008) * 0.003, (p.y + time * 0.003) * 0.002) * 8;
+          noise((p.x + time * 0.01) * 0.003, (p.y + time * 0.009) * 0.002) * 8;
 
         p.wave.x = Math.cos(move) * 12;
         p.wave.y = Math.sin(move) * 6;
