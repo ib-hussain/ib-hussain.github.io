@@ -2,29 +2,32 @@
 venv/
 .vscode
 *virtualhealth_logo.html
-# Ignore Python cache
-__pycache__/
 
 # Ignore IDE settings
 .vscode/
-*.tsx
 # Ignore OS files
 .DS_Store
-prompt_to_gemini_for_screening_job_postings.md
+
 # Ignore compiled files
 *.pyc
 *.pyo
 *.pyd
-*.mp4
-*.avi
-*.zip
-__pycache__/
 *.py[cod]
-**.prompt.md
+# Ignore Python cache
+__pycache__/
 .DS_Store
-*.log
 /backups/
-*.zip
 /playwright-report/
 /test-results/
+
+*.mp4
+*.mp3
+*.tsx
+**.prompt.md
+*.avi
+*.log
+*.zip
 linkedinBanner.html
+prompt_to_gemini_for_screening_job_postings.md
+src/photos/data/
+src/movies/data/**/
