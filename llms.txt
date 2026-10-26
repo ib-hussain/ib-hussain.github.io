@@ -1,0 +1,20 @@
+# Ibrahim Hussain — Portfolio
+
+Quantitative Data Scientist | Systems Modelling | Risk & Decision Analytics
+Data Science undergraduate, FAST-NU, graduating 2027, seeking Summer 2027 internships; open to relocation in Europe and the US
+
+Based in Islamabad, Pakistan. Technical work spans financial risk modelling, multi-agent AI systems, document forensics, telecom BI, data engineering and analytical research.
+
+Canonical pages:
+- Home: https://ib-hussain.github.io/
+- Projects: https://ib-hussain.github.io/projects.html
+- Résumé: https://ib-hussain.github.io/resume.html
+- Contact: https://ib-hussain.github.io/contact.html
+
+Career tracks:
+- Quantitative modelling & finance: https://ib-hussain.github.io/projects.html?filter=finance
+- ML and AI systems: https://ib-hussain.github.io/projects.html?filter=tech
+- Analytics: https://ib-hussain.github.io/projects.html?filter=risk
+
+Public accounts: `https://github.com/ib-hussain` and `https://www.linkedin.com/in/ib-hussain/`
+The canonical downloadable CV is `https://ib-hussain.github.io/assets/Ibrahim's%20Resume.pdf`. Project metrics describe particular historical evaluations and should not be read as production guarantees.
